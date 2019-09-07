@@ -35,6 +35,33 @@ public class Sonic_Hardware {
         frontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         backRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
+        stopMotors();
+
+        /*frontLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        backLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        frontRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        backRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);*/
+
         //TODO: add some methods to help with teleop and auto
+    }
+    void driveSetPower(double flPower, double frPower, double blPower, double brPower) {
+        frontLeft.setPower(flPower);
+        frontRight.setPower(frPower);
+        backLeft.setPower(blPower);
+        backRight.setPower(brPower);
+    }
+
+    void driveSetMode(DcMotor.RunMode mode){
+        frontLeft.setMode(mode);
+        frontRight.setMode(mode);
+        backLeft.setMode(mode);
+        backRight.setMode(mode);
+    }
+
+    void stopMotors(){
+        frontLeft.setPower(0);
+        frontRight.setPower(0);
+        backLeft.setPower(0);
+        backRight.setPower(0);
     }
 }

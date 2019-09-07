@@ -21,6 +21,7 @@ public class Sonic_TeleOp extends OpMode {
         else if(gamepad1.b){
             driveMode = 1;
         }
+
         //TODO: clean up with methods
         switch(driveMode){
             case 1:{
@@ -43,9 +44,6 @@ public class Sonic_TeleOp extends OpMode {
     }
     @Override
     public void stop(){
-        robot.frontLeft.setPower(0);
-        robot.backLeft.setPower(0);
-        robot.frontRight.setPower(0);
-        robot.backRight.setPower(0);
+        robot.stopMotors();
     }
 }
