@@ -13,13 +13,15 @@ public class Sonic_TeleOp extends OpMode {
     public void start(){}
     @Override
     public void loop() {
+        //TODO: use enums to clean up
         int driveMode = 1;
         if(gamepad1.a){
            driveMode = 2;
         }
-        if(gamepad1.b){
+        else if(gamepad1.b){
             driveMode = 1;
         }
+        //TODO: clean up with methods
         switch(driveMode){
             case 1:{
                 final double leftPowerTank = gamepad1.left_stick_y;

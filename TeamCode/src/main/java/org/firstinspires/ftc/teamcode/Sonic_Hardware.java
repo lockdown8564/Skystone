@@ -34,5 +34,7 @@ public class Sonic_Hardware {
         backLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         frontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         backRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
+        //TODO: add some methods to help with teleop and auto
     }
 }
