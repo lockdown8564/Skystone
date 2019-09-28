@@ -4,6 +4,10 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
+/**
+ * test program for 6 wheel intake built on 9/15/19
+ */
+
 @TeleOp(name="intake test",group="test")
 public class SonicIntakeTest1 extends OpMode {
     private DcMotor one,two = null;

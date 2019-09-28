@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
+import com.qualcomm.hardware.rev.RevBlinkinLedDriver;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -10,6 +11,8 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 class SonicHardware {
     DcMotor frontLeft, frontRight, backLeft, backRight = null;
     BNO055IMU imu;
+    RevBlinkinLedDriver ledDriver;
+    RevBlinkinLedDriver.BlinkinPattern pattern;
     Orientation angles;
     private HardwareMap hwMap = null;
 
@@ -44,11 +47,11 @@ class SonicHardware {
 
         //TODO: add some methods to help with teleop and auto
     }
-    void driveSetPower(double flPower, double frPower, double blPower, double brPower) {
-        frontLeft.setPower(flPower);
-        frontRight.setPower(frPower);
-        backLeft.setPower(blPower);
-        backRight.setPower(brPower);
+    void driveSetPower(double lPower, double rPower) {
+        frontLeft.setPower(lPower);
+        frontRight.setPower(rPower);
+        backLeft.setPower(lPower);
+        backRight.setPower(rPower);
     }
 
     void driveSetMode(DcMotor.RunMode mode){
@@ -58,12 +61,14 @@ class SonicHardware {
         backRight.setMode(mode);
     }
 
-
+    void driveSetPowerAll(double power){
+        frontLeft.setPower(power);
+        frontRight.setPower(power);
+        backLeft.setPower(power);
+        backRight.setPower(power);
+    }
 
     void stopMotors(){
-        frontLeft.setPower(0);
-        frontRight.setPower(0);
-        backLeft.setPower(0);
-        backRight.setPower(0);
+        driveSetPowerAll(0);
     }
 }
