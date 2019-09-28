@@ -10,23 +10,24 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 class SonicHardware {
     DcMotor frontLeft, frontRight, backLeft, backRight = null;
-    BNO055IMU imu;
+    /*BNO055IMU imu;
     RevBlinkinLedDriver ledDriver;
     RevBlinkinLedDriver.BlinkinPattern pattern;
-    Orientation angles;
-    private HardwareMap hwMap = null;
+    Orientation angles;*/
+    private HardwareMap hwMap;
 
     void init(HardwareMap ahwmap){
+        hwMap = ahwmap;
         frontLeft = hwMap.get(DcMotor.class,"fl");
         frontRight = hwMap.get(DcMotor.class,"fr");
         backLeft = hwMap.get(DcMotor.class,"bl");
         backRight = hwMap.get(DcMotor.class,"br");
 
-        imu = hwMap.get(BNO055IMU.class, "imu");
+        /*imu = hwMap.get(BNO055IMU.class, "imu");
 
         BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
         parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
-        imu.initialize(parameters);
+        imu.initialize(parameters);*/
 
         frontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
         backLeft.setDirection(DcMotorSimple.Direction.REVERSE);
