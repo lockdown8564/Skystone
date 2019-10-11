@@ -1137,7 +1137,6 @@ raw color_fragment_shader
 raw cube_mesh_fragment_shader
 raw cube_mesh_vertex_shader
 raw errormessage
-raw format_convert
 raw gold
 raw nxtstartupsound
 raw silver
@@ -1205,11 +1204,11 @@ string abc_toolbar_collapse_description
 string about_activity
 string about_app_version
 string about_build_time
+string about_ch_os_version
 string about_library_version
 string about_menu_item
 string about_network_connection_info
 string about_network_protocol_version
-string about_os_version
 string about_wifi_connected
 string about_wifi_direct_info
 string about_wifi_group_owner

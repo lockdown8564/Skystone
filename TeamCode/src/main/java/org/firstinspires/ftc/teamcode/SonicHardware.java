@@ -10,6 +10,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 class SonicHardware {
     DcMotor frontLeft, frontRight, backLeft, backRight = null;
+    DcMotor lIntake, rIntake = null;
     /*BNO055IMU imu;
     RevBlinkinLedDriver ledDriver;
     RevBlinkinLedDriver.BlinkinPattern pattern;
@@ -22,6 +23,8 @@ class SonicHardware {
         frontRight = hwMap.get(DcMotor.class,"fr");
         backLeft = hwMap.get(DcMotor.class,"bl");
         backRight = hwMap.get(DcMotor.class,"br");
+        lIntake = hwMap.get(DcMotor.class,"lIn");
+        rIntake = hwMap.get(DcMotor.class,"rIn");
 
         /*imu = hwMap.get(BNO055IMU.class, "imu");
 
@@ -34,10 +37,16 @@ class SonicHardware {
         frontRight.setDirection(DcMotorSimple.Direction.FORWARD);
         backRight.setDirection(DcMotorSimple.Direction.FORWARD);
 
+        lIntake.setDirection(DcMotorSimple.Direction.FORWARD);
+        rIntake.setDirection(DcMotorSimple.Direction.REVERSE);
+
         frontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         backLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         frontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         backRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
+        lIntake.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        rIntake.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         stopMotors();
 

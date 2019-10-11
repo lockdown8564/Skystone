@@ -35,6 +35,7 @@ public class SonicTeleop extends OpMode {
                 robot.backLeft.setPower(leftPowerTank);
                 robot.frontRight.setPower(rightPowerTank);
                 robot.backRight.setPower(rightPowerTank);
+                break;
             }
             case 2:{
                 final double drivePower = gamepad1.left_stick_y;
@@ -43,6 +44,7 @@ public class SonicTeleop extends OpMode {
                 robot.backLeft.setPower(drivePower-turnPower);
                 robot.frontRight.setPower(drivePower+turnPower);
                 robot.backRight.setPower(drivePower+turnPower);
+                break;
             }
         }
     }

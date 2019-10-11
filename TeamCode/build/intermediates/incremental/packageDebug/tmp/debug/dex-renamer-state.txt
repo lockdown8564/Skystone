@@ -1,4 +1,4 @@
-#Fri Sep 27 19:39:07 PDT 2019
-base.0=/Users/William/Desktop/Skystone/TeamCode/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+#Sun Oct 06 13:08:07 PDT 2019
+base.0=/Users/William/Desktop/SkyStone/TeamCode/build/intermediates/dex/debug/mergeDexDebug/out
 path.0=classes.dex
 renamed.0=classes.dex
