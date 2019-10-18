@@ -322,10 +322,9 @@ public final class R {
         public static final int color_fragment_shader = 0x7f0a0002;
         public static final int cube_mesh_fragment_shader = 0x7f0a0003;
         public static final int cube_mesh_vertex_shader = 0x7f0a0004;
-        public static final int format_convert = 0x7f0a0006;
-        public static final int simple_vertex_shader = 0x7f0a000b;
-        public static final int texture_fragment_shader = 0x7f0a001e;
-        public static final int texture_vertex_shader = 0x7f0a001f;
+        public static final int simple_vertex_shader = 0x7f0a000a;
+        public static final int texture_fragment_shader = 0x7f0a001d;
+        public static final int texture_vertex_shader = 0x7f0a001e;
     }
     public static final class string {
         private string() {}

@@ -5,12 +5,15 @@ import com.qualcomm.hardware.rev.RevBlinkinLedDriver;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 class SonicHardware {
     DcMotor frontLeft, frontRight, backLeft, backRight = null;
     DcMotor lIntake, rIntake = null;
+    DcMotor slide = null;
+    Servo latch = null;
     /*BNO055IMU imu;
     RevBlinkinLedDriver ledDriver;
     RevBlinkinLedDriver.BlinkinPattern pattern;
@@ -25,6 +28,8 @@ class SonicHardware {
         backRight = hwMap.get(DcMotor.class,"br");
         lIntake = hwMap.get(DcMotor.class,"lIn");
         rIntake = hwMap.get(DcMotor.class,"rIn");
+        slide = hwMap.get(DcMotor.class,"slide");
+        latch = hwMap.get(Servo.class,"latch");
 
         /*imu = hwMap.get(BNO055IMU.class, "imu");
 
@@ -40,6 +45,8 @@ class SonicHardware {
         lIntake.setDirection(DcMotorSimple.Direction.FORWARD);
         rIntake.setDirection(DcMotorSimple.Direction.REVERSE);
 
+        slide.setDirection(DcMotorSimple.Direction.FORWARD);
+
         frontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         backLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         frontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -47,6 +54,8 @@ class SonicHardware {
 
         lIntake.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rIntake.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
+        slide.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         stopMotors();
 
@@ -80,5 +89,10 @@ class SonicHardware {
 
     void stopMotors(){
         driveSetPowerAll(0);
+    }
+
+    void intakeSetPower(double power){
+        lIntake.setPower(power);
+        rIntake.setPower(power);
     }
 }

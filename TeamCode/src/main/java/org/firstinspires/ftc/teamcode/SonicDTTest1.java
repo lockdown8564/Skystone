@@ -11,74 +11,79 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 @TeleOp(name="dt test",group="test")
 public class SonicDTTest1 extends OpMode {
     private SonicHardware robot = new SonicHardware();
-    DriveMode driveMode = DriveMode.TANK;
-    IntakeMode intakeMode = IntakeMode.FAST;
+    private DriveMode driveMode = DriveMode.TANK;
+    private DriveSpeed driveSpeed = DriveSpeed.FAST;
+    private double num = 1;
     private enum DriveMode{
         ARCADE,
-        TANK
+        TANK,
     }
-    private enum IntakeMode{
+    private enum DriveSpeed{
         FAST,
         SLOW
     }
     @Override
     public void init(){
         robot.init(hardwareMap);
-        robot.frontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
-        robot.frontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
-        robot.backLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
-        robot.backRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
     }
+
     @Override
     public void init_loop(){}
     @Override
     public void start(){}
     @Override
     public void loop(){
-        if(gamepad1.a){
+        if(gamepad1.a && driveMode == DriveMode.TANK){
             driveMode = DriveMode.ARCADE;
         }
-        else if(gamepad1.b){
+        else if(gamepad1.a && driveMode == DriveMode.ARCADE){
             driveMode = DriveMode.TANK;
         }
 
-        if(gamepad2.a){
-            intakeMode = IntakeMode.SLOW;
+        if(gamepad1.right_bumper && driveSpeed == DriveSpeed.SLOW){
+            driveSpeed = DriveSpeed.FAST;
+            num = 1;
         }
-        else if(gamepad2.b){
-            intakeMode = IntakeMode.FAST;
+        else if(gamepad1.right_bumper && driveSpeed == DriveSpeed.FAST){
+            driveSpeed = DriveSpeed.SLOW;
+            num = 0.5;
         }
-
-        robot.driveSetPower(gamepad1.left_stick_y,gamepad1.right_stick_y);
 
         //TODO: clean up with methods
         switch(driveMode){
             case TANK:{
-                double lPower = gamepad1.left_stick_y*.5;
-                double rPower = gamepad1.right_stick_y*.5;
-                robot.driveSetPower(lPower,rPower);
+                double lPower = gamepad1.left_stick_y;
+                double rPower = gamepad1.right_stick_y;
+                robot.driveSetPower(lPower*num,rPower*num);
                 break;
             }
             case ARCADE:{
                 double drivePower = gamepad1.left_stick_y;
                 double turnPower = gamepad1.right_stick_x;
-                robot.driveSetPower(drivePower-turnPower,drivePower+turnPower);
+                robot.driveSetPower((drivePower-turnPower)*num,(drivePower+turnPower)*num);
                 break;
             }
         }
 
-        switch(intakeMode){
-            case FAST:{
-                robot.lIntake.setPower(gamepad2.left_stick_y);
-                robot.rIntake.setPower(gamepad2.right_stick_y);
-                break;
-            }
-            case SLOW:{
-                robot.lIntake.setPower(gamepad2.left_stick_y*.5);
-                robot.rIntake.setPower(gamepad2.right_stick_y*.5);
-                break;
-            }
+        //in
+        if(gamepad2.a) {
+            robot.intakeSetPower(-1);
         }
+        //out
+        else if(gamepad2.b){
+            robot.intakeSetPower(1);
+        }
+        else{
+            robot.intakeSetPower(0);
+        }
+
+        if(gamepad2.x){
+            robot.latch.setPosition(0);
+        }
+
+        // positive down negative up
+        robot.slide.setPower(gamepad2.left_stick_y);
+
     }
     @Override
     public void stop(){
