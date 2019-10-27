@@ -13,7 +13,8 @@ class SonicHardware {
     DcMotor frontLeft, frontRight, backLeft, backRight = null;
     DcMotor lIntake, rIntake = null;
     DcMotor slide = null;
-    Servo latch = null;
+    DcMotor arm = null;
+    Servo latch,hook = null;
     /*BNO055IMU imu;
     RevBlinkinLedDriver ledDriver;
     RevBlinkinLedDriver.BlinkinPattern pattern;
@@ -29,6 +30,8 @@ class SonicHardware {
         lIntake = hwMap.get(DcMotor.class,"lIn");
         rIntake = hwMap.get(DcMotor.class,"rIn");
         slide = hwMap.get(DcMotor.class,"slide");
+        arm = hwMap.get(DcMotor.class,"arm");
+        hook = hwMap.get(Servo.class,"hook");
         latch = hwMap.get(Servo.class,"latch");
 
         /*imu = hwMap.get(BNO055IMU.class, "imu");
@@ -46,6 +49,7 @@ class SonicHardware {
         rIntake.setDirection(DcMotorSimple.Direction.REVERSE);
 
         slide.setDirection(DcMotorSimple.Direction.FORWARD);
+        arm.setDirection(DcMotorSimple.Direction.FORWARD);
 
         frontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         backLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -56,13 +60,20 @@ class SonicHardware {
         rIntake.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         slide.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
-        stopMotors();
-
-        /*frontLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        frontLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         backLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         frontRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        backRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);*/
+        backRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
+        lIntake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        rIntake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
+        slide.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        arm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
+        stopMotors();
 
         //TODO: add some methods to help with teleop and auto
     }

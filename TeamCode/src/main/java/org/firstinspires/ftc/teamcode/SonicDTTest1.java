@@ -14,6 +14,7 @@ public class SonicDTTest1 extends OpMode {
     private DriveMode driveMode = DriveMode.TANK;
     private DriveSpeed driveSpeed = DriveSpeed.FAST;
     private double num = 1;
+    private int initialSlide = 0;
     private enum DriveMode{
         ARCADE,
         TANK,
@@ -25,6 +26,8 @@ public class SonicDTTest1 extends OpMode {
     @Override
     public void init(){
         robot.init(hardwareMap);
+        robot.hook.setPosition(0);
+        initialSlide = robot.arm.getCurrentPosition();
     }
 
     @Override
@@ -81,8 +84,27 @@ public class SonicDTTest1 extends OpMode {
             robot.latch.setPosition(0);
         }
 
+        if(gamepad2.right_bumper){
+            robot.hook.setPosition(0.4);
+        }
+        else if(gamepad2.left_bumper){
+            robot.hook.setPosition(0);
+        }
+
         // positive down negative up
-        robot.slide.setPower(gamepad2.left_stick_y);
+        if(gamepad2.left_stick_y != 0) {
+            robot.slide.setPower(gamepad2.left_stick_y);
+        }
+        else {
+            robot.slide.setPower(0);
+        }
+
+        if(gamepad2.right_stick_y<0){
+            robot.arm.setPower(gamepad2.right_stick_y * .15);
+        }
+        else{
+            robot.arm.setPower(gamepad2.right_stick_y * .25);
+        }
 
     }
     @Override
