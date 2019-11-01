@@ -1,7 +1,10 @@
 package org.firstinspires.ftc.teamcode;
 
+import android.graphics.Color;
+
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.hardware.rev.RevBlinkinLedDriver;
+import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -15,10 +18,16 @@ class SonicHardware {
     DcMotor slide = null;
     DcMotor arm = null;
     Servo latch,hook = null;
-    /*BNO055IMU imu;
-    RevBlinkinLedDriver ledDriver;
-    RevBlinkinLedDriver.BlinkinPattern pattern;
-    Orientation angles;*/
+    ColorSensor skystone;
+    BNO055IMU imu;
+    static final double     COUNTS_PER_MOTOR_REV    = 1120 ; //Neverest 40
+    static final double     DRIVE_GEAR_REDUCTION    = 1.0 ;  //1:1
+    static final double     WHEEL_DIAMETER_INCHES   = 4.0 ;
+    static final double     COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION)/
+            (WHEEL_DIAMETER_INCHES * Math.PI);
+    /*RevBlinkinLedDriver ledDriver;
+    RevBlinkinLedDriver.BlinkinPattern pattern;*/
+    Orientation angles;
     private HardwareMap hwMap;
 
     void init(HardwareMap ahwmap){
@@ -31,14 +40,17 @@ class SonicHardware {
         rIntake = hwMap.get(DcMotor.class,"rIn");
         slide = hwMap.get(DcMotor.class,"slide");
         arm = hwMap.get(DcMotor.class,"arm");
+
         hook = hwMap.get(Servo.class,"hook");
         latch = hwMap.get(Servo.class,"latch");
 
-        /*imu = hwMap.get(BNO055IMU.class, "imu");
+        imu = hwMap.get(BNO055IMU.class, "imu");
+
+        skystone = hwMap.get(ColorSensor.class,"skystone");
 
         BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
         parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
-        imu.initialize(parameters);*/
+        imu.initialize(parameters);
 
         frontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
         backLeft.setDirection(DcMotorSimple.Direction.REVERSE);
@@ -91,6 +103,13 @@ class SonicHardware {
         backRight.setMode(mode);
     }
 
+    void driveSetTarget(int lTarget, int rTarget){
+        frontLeft.setTargetPosition(lTarget);
+        backLeft.setTargetPosition(lTarget);
+        frontRight.setTargetPosition(rTarget);
+        backRight.setTargetPosition(rTarget);
+    }
+
     void driveSetPowerAll(double power){
         frontLeft.setPower(power);
         frontRight.setPower(power);
@@ -100,10 +119,19 @@ class SonicHardware {
 
     void stopMotors(){
         driveSetPowerAll(0);
+        arm.setPower(0);
+        slide.setPower(0);
+        lIntake.setPower(0);
+        rIntake.setPower(0);
     }
 
     void intakeSetPower(double power){
         lIntake.setPower(power);
         rIntake.setPower(power);
     }
+
+    boolean driveIsBusy(){
+        return frontLeft.isBusy() && frontRight.isBusy() && backLeft.isBusy() && backRight.isBusy();
+    }
+
 }

@@ -11,13 +11,11 @@ import org.firstinspires.ftc.robotcontroller.internal.FtcOpModeRegister;
  * test program for 6 wheel intake built on 9/15/19
  */
 
-@Disabled
-@TeleOp(name="intake test",group="test")
+@TeleOp(name="color test",group="test")
 public class SonicIntakeTest1 extends OpMode {
-    private DcMotor one,two = null;
+    private SonicHardware robot = new SonicHardware();
     public void init(){
-        one = hardwareMap.dcMotor.get("one");
-        two = hardwareMap.dcMotor.get("two");
+        robot.init(hardwareMap);
     }
     @Override
     public void init_loop(){ }
@@ -25,12 +23,13 @@ public class SonicIntakeTest1 extends OpMode {
     public void start(){ }
     @Override
     public void loop(){
-        one.setPower(gamepad1.left_stick_y);
-        two.setPower(gamepad1.right_stick_y);
+        telemetry.addData("Clear", robot.skystone.alpha());
+        telemetry.addData("Red  ", robot.skystone.red());
+        telemetry.addData("Green", robot.skystone.green());
+        telemetry.addData("Blue ", robot.skystone.blue());
     }
     @Override
     public void stop(){
-        one.setPower(0);
-        two.setPower(0);
+
     }
 }

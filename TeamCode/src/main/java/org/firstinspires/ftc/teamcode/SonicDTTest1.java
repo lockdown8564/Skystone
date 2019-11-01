@@ -98,13 +98,7 @@ public class SonicDTTest1 extends OpMode {
         else {
             robot.slide.setPower(0);
         }
-
-        if(gamepad2.right_stick_y<0){
-            robot.arm.setPower(gamepad2.right_stick_y * .15);
-        }
-        else{
-            robot.arm.setPower(gamepad2.right_stick_y * .25);
-        }
+        robot.arm.setPower(gamepad2.right_stick_y);
 
     }
     @Override
