@@ -17,7 +17,7 @@ class SonicHardware {
     DcMotor lIntake, rIntake = null;
     DcMotor slide = null;
     DcMotor arm = null;
-    Servo latch,hook = null;
+    Servo latch, hook, foundation = null;
     ColorSensor skystone;
     BNO055IMU imu;
     static final double     COUNTS_PER_MOTOR_REV    = 1120 ; //Neverest 40
@@ -43,6 +43,7 @@ class SonicHardware {
 
         hook = hwMap.get(Servo.class,"hook");
         latch = hwMap.get(Servo.class,"latch");
+        foundation = hwMap.get(Servo.class,"foundation");
 
         imu = hwMap.get(BNO055IMU.class, "imu");
 
