@@ -13,8 +13,12 @@ public class SonicDTTest1 extends OpMode {
     private SonicHardware robot = new SonicHardware();
     private DriveMode driveMode = DriveMode.TANK;
     private DriveSpeed driveSpeed = DriveSpeed.FAST;
+    private DriveDirection driveDirection = DriveDirection.FORWARD;
+
+    private double lPower, rPower, drivePower, turnPower = 0;
     private double num = 1;
     private int initialSlide = 0;
+
     private enum DriveMode{
         ARCADE,
         TANK,
@@ -23,6 +27,11 @@ public class SonicDTTest1 extends OpMode {
         FAST,
         SLOW
     }
+    private enum DriveDirection{
+        FORWARD,
+        REVERSE
+    }
+
     @Override
     public void init(){
         robot.init(hardwareMap);
@@ -39,31 +48,59 @@ public class SonicDTTest1 extends OpMode {
         if(gamepad1.a && driveMode == DriveMode.TANK){
             driveMode = DriveMode.ARCADE;
         }
-        else if(gamepad1.a && driveMode == DriveMode.ARCADE){
+
+        else if(gamepad1.b && driveMode == DriveMode.ARCADE){
             driveMode = DriveMode.TANK;
         }
 
-        if(gamepad1.right_bumper && driveSpeed == DriveSpeed.SLOW){
+        if(gamepad1.left_trigger != 0 && driveSpeed == DriveSpeed.SLOW){
             driveSpeed = DriveSpeed.FAST;
             num = 1;
         }
-        else if(gamepad1.right_bumper && driveSpeed == DriveSpeed.FAST){
+
+        else if(gamepad1.right_trigger != 0 && driveSpeed == DriveSpeed.FAST){
             driveSpeed = DriveSpeed.SLOW;
             num = 0.5;
+        }
+
+        if(gamepad1.y){
+            driveDirection = DriveDirection.FORWARD;
+        }
+
+        else if(gamepad1.x){
+            driveDirection = DriveDirection.REVERSE;
         }
 
         //TODO: clean up with methods
         switch(driveMode){
             case TANK:{
-                double lPower = gamepad1.left_stick_y;
-                double rPower = gamepad1.right_stick_y;
-                robot.driveSetPower(lPower*num,rPower*num);
+                switch(driveDirection) {
+                    case FORWARD:
+                        lPower = -gamepad1.left_stick_y;
+                        rPower = -gamepad1.right_stick_y;
+                        robot.driveSetPower(lPower * num, rPower * num);
+                        break;
+                    case REVERSE:
+                        lPower = gamepad1.right_stick_y;
+                        rPower = gamepad1.left_stick_y;
+                        robot.driveSetPower(lPower * num, rPower * num);
+                        break;
+                }
                 break;
             }
             case ARCADE:{
-                double drivePower = gamepad1.left_stick_y;
-                double turnPower = gamepad1.right_stick_x;
-                robot.driveSetPower((drivePower-turnPower)*num,(drivePower+turnPower)*num);
+                switch(driveDirection) {
+                    case FORWARD:
+                        drivePower = -gamepad1.left_stick_y;
+                        turnPower = gamepad1.right_stick_x;
+                        robot.driveSetPower((drivePower-turnPower)*num,(drivePower+turnPower)*num);
+                        break;
+                    case REVERSE:
+                        drivePower = gamepad1.left_stick_y;
+                        turnPower = gamepad1.right_stick_x;
+                        robot.driveSetPower((drivePower-turnPower)*num,(drivePower+turnPower)*num);
+                        break;
+                }
                 break;
             }
         }
@@ -98,7 +135,8 @@ public class SonicDTTest1 extends OpMode {
         else {
             robot.slide.setPower(0);
         }
-        robot.arm.setPower(gamepad2.right_stick_y);
+
+
 
     }
     @Override

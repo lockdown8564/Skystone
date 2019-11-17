@@ -16,9 +16,7 @@ class SonicHardware {
     DcMotor frontLeft, frontRight, backLeft, backRight = null;
     DcMotor lIntake, rIntake = null;
     DcMotor slide = null;
-    DcMotor arm = null;
-    Servo latch, hook, foundation = null;
-    ColorSensor skystone;
+    Servo latch, hook, foundation, arm = null;
     BNO055IMU imu;
     static final double     COUNTS_PER_MOTOR_REV    = 1120 ; //Neverest 40
     static final double     DRIVE_GEAR_REDUCTION    = 1.0 ;  //1:1
@@ -39,15 +37,13 @@ class SonicHardware {
         lIntake = hwMap.get(DcMotor.class,"lIn");
         rIntake = hwMap.get(DcMotor.class,"rIn");
         slide = hwMap.get(DcMotor.class,"slide");
-        arm = hwMap.get(DcMotor.class,"arm");
 
+        arm = hwMap.get(Servo.class,"arm");
         hook = hwMap.get(Servo.class,"hook");
         latch = hwMap.get(Servo.class,"latch");
         foundation = hwMap.get(Servo.class,"foundation");
 
         imu = hwMap.get(BNO055IMU.class, "imu");
-
-        skystone = hwMap.get(ColorSensor.class,"skystone");
 
         BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
         parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
@@ -62,7 +58,6 @@ class SonicHardware {
         rIntake.setDirection(DcMotorSimple.Direction.REVERSE);
 
         slide.setDirection(DcMotorSimple.Direction.FORWARD);
-        arm.setDirection(DcMotorSimple.Direction.FORWARD);
 
         frontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         backLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -73,7 +68,6 @@ class SonicHardware {
         rIntake.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         slide.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         frontLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         backLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
@@ -84,7 +78,6 @@ class SonicHardware {
         rIntake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         slide.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        arm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         stopMotors();
 
@@ -120,7 +113,6 @@ class SonicHardware {
 
     void stopMotors(){
         driveSetPowerAll(0);
-        arm.setPower(0);
         slide.setPower(0);
         lIntake.setPower(0);
         rIntake.setPower(0);
