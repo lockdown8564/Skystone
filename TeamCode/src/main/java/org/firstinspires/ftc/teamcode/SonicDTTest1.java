@@ -36,7 +36,7 @@ public class SonicDTTest1 extends OpMode {
     public void init(){
         robot.init(hardwareMap);
         robot.hook.setPosition(0);
-        initialSlide = robot.arm.getCurrentPosition();
+        robot.arm.setPosition(0);
     }
 
     @Override
@@ -53,14 +53,14 @@ public class SonicDTTest1 extends OpMode {
             driveMode = DriveMode.TANK;
         }
 
-        if(gamepad1.left_trigger != 0 && driveSpeed == DriveSpeed.SLOW){
-            driveSpeed = DriveSpeed.FAST;
-            num = 1;
-        }
-
-        else if(gamepad1.right_trigger != 0 && driveSpeed == DriveSpeed.FAST){
+        if(gamepad1.right_trigger != 0){
             driveSpeed = DriveSpeed.SLOW;
             num = 0.5;
+        }
+
+        else {
+            driveSpeed = DriveSpeed.FAST;
+            num = 1;
         }
 
         if(gamepad1.y){
@@ -75,12 +75,12 @@ public class SonicDTTest1 extends OpMode {
         switch(driveMode){
             case TANK:{
                 switch(driveDirection) {
-                    case FORWARD:
+                    case REVERSE:
                         lPower = -gamepad1.left_stick_y;
                         rPower = -gamepad1.right_stick_y;
                         robot.driveSetPower(lPower * num, rPower * num);
                         break;
-                    case REVERSE:
+                    case FORWARD:
                         lPower = gamepad1.right_stick_y;
                         rPower = gamepad1.left_stick_y;
                         robot.driveSetPower(lPower * num, rPower * num);
@@ -90,12 +90,12 @@ public class SonicDTTest1 extends OpMode {
             }
             case ARCADE:{
                 switch(driveDirection) {
-                    case FORWARD:
+                    case REVERSE:
                         drivePower = -gamepad1.left_stick_y;
                         turnPower = gamepad1.right_stick_x;
                         robot.driveSetPower((drivePower-turnPower)*num,(drivePower+turnPower)*num);
                         break;
-                    case REVERSE:
+                    case FORWARD:
                         drivePower = gamepad1.left_stick_y;
                         turnPower = gamepad1.right_stick_x;
                         robot.driveSetPower((drivePower-turnPower)*num,(drivePower+turnPower)*num);
@@ -121,22 +121,38 @@ public class SonicDTTest1 extends OpMode {
             robot.latch.setPosition(0);
         }
 
-        if(gamepad2.right_bumper){
-            robot.hook.setPosition(0.4);
+        if(gamepad2.left_trigger != 0){
+            robot.arm.setPosition(1);
         }
+        else if(gamepad2.right_trigger != 0){
+            robot.arm.setPosition(0);
+        }
+
+        if(gamepad2.right_bumper){
+            robot.hook.setPosition(1);
+        }
+
         else if(gamepad2.left_bumper){
             robot.hook.setPosition(0);
         }
 
         // positive down negative up
-        if(gamepad2.left_stick_y != 0) {
-            robot.slide.setPower(gamepad2.left_stick_y);
+        if(robot.touch.getState()) {
+            if (gamepad2.left_stick_y != 0) {
+                robot.slide.setPower(-Math.abs(gamepad2.left_stick_y));
+            }
+            else{
+                robot.slide.setPower(0);
+            }
         }
-        else {
-            robot.slide.setPower(0);
+        else{
+            if (gamepad2.left_stick_y != 0) {
+                robot.slide.setPower(gamepad2.left_stick_y);
+            }
+            else{
+                robot.slide.setPower(0);
+            }
         }
-
-
 
     }
     @Override

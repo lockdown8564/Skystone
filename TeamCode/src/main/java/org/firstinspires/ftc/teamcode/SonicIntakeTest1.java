@@ -16,7 +16,6 @@ public class SonicIntakeTest1 extends OpMode {
     private SonicHardware robot = new SonicHardware();
     public void init(){
         robot.init(hardwareMap);
-        robot.foundation.setPosition(0.5);
     }
     @Override
     public void init_loop(){ }
@@ -24,29 +23,7 @@ public class SonicIntakeTest1 extends OpMode {
     public void start(){ }
     @Override
     public void loop(){
-        telemetry.addData("Clear", robot.skystone.alpha());
-        telemetry.addData("Red  ", robot.skystone.red());
-        telemetry.addData("Green", robot.skystone.green());
-        telemetry.addData("Blue ", robot.skystone.blue());
 
-        if(gamepad1.x){
-            robot.foundation.setPosition(0.6);
-        }
-        else if(gamepad1.y){
-            robot.foundation.setPosition(0.4);
-        }
-        else if(gamepad1.a){
-            robot.foundation.setPosition(0.3);
-        }
-        else if(gamepad1.b){
-            robot.foundation.setPosition(0.7);
-        }
-        else if(gamepad1.left_bumper){
-            robot.foundation.setPosition(0.2);
-        }
-        else if(gamepad1.right_bumper){
-            robot.foundation.setPosition(0.8);
-        }
     }
     @Override
     public void stop(){

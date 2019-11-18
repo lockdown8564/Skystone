@@ -15,14 +15,11 @@ public class SonicRedAutoTest extends LinearOpMode {
     public void runOpMode(){
         robot.init(hardwareMap);
         robot.hook.setPosition(0.03);
-        robot.foundation.setPosition(0.03);
-        int initialArm = robot.arm.getCurrentPosition();
 
         waitForStart();
 
-        releaseIntake();
+        //releaseIntake();
         sleep(800);
-        resetArm(initialArm-150);
         encoderDrive(0.7,-20,-20);
         turnRight(78,0.3);
 
@@ -119,6 +116,7 @@ public class SonicRedAutoTest extends LinearOpMode {
         }
     }
 
+    /*
     private void releaseIntake(){
         int TARGET = robot.arm.getCurrentPosition() + 300;
         if(opModeIsActive()){
@@ -148,6 +146,6 @@ public class SonicRedAutoTest extends LinearOpMode {
             robot.stopMotors();
             robot.arm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         }
-    }
+    }*/
 
 }

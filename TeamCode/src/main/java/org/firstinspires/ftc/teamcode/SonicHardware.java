@@ -7,8 +7,10 @@ import com.qualcomm.hardware.rev.RevBlinkinLedDriver;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.DigitalChannel;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.hardware.TouchSensor;
 
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
@@ -16,7 +18,8 @@ class SonicHardware {
     DcMotor frontLeft, frontRight, backLeft, backRight = null;
     DcMotor lIntake, rIntake = null;
     DcMotor slide = null;
-    Servo latch, hook, foundation, arm = null;
+    Servo latch, hook, arm = null;
+    DigitalChannel touch = null;
     BNO055IMU imu;
     static final double     COUNTS_PER_MOTOR_REV    = 1120 ; //Neverest 40
     static final double     DRIVE_GEAR_REDUCTION    = 1.0 ;  //1:1
@@ -41,9 +44,9 @@ class SonicHardware {
         arm = hwMap.get(Servo.class,"arm");
         hook = hwMap.get(Servo.class,"hook");
         latch = hwMap.get(Servo.class,"latch");
-        foundation = hwMap.get(Servo.class,"foundation");
 
         imu = hwMap.get(BNO055IMU.class, "imu");
+        touch = hwMap.get(DigitalChannel.class,"touch");
 
         BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
         parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
