@@ -36,8 +36,6 @@ public class SonicDTTest1 extends OpMode {
     @Override
     public void init(){
         robot.init(hardwareMap);
-        robot.hook.setPosition(0);
-        robot.arm.setPosition(0);
     }
 
     @Override
@@ -106,39 +104,51 @@ public class SonicDTTest1 extends OpMode {
             }
         }
 
-        //in
-        if(gamepad2.a) {
+        //down = in
+        if(gamepad2.right_stick_y > 0) {
             robot.intakeSetPower(-1);
         }
-        //out
-        else if(gamepad2.b){
+        //up = out
+        else if(gamepad2.right_stick_y < 0){
             robot.intakeSetPower(1);
         }
+
         else{
             robot.intakeSetPower(0);
         }
 
-        if(gamepad2.x){
-            robot.latch.setPosition(0);
-        }
-
-        if(gamepad2.left_trigger != 0){
-            robot.arm.setPosition(1);
-        }
-        else if(gamepad2.right_trigger != 0){
-            robot.arm.setPosition(0);
-        }
-
-        if(gamepad2.right_bumper){
+        if(gamepad2.a){
             robot.hook.setPosition(1);
         }
 
-        else if(gamepad2.left_bumper){
-            robot.hook.setPosition(0);
+        else if(gamepad2.b){
+            robot.hook.setPosition(0.45);
+        }
+
+        else if(gamepad2.x){ //in
+            robot.arm.setPosition(0.99);
+        }
+
+        else if(gamepad2.y){ //out
+            robot.arm.setPosition(0.01);
+        }
+
+        if(gamepad2.right_bumper){
+            robot.latch.setPosition(0);
+        }
+
+        if(gamepad2.dpad_up){
+            robot.winch.setPower(0.5);
+        }
+        else if(gamepad2.dpad_down){
+            robot.winch.setPower(-0.5);
+        }
+        else{
+            robot.winch.setPower(0);
         }
 
         // positive down negative up
-        if(robot.touch.getState()) {
+        if(!robot.touch.getState()) {
             if (gamepad2.left_stick_y != 0) {
                 robot.slide.setPower(-Math.abs(gamepad2.left_stick_y));
             }

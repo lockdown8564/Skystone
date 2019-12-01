@@ -13,13 +13,12 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
  * made 11/1/19
  * last updated: 11/1/19
  */
-@Autonomous(name = "red test", group = "test")
+@Autonomous(name = "red foundation no grab", group = "test")
 public class SonicRedAutoTest extends LinearOpMode {
     private SonicHardware robot = new SonicHardware();
     @Override
     public void runOpMode(){
         robot.init(hardwareMap);
-        robot.hook.setPosition(0.03);
 
         waitForStart();
 
@@ -66,8 +65,8 @@ public class SonicRedAutoTest extends LinearOpMode {
             LEFT_TARGET = (int)(leftInches*robot.COUNTS_PER_INCH) + robot.frontLeft.getCurrentPosition();
             RIGHT_TARGET = (int)(rightInches*robot.COUNTS_PER_INCH) + robot.frontRight.getCurrentPosition();
 
-            robot.driveSetMode(DcMotor.RunMode.RUN_TO_POSITION);
             robot.driveSetTarget(LEFT_TARGET,RIGHT_TARGET);
+            robot.driveSetMode(DcMotor.RunMode.RUN_TO_POSITION);
             robot.driveSetPowerAll(Math.abs(speed));
             while(robot.driveIsBusy() && opModeIsActive()){
             }
@@ -83,8 +82,8 @@ public class SonicRedAutoTest extends LinearOpMode {
             LEFT_TARGET = (int)(leftInches*robot.COUNTS_PER_INCH) + robot.frontLeft.getCurrentPosition();
             RIGHT_TARGET = (int)(rightInches*robot.COUNTS_PER_INCH) + robot.frontRight.getCurrentPosition();
 
-            robot.driveSetMode(DcMotor.RunMode.RUN_TO_POSITION);
             robot.driveSetTarget(LEFT_TARGET,RIGHT_TARGET);
+            robot.driveSetMode(DcMotor.RunMode.RUN_TO_POSITION);
             robot.driveSetPowerAll(Math.abs(speed));
             while(robot.driveIsBusy() && opModeIsActive()){
                 robot.intakeSetPower(direction);
@@ -121,24 +120,12 @@ public class SonicRedAutoTest extends LinearOpMode {
         }
     }
 
-    /*
+
     private void releaseIntake(){
-        int TARGET = robot.arm.getCurrentPosition() + 300;
-        if(opModeIsActive()){
-            robot.arm.setTargetPosition(TARGET);
-            robot.arm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-
-            robot.arm.setPower(0.5);
-            while(robot.arm.isBusy() && opModeIsActive()){
-            }
-
-            robot.stopMotors();
-            robot.latch.setPosition(0);
-
-            robot.arm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        }
+        robot.hook.setPosition(0.9);
+        robot.latch.setPosition(0);
     }
-
+    /*
     private void resetArm(int TARGET){
         if(opModeIsActive()){
             robot.arm.setTargetPosition(TARGET);

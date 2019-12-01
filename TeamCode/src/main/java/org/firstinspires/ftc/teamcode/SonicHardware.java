@@ -17,10 +17,11 @@ class SonicHardware {
     DcMotor frontLeft, frontRight, backLeft, backRight = null;
     DcMotor lIntake, rIntake = null;
     DcMotor slide = null;
+    DcMotor winch = null;
     Servo latch, hook, arm = null;
     DigitalChannel touch = null;
     BNO055IMU imu;
-    static final double     COUNTS_PER_MOTOR_REV    = 1120 ; //Neverest 40
+    static final double     COUNTS_PER_MOTOR_REV    = 723.24 ; //5201 Spur Gear 26:1
     static final double     DRIVE_GEAR_REDUCTION    = 1.0 ;  //1:1
     static final double     WHEEL_DIAMETER_INCHES   = 4.0 ;
     static final double     COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION)/
@@ -39,6 +40,7 @@ class SonicHardware {
         lIntake = hwMap.get(DcMotor.class,"lIn");
         rIntake = hwMap.get(DcMotor.class,"rIn");
         slide = hwMap.get(DcMotor.class,"slide");
+        winch = hwMap.get(DcMotor.class,"winch");
 
         arm = hwMap.get(Servo.class,"arm");
         hook = hwMap.get(Servo.class,"hook");
@@ -60,6 +62,7 @@ class SonicHardware {
         rIntake.setDirection(DcMotorSimple.Direction.REVERSE);
 
         slide.setDirection(DcMotorSimple.Direction.FORWARD);
+        winch.setDirection(DcMotorSimple.Direction.FORWARD);
 
         frontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         backLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -70,6 +73,7 @@ class SonicHardware {
         rIntake.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         slide.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        winch.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         frontLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         backLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
@@ -80,6 +84,7 @@ class SonicHardware {
         rIntake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         slide.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        winch.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         stopMotors();
 
@@ -97,6 +102,13 @@ class SonicHardware {
         frontRight.setMode(mode);
         backLeft.setMode(mode);
         backRight.setMode(mode);
+    }
+
+    void driveSetZeroPowerBehavior(DcMotor.ZeroPowerBehavior zero){
+        frontLeft.setZeroPowerBehavior(zero);
+        frontRight.setZeroPowerBehavior(zero);
+        backLeft.setZeroPowerBehavior(zero);
+        backRight.setZeroPowerBehavior(zero);
     }
 
     void driveSetTarget(int lTarget, int rTarget){
@@ -118,6 +130,7 @@ class SonicHardware {
         slide.setPower(0);
         lIntake.setPower(0);
         rIntake.setPower(0);
+        winch.setPower(0);
     }
 
     void intakeSetPower(double power){
