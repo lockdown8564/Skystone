@@ -7,6 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 /**
  * first drivetrain test
  * 6 wheels made of wood 9/22/19
+ * Last Updated: 11/17/19
  */
 @TeleOp(name="dt test",group="test")
 public class SonicDTTest1 extends OpMode {

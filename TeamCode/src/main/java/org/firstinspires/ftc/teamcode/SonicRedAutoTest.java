@@ -8,6 +8,11 @@ import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 
+/**
+ * first auto on red side
+ * made 11/1/19
+ * last updated: 11/1/19
+ */
 @Autonomous(name = "red test", group = "test")
 public class SonicRedAutoTest extends LinearOpMode {
     private SonicHardware robot = new SonicHardware();

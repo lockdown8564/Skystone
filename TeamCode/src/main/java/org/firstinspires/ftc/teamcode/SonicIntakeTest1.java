@@ -11,6 +11,7 @@ import org.firstinspires.ftc.robotcontroller.internal.FtcOpModeRegister;
  * test program for 6 wheel intake built on 9/15/19
  */
 
+@Disabled
 @TeleOp(name="color test",group="test")
 public class SonicIntakeTest1 extends OpMode {
     private SonicHardware robot = new SonicHardware();
