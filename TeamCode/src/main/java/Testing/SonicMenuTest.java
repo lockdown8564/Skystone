@@ -1,4 +1,4 @@
-package ftc8564;
+package testing;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -21,8 +21,8 @@ import hallib.HalDashboard;
  * last updated: 11/1/19
  */
 @Autonomous(name = "Sonic Autonomous", group = "ftc8564")
-public class SonicAutonomous extends LinearOpMode implements FtcMenu.MenuButtons{
-    private SonicHardware robot = new SonicHardware();
+public class SonicMenuTest extends LinearOpMode implements FtcMenu.MenuButtons{
+    private SonicTestHardware robot = new SonicTestHardware();
     private enum Alliance{
         BLUE,
         RED
@@ -137,5 +137,9 @@ public class SonicAutonomous extends LinearOpMode implements FtcMenu.MenuButtons
 
     @Override
     public boolean isMenuBackButton() { return gamepad1.dpad_left; }
+
+    private void doMenus(){
+
+    }
 
 }
