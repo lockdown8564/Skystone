@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode;
+package testing;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -13,16 +13,50 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
  * made 11/1/19
  * last updated: 11/1/19
  */
-@Autonomous(name = "red foundation park", group = "test")
-public class SonicRedFoundParkAuto extends LinearOpMode {
-    private SonicHardware robot = new SonicHardware();
+@Autonomous(name = "red foundation no grab", group = "test")
+public class SonicRedAutoTest extends LinearOpMode {
+    private SonicTestHardware robot = new SonicTestHardware();
     @Override
     public void runOpMode(){
         robot.init(hardwareMap);
+
         waitForStart();
 
-        releaseIntake();
-        encoderDrive(0.7,-24,-24);
+        //releaseIntake();
+        sleep(800);
+        encoderDrive(0.7,-20,-20);
+        turnRight(78,0.3);
+
+        robot.stopMotors();
+        sleep(300);
+
+        encoderDrive(0.8,47,47);
+        turnLeft(25,0.3);
+
+        encoderDriveIntake(1,-20,-20, 1);
+        robot.intakeSetPower(1);
+        sleep(1000);
+        robot.stopMotors();
+
+        encoderDrive(1, 20, 20);
+        robot.stopMotors();
+        sleep(500);
+
+        turnLeft(75, 0.4);
+        encoderDrive(1,50,50);
+
+        turnLeft(168,0.4);
+        robot.intakeSetPower(-1);
+        sleep(500);
+        /*encoderDrive(1,20, 20);
+        robot.foundation.setPosition(0.75);
+        sleep(500);
+        encoderDrive(1,-30, -30);
+        turnRight(150,0.1);*/
+
+        turnRight(78,0.3);
+        encoderDrive(0.6,20,20);
+
     }
 
     private void encoderDrive(double speed, double leftInches, double rightInches){

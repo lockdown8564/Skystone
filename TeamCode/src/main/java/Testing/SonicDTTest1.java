@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode;
+package testing;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -11,7 +11,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
  */
 @TeleOp(name="dt test",group="test")
 public class SonicDTTest1 extends OpMode {
-    private SonicHardware robot = new SonicHardware();
+    private SonicTestHardware robot = new SonicTestHardware();
     private DriveMode driveMode = DriveMode.TANK;
     private DriveSpeed driveSpeed = DriveSpeed.FAST;
     private DriveDirection driveDirection = DriveDirection.FORWARD;

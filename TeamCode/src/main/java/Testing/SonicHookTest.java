@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode;
+package testing;
 
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
@@ -13,7 +13,7 @@ import org.firstinspires.ftc.robotcontroller.internal.FtcOpModeRegister;
 
 @TeleOp(name="hook test",group="test")
 public class SonicHookTest extends OpMode {
-    private SonicHardware robot = new SonicHardware();
+    private SonicTestHardware robot = new SonicTestHardware();
     public void init(){
         robot.init(hardwareMap);
     }

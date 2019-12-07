@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode;
+package testing;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -13,30 +13,16 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
  * made 11/1/19
  * last updated: 11/1/19
  */
-@Autonomous(name = "red foundation grab", group = "test")
-public class SonicRedGrabAuto extends LinearOpMode {
-    private SonicHardware robot = new SonicHardware();
+@Autonomous(name = "red foundation park", group = "test")
+public class SonicRedFoundParkAuto extends LinearOpMode {
+    private SonicTestHardware robot = new SonicTestHardware();
     @Override
     public void runOpMode(){
         robot.init(hardwareMap);
         waitForStart();
 
         releaseIntake();
-        sleep(1000);
-        turnRight(5,-0.3);
-        sleep(1000);
-        encoderDrive(0.7,-27,-27);
-        sleep(1000);
-
-        robot.winch.setPower(-0.5);
-        sleep(1000);
-        robot.winch.setPower(0);
-
-        sleep(1000);
-        encoderDrive(0.3,30,30);
-        sleep(1000);
-        robot.stopMotors();
-        turnRight(30,-0.3);
+        encoderDrive(0.7,-24,-24);
     }
 
     private void encoderDrive(double speed, double leftInches, double rightInches){
