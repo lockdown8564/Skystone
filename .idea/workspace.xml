@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3d1bd61-beb2-4612-ba41-0aaf941b8865" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/outreach/SonicOutreachTeleop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/Testing/SonicHookTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/Testing/SonicHookTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/Testing/SonicMenuTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/Testing/SonicMenuTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/ftc8564/SonicAutonomous.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/ftc8564/SonicAutonomous.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/ftc8564/SonicHardware.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/ftc8564/SonicHardware.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/ftc8564/SonicTeleop.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/ftc8564/SonicTeleop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/testing/SonicDTTest1.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/testing/SonicDTTest1.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,6 +23,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="ZY224N536M" />
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
@@ -26,22 +34,42 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/ftc8564/SonicTeleop.java">
+        <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/outreach/SonicOutreachTeleop.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+            <state relative-caret-position="-2">
+              <caret line="50" column="9" lean-forward="true" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2072#2073#0" expanded="true" />
+                <element signature="e#2106#2107#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/ftc8564/SonicAutonomous.java">
+        <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/ftc8564/SonicTeleop.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="681">
-              <caret line="133" column="68" selection-start-line="133" selection-start-column="68" selection-end-line="133" selection-end-column="68" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="128">
+              <caret line="94" column="60" lean-forward="true" selection-start-line="94" selection-start-column="60" selection-end-line="94" selection-end-column="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/SonicDTTest1.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="273">
+              <caret line="99" column="87" selection-start-line="99" selection-start-column="87" selection-end-line="99" selection-end-column="87" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/ftc8564/SonicHardware.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1563">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
@@ -81,25 +109,27 @@
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/SonicAutonomous.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/Testing/SonicTestHardware.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/Testing/SonicDTTest1.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/SonicDTTest1.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/SonicTestHardware.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/SonicHookTest.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/SonicIntakeTest1.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/SonicRedFoundParkAuto.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/SonicRedAutoTest.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/SonicRedStoneParkAuto.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/SonicRedGrabAuto.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/ftc8564/SonicHardware.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/ftclib/FtcMenu.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/ftclib/FtcChoiceMenu.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/ftclib/FtcValueMenu.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/ftc8564/SonicTeleop.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/hallib/HalDbgLog.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/hallib/HalDashboard.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/trclib/TrcDbgTrace.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/trclib/TrcUti.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/trclib/TrcUtil.java" />
+        <option value="$PROJECT_DIR$/TeamCode/src/main/java/ftc8564/SonicHardware.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/ftc8564/SonicAutonomous.java" />
+        <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/SonicMenuTest.java" />
+        <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/SonicHookTest.java" />
+        <option value="$PROJECT_DIR$/TeamCode/src/main/java/outreach/SonicOutreachTeleop.java" />
+        <option value="$PROJECT_DIR$/TeamCode/src/main/java/ftc8564/SonicTeleop.java" />
+        <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/SonicDTTest1.java" />
       </list>
     </option>
   </component>
@@ -125,12 +155,6 @@
               <item name="SkyStone" type="1abcf292:AndroidViewProjectNode" />
               <item name="TeamCode" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="SkyStone" type="1abcf292:AndroidViewProjectNode" />
-              <item name="TeamCode" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="ftc8564" type="cbb59c9e:AndroidPsiDirectoryNode" />
             </path>
             <path>
               <item name="SkyStone" type="1abcf292:AndroidViewProjectNode" />
@@ -267,7 +291,7 @@
       <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.49924472" visible="true" weight="0.32867134" />
       <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.50151056" side_tool="true" weight="0.31643358" />
       <window_info anchor="bottom" id="Build" order="5" sideWeight="0.49848944" weight="0.31643358" />
-      <window_info anchor="bottom" id="Android Profiler" order="6" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Android Profiler" order="6" />
       <window_info anchor="bottom" id="Run" order="7" weight="0.32867134" />
       <window_info anchor="bottom" id="Debug" order="8" />
       <window_info anchor="bottom" id="Find" order="9" />
@@ -280,20 +304,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/TeamCode/build/generated/source/buildConfig/debug/org/firstinspires/ftc/teamcode/BuildConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/HardwarePushbot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TeamCode/build/generated/source/buildConfig/debug/org/firstinspires/ftc/teamcode/HardwareSonic.java" />
     <entry file="jar://$PROJECT_DIR$/libs/RobotCore-release-sources.jar!/com/qualcomm/robotcore/eventloop/opmode/OpMode.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -498,20 +508,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/SonicDTTest1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/SonicHookTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/SonicRedAutoTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="122">
@@ -519,24 +515,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/SonicIntakeTest1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/SonicRedFoundParkAuto.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/ftc8564/SonicHardware.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -652,13 +634,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/ftc8564/SonicTeleop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/SonicRedStoneParkAuto.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -682,11 +657,68 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/ftc8564/SonicAutonomous.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="681">
-          <caret line="133" column="68" selection-start-line="133" selection-start-column="68" selection-end-line="133" selection-end-column="68" />
+        <state relative-caret-position="113">
+          <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/SonicMenuTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="21" column="3" lean-forward="true" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/SonicHookTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/SonicIntakeTest1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/SonicDTTest1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="99" column="87" selection-start-line="99" selection-start-column="87" selection-end-line="99" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/ftc8564/SonicHardware.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1563">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/outreach/SonicOutreachTeleop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2">
+          <caret line="50" column="9" lean-forward="true" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2072#2073#0" expanded="true" />
+            <element signature="e#2106#2107#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/ftc8564/SonicTeleop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="94" column="60" lean-forward="true" selection-start-line="94" selection-start-column="60" selection-end-line="94" selection-end-column="60" />
         </state>
       </provider>
     </entry>

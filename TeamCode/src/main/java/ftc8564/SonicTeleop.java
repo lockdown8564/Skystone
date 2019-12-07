@@ -1,5 +1,6 @@
 package ftc8564;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -9,7 +10,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
  * last updated 12/6/19
  * changes infrequently, only after files are tested
  */
-@TeleOp(name="Sonic eleop",group="ftc8564")
+@Disabled
+@TeleOp(name="Sonic Teleop",group="ftc8564")
 public class SonicTeleop extends OpMode {
     private SonicHardware robot = new SonicHardware();
     private DriveMode driveMode = DriveMode.TANK;
@@ -97,7 +99,7 @@ public class SonicTeleop extends OpMode {
                     case FORWARD:
                         drivePower = gamepad1.left_stick_y;
                         turnPower = gamepad1.right_stick_x;
-                        robot.driveSetPower((drivePower-turnPower)*num,(drivePower+turnPower)*num);
+                        robot.driveSetPower((drivePower + turnPower)*num,(drivePower - turnPower)*num);
                         break;
                 }
                 break;

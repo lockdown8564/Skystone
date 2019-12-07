@@ -20,7 +20,8 @@ import hallib.HalDashboard;
  * made 11/1/19
  * last updated: 11/1/19
  */
-@Autonomous(name = "Sonic Autonomous", group = "ftc8564")
+
+@Autonomous(name = "sonic menu test", group = "test")
 public class SonicMenuTest extends LinearOpMode implements FtcMenu.MenuButtons{
     private SonicTestHardware robot = new SonicTestHardware();
     private enum Alliance{

@@ -1,6 +1,7 @@
 package ftc8564;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
@@ -20,6 +21,7 @@ import hallib.HalDashboard;
  * made 11/1/19
  * last updated: 11/1/19
  */
+@Disabled
 @Autonomous(name = "Sonic Autonomous", group = "ftc8564")
 public class SonicAutonomous extends LinearOpMode implements FtcMenu.MenuButtons{
     private SonicHardware robot = new SonicHardware();

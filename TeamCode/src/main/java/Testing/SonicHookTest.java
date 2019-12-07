@@ -11,6 +11,7 @@ import org.firstinspires.ftc.robotcontroller.internal.FtcOpModeRegister;
  * testing hook of intake night before lm1, 12/1/19
  */
 
+@Disabled
 @TeleOp(name="hook test",group="test")
 public class SonicHookTest extends OpMode {
     private SonicTestHardware robot = new SonicTestHardware();

@@ -97,7 +97,7 @@ public class SonicDTTest1 extends OpMode {
                     case FORWARD:
                         drivePower = gamepad1.left_stick_y;
                         turnPower = gamepad1.right_stick_x;
-                        robot.driveSetPower((drivePower-turnPower)*num,(drivePower+turnPower)*num);
+                        robot.driveSetPower((drivePower + turnPower)*num,(drivePower - turnPower)*num);
                         break;
                 }
                 break;

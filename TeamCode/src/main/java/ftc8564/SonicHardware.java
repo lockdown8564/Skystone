@@ -13,12 +13,12 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
-class SonicHardware {
+public class SonicHardware {
     DcMotor frontLeft, frontRight, backLeft, backRight = null;
-    DcMotor lIntake, rIntake = null;
+    private DcMotor lIntake, rIntake = null;
     DcMotor slide = null;
     DcMotor winch = null;
-    Servo latch, hook, arm = null;
+    public Servo latch, hook, arm = null;
     DigitalChannel touch = null;
     BNO055IMU imu;
     static final double     COUNTS_PER_MOTOR_REV    = 723.24 ; //5201 Spur Gear 26:1
@@ -31,7 +31,7 @@ class SonicHardware {
     Orientation angles;
     private HardwareMap hwMap;
 
-    void init(HardwareMap ahwmap){
+    public void init(HardwareMap ahwmap){
         hwMap = ahwmap;
         frontLeft = hwMap.get(DcMotor.class,"fl");
         frontRight = hwMap.get(DcMotor.class,"fr");
@@ -90,7 +90,7 @@ class SonicHardware {
 
         //TODO: add some methods to help with teleop and auto
     }
-    void driveSetPower(double lPower, double rPower) {
+    public void driveSetPower(double lPower, double rPower) {
         frontLeft.setPower(lPower);
         frontRight.setPower(rPower);
         backLeft.setPower(lPower);
@@ -125,7 +125,7 @@ class SonicHardware {
         backRight.setPower(power);
     }
 
-    void stopMotors(){
+    public void stopMotors(){
         driveSetPowerAll(0);
         slide.setPower(0);
         lIntake.setPower(0);
@@ -133,7 +133,7 @@ class SonicHardware {
         winch.setPower(0);
     }
 
-    void intakeSetPower(double power){
+    public void intakeSetPower(double power){
         lIntake.setPower(power);
         rIntake.setPower(power);
     }
