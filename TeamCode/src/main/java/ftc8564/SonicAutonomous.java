@@ -38,6 +38,14 @@ public class SonicAutonomous extends LinearOpMode implements FtcMenu.MenuButtons
         ONE,
         TWO
     }
+    private enum Foundation{
+        YES,
+        NO
+    }
+    private enum ParkingSide{
+        CENTER,
+        WALL
+    }
     @Override
     public void runOpMode(){
         robot.init(hardwareMap);
