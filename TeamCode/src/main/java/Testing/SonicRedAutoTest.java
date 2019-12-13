@@ -19,6 +19,7 @@ public class SonicRedAutoTest extends LinearOpMode {
     @Override
     public void runOpMode(){
         robot.init(hardwareMap);
+        robot.driveSetMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         waitForStart();
 

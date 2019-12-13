@@ -4,8 +4,8 @@
     <facet type="android-gradle" name="Android-Gradle">
       <configuration>
         <option name="GRADLE_PROJECT_PATH" value=":TeamCode" />
-        <option name="LAST_SUCCESSFUL_SYNC_AGP_VERSION" value="3.5.1" />
-        <option name="LAST_KNOWN_AGP_VERSION" value="3.5.1" />
+        <option name="LAST_SUCCESSFUL_SYNC_AGP_VERSION" value="3.5.3" />
+        <option name="LAST_KNOWN_AGP_VERSION" value="3.5.3" />
       </configuration>
     </facet>
     <facet type="android" name="Android">
@@ -88,14 +88,15 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 28 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Gradle: com.github.dogecv:dogecv:2020.4-alpha@aar" level="project" />
+    <orderEntry type="library" name="Gradle: org.openftc:easyopencv:1.2@aar" level="project" />
+    <orderEntry type="library" name="Gradle: org.openftc:opencv-repackaged:4.1.0-A@aar" level="project" />
     <orderEntry type="library" name="Gradle: :RobotCore-release:@aar" level="project" />
     <orderEntry type="library" name="Gradle: :Hardware-release:@aar" level="project" />
     <orderEntry type="library" name="Gradle: :FtcCommon-release:@aar" level="project" />
     <orderEntry type="library" name="Gradle: :WirelessP2p-release:@aar" level="project" />
     <orderEntry type="library" name="Gradle: :tfod-release:@aar" level="project" />
     <orderEntry type="library" name="Gradle: :tensorflow-lite-0.0.0-nightly:@aar" level="project" />
-    <orderEntry type="module" module-name="FtcRobotController" />
-    <orderEntry type="module" module-name="FtcRobotController" />
     <orderEntry type="module" module-name="FtcRobotController" />
     <orderEntry type="module" module-name="FtcRobotController" />
   </component>
