@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FtcRobotController/FtcRobotController.iml" filepath="$PROJECT_DIR$/FtcRobotController/FtcRobotController.iml" />
-      <module fileurl="file://$PROJECT_DIR$/SkyStone.iml" filepath="$PROJECT_DIR$/SkyStone.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Skystone.iml" filepath="$PROJECT_DIR$/Skystone.iml" />
       <module fileurl="file://$PROJECT_DIR$/TeamCode/TeamCode.iml" filepath="$PROJECT_DIR$/TeamCode/TeamCode.iml" />
     </modules>
   </component>

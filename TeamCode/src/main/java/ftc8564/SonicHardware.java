@@ -21,10 +21,10 @@ public class SonicHardware {
     public Servo latch, hook, arm = null;
     DigitalChannel touch = null;
     BNO055IMU imu;
-    static final double     COUNTS_PER_MOTOR_REV    = 723.24 ; //5201 Spur Gear 26:1
-    static final double     DRIVE_GEAR_REDUCTION    = 1.0 ;  //1:1
-    static final double     WHEEL_DIAMETER_INCHES   = 4.0 ;
-    static final double     COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION)/
+    private static final double     COUNTS_PER_MOTOR_REV    = 723.24 ; //5201 Spur Gear 26:1
+    private static final double     DRIVE_GEAR_REDUCTION    = 1.0 ;  //1:1
+    private static final double     WHEEL_DIAMETER_INCHES   = 4.0 ;
+    private static final double     COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION)/
             (WHEEL_DIAMETER_INCHES * Math.PI);
     /*RevBlinkinLedDriver ledDriver;
     RevBlinkinLedDriver.BlinkinPattern pattern;*/
@@ -140,6 +140,10 @@ public class SonicHardware {
 
     boolean driveIsBusy(){
         return frontLeft.isBusy() && frontRight.isBusy() && backLeft.isBusy() && backRight.isBusy();
+    }
+
+    double getCPI(){
+        return COUNTS_PER_INCH;
     }
 
 }

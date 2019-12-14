@@ -5,9 +5,11 @@ import com.disnodeteam.dogecv.detectors.skystone.SkystoneDetector;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
+import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 import org.openftc.easyopencv.OpenCvCamera;
 import org.openftc.easyopencv.OpenCvCameraRotation;
 import org.openftc.easyopencv.OpenCvInternalCamera;
+import org.openftc.easyopencv.OpenCvWebcam;
 
 import java.util.Locale;
 
@@ -17,7 +19,7 @@ import java.util.Locale;
  * Original Work Copright(c) 2019 OpenFTC Team
  * Derived Work Copyright(c) 2019 DogeDevs
  */
-@TeleOp(name = "Skystone Detector OpMode", group="DogeCV")
+@TeleOp(name = "cv test", group="test")
 
 public class SonicSkystoneDetectTest extends LinearOpMode {
     private OpenCvCamera phoneCam;
@@ -34,10 +36,7 @@ public class SonicSkystoneDetectTest extends LinearOpMode {
          * single-parameter constructor instead (commented out below)
          */
         int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
-        phoneCam = new OpenCvInternalCamera(OpenCvInternalCamera.CameraDirection.BACK, cameraMonitorViewId);
-
-        // OR...  Do Not Activate the Camera Monitor View
-        //phoneCam = new OpenCvInternalCamera(OpenCvInternalCamera.CameraDirection.BACK);
+        phoneCam = new OpenCvWebcam(hardwareMap.get(WebcamName.class, "Webcam 1"), cameraMonitorViewId);
 
         /*
          * Open the connection to the camera device

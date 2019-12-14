@@ -46,6 +46,11 @@ public class SonicAutonomous extends LinearOpMode implements FtcMenu.MenuButtons
         CENTER,
         WALL
     }
+    private enum Skystone{
+        LEFT,
+        MIDDLE,
+        RIGHT
+    }
     @Override
     public void runOpMode(){
         robot.init(hardwareMap);
@@ -59,8 +64,8 @@ public class SonicAutonomous extends LinearOpMode implements FtcMenu.MenuButtons
     private void encoderDrive(double speed, double leftInches, double rightInches){
         int LEFT_TARGET, RIGHT_TARGET;
         if(opModeIsActive()){
-            LEFT_TARGET = (int)(leftInches*robot.COUNTS_PER_INCH) + robot.frontLeft.getCurrentPosition();
-            RIGHT_TARGET = (int)(rightInches*robot.COUNTS_PER_INCH) + robot.frontRight.getCurrentPosition();
+            LEFT_TARGET = (int)(leftInches*robot.getCPI()) + robot.frontLeft.getCurrentPosition();
+            RIGHT_TARGET = (int)(rightInches*robot.getCPI()) + robot.frontRight.getCurrentPosition();
 
             robot.driveSetTarget(LEFT_TARGET,RIGHT_TARGET);
             robot.driveSetMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -76,8 +81,8 @@ public class SonicAutonomous extends LinearOpMode implements FtcMenu.MenuButtons
     private void encoderDriveIntake(double speed, double leftInches, double rightInches, double direction){
         int LEFT_TARGET, RIGHT_TARGET;
         if(opModeIsActive()){
-            LEFT_TARGET = (int)(leftInches*robot.COUNTS_PER_INCH) + robot.frontLeft.getCurrentPosition();
-            RIGHT_TARGET = (int)(rightInches*robot.COUNTS_PER_INCH) + robot.frontRight.getCurrentPosition();
+            LEFT_TARGET = (int)(leftInches*robot.getCPI()) + robot.frontLeft.getCurrentPosition();
+            RIGHT_TARGET = (int)(rightInches*robot.getCPI()) + robot.frontRight.getCurrentPosition();
 
             robot.driveSetTarget(LEFT_TARGET,RIGHT_TARGET);
             robot.driveSetMode(DcMotor.RunMode.RUN_TO_POSITION);
