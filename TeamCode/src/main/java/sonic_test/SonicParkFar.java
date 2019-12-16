@@ -1,6 +1,7 @@
-package testing;
+package sonic_test;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
@@ -8,42 +9,21 @@ import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 
-import org.firstinspires.ftc.robotcore.external.ClassFactory;
-
-import ftclib.FtcChoiceMenu;
-import ftclib.FtcMenu;
-import ftclib.FtcValueMenu;
-import hallib.HalDashboard;
-
 /**
- * first auto on red side
- * made 11/1/19
- * last updated: 11/1/19
+ * auto to park near the bridge
+ * made 12/15/19
+ * last updated: 12/15/19
  */
-
-@Autonomous(name = "sonic menu test", group = "test")
-public class SonicMenuTest extends LinearOpMode implements FtcMenu.MenuButtons{
+@Disabled
+@Autonomous(name = "park far", group = "test")
+public class SonicParkFar extends LinearOpMode {
     private SonicTestHardware robot = new SonicTestHardware();
-    private enum Alliance{
-        BLUE,
-        RED
-    }
-    private enum StartingSide{
-        FOUNDATION,
-        STONES
-    }
-    private enum Skystones{
-        ZERO,
-        ONE,
-        TWO
-    }
     @Override
     public void runOpMode(){
         robot.init(hardwareMap);
+        robot.driveSetMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         waitForStart();
-
-        releaseIntake();
-        encoderDrive(0.7,-24,-24);
+        encoderDrive(0.7,-27,-27);
     }
 
     private void encoderDrive(double speed, double leftInches, double rightInches){
@@ -126,21 +106,5 @@ public class SonicMenuTest extends LinearOpMode implements FtcMenu.MenuButtons{
             robot.arm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         }
     }*/
-
-    @Override
-    public boolean isMenuUpButton() { return gamepad1.dpad_up; }
-
-    @Override
-    public boolean isMenuDownButton() { return gamepad1.dpad_down; }
-
-    @Override
-    public boolean isMenuEnterButton() { return gamepad1.dpad_right; }
-
-    @Override
-    public boolean isMenuBackButton() { return gamepad1.dpad_left; }
-
-    private void doMenus(){
-
-    }
 
 }

@@ -1,4 +1,4 @@
-package ftc8564;
+package rip_sonic;
 
 import android.graphics.Color;
 

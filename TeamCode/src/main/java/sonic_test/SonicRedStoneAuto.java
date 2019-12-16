@@ -1,4 +1,4 @@
-package testing;
+package sonic_test;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
@@ -20,7 +20,9 @@ import java.util.Locale;
 /**
  * testing skystone autonomous
  * created 12/13/19
+ * last updated: 12/15/19
  */
+@Disabled
 @Autonomous(name = "red stone cv test", group = "test")
 public class SonicRedStoneAuto extends LinearOpMode {
     private SonicTestHardware robot = new SonicTestHardware();

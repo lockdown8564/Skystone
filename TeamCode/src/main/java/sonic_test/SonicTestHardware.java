@@ -1,4 +1,4 @@
-package testing;
+package sonic_test;
 
 import android.graphics.Color;
 
@@ -13,6 +13,11 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
+/**
+ * testing class for sonic hardware object
+ * created: 12/6/19
+ * last updated: 12/6/19
+ */
 class SonicTestHardware {
     DcMotor frontLeft, frontRight, backLeft, backRight = null;
     DcMotor lIntake, rIntake = null;

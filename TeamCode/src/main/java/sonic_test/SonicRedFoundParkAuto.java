@@ -1,4 +1,4 @@
-package testing;
+package sonic_test;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
@@ -10,24 +10,20 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 
 /**
- * first auto on red side
+ * auto just to park
  * made 11/1/19
  * last updated: 11/1/19
  */
 @Disabled
-@Autonomous(name = "red stone park", group = "test")
-public class SonicRedStoneParkAuto extends LinearOpMode {
+@Autonomous(name = "park", group = "test")
+public class SonicRedFoundParkAuto extends LinearOpMode {
     private SonicTestHardware robot = new SonicTestHardware();
     @Override
     public void runOpMode(){
         robot.init(hardwareMap);
         robot.driveSetMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         waitForStart();
-
-        releaseIntake();
-        encoderDrive(0.7,-2,-2);
-        encoderDrive(0.3,16,-16);
-        encoderDrive(0.7,-20,-20);
+        encoderDrive(0.7,-24,-24);
     }
 
     private void encoderDrive(double speed, double leftInches, double rightInches){

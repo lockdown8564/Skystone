@@ -1,7 +1,6 @@
-package ftc8564;
+package sonic_test;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
@@ -17,14 +16,14 @@ import ftclib.FtcValueMenu;
 import hallib.HalDashboard;
 
 /**
- * first auto on red side
- * made 11/1/19
- * last updated: 11/1/19
+ * testing auto for menu
+ * made 12/4/19
+ * last updated: 12/4/19
  */
-@Disabled
-@Autonomous(name = "Sonic Autonomous", group = "ftc8564")
-public class SonicAutonomous extends LinearOpMode implements FtcMenu.MenuButtons{
-    private SonicHardware robot = new SonicHardware();
+
+@Autonomous(name = "menu test", group = "test")
+public class SonicMenuTest extends LinearOpMode implements FtcMenu.MenuButtons{
+    private SonicTestHardware robot = new SonicTestHardware();
     private enum Alliance{
         BLUE,
         RED
@@ -38,23 +37,9 @@ public class SonicAutonomous extends LinearOpMode implements FtcMenu.MenuButtons
         ONE,
         TWO
     }
-    private enum Foundation{
-        YES,
-        NO
-    }
-    private enum ParkingSide{
-        CENTER,
-        WALL
-    }
-    private enum Skystone{
-        LEFT,
-        MIDDLE,
-        RIGHT
-    }
     @Override
     public void runOpMode(){
         robot.init(hardwareMap);
-        robot.driveSetMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         waitForStart();
 
         releaseIntake();
@@ -64,8 +49,8 @@ public class SonicAutonomous extends LinearOpMode implements FtcMenu.MenuButtons
     private void encoderDrive(double speed, double leftInches, double rightInches){
         int LEFT_TARGET, RIGHT_TARGET;
         if(opModeIsActive()){
-            LEFT_TARGET = (int)(leftInches*robot.getCPI()) + robot.frontLeft.getCurrentPosition();
-            RIGHT_TARGET = (int)(rightInches*robot.getCPI()) + robot.frontRight.getCurrentPosition();
+            LEFT_TARGET = (int)(leftInches*robot.COUNTS_PER_INCH) + robot.frontLeft.getCurrentPosition();
+            RIGHT_TARGET = (int)(rightInches*robot.COUNTS_PER_INCH) + robot.frontRight.getCurrentPosition();
 
             robot.driveSetTarget(LEFT_TARGET,RIGHT_TARGET);
             robot.driveSetMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -81,8 +66,8 @@ public class SonicAutonomous extends LinearOpMode implements FtcMenu.MenuButtons
     private void encoderDriveIntake(double speed, double leftInches, double rightInches, double direction){
         int LEFT_TARGET, RIGHT_TARGET;
         if(opModeIsActive()){
-            LEFT_TARGET = (int)(leftInches*robot.getCPI()) + robot.frontLeft.getCurrentPosition();
-            RIGHT_TARGET = (int)(rightInches*robot.getCPI()) + robot.frontRight.getCurrentPosition();
+            LEFT_TARGET = (int)(leftInches*robot.COUNTS_PER_INCH) + robot.frontLeft.getCurrentPosition();
+            RIGHT_TARGET = (int)(rightInches*robot.COUNTS_PER_INCH) + robot.frontRight.getCurrentPosition();
 
             robot.driveSetTarget(LEFT_TARGET,RIGHT_TARGET);
             robot.driveSetMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -153,5 +138,9 @@ public class SonicAutonomous extends LinearOpMode implements FtcMenu.MenuButtons
 
     @Override
     public boolean isMenuBackButton() { return gamepad1.dpad_left; }
+
+    private void doMenus(){
+
+    }
 
 }

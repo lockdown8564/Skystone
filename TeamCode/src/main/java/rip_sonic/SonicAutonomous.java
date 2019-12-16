@@ -1,4 +1,4 @@
-package testing;
+package rip_sonic;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
@@ -9,15 +9,48 @@ import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 
+import org.firstinspires.ftc.robotcore.external.ClassFactory;
+
+import ftclib.FtcChoiceMenu;
+import ftclib.FtcMenu;
+import ftclib.FtcValueMenu;
+import hallib.HalDashboard;
+
 /**
  * first auto on red side
  * made 11/1/19
  * last updated: 11/1/19
  */
 @Disabled
-@Autonomous(name = "red foundation grab", group = "test")
-public class SonicRedGrabAuto extends LinearOpMode {
-    private SonicTestHardware robot = new SonicTestHardware();
+@Autonomous(name = "Sonic Autonomous", group = "ftc8564")
+public class SonicAutonomous extends LinearOpMode implements FtcMenu.MenuButtons{
+    private SonicHardware robot = new SonicHardware();
+    private enum Alliance{
+        BLUE,
+        RED
+    }
+    private enum StartingSide{
+        FOUNDATION,
+        STONES
+    }
+    private enum Skystones{
+        ZERO,
+        ONE,
+        TWO
+    }
+    private enum Foundation{
+        YES,
+        NO
+    }
+    private enum ParkingSide{
+        CENTER,
+        WALL
+    }
+    private enum Skystone{
+        LEFT,
+        MIDDLE,
+        RIGHT
+    }
     @Override
     public void runOpMode(){
         robot.init(hardwareMap);
@@ -25,28 +58,14 @@ public class SonicRedGrabAuto extends LinearOpMode {
         waitForStart();
 
         releaseIntake();
-        sleep(1000);
-        turnRight(5,-0.3);
-        sleep(1000);
-        encoderDrive(0.7,-27,-27);
-        sleep(1000);
-
-        robot.winch.setPower(-0.5);
-        sleep(1000);
-        robot.winch.setPower(0);
-
-        sleep(1000);
-        encoderDrive(0.3,30,30);
-        sleep(1000);
-        robot.stopMotors();
-        turnRight(30,-0.3);
+        encoderDrive(0.7,-24,-24);
     }
 
     private void encoderDrive(double speed, double leftInches, double rightInches){
         int LEFT_TARGET, RIGHT_TARGET;
         if(opModeIsActive()){
-            LEFT_TARGET = (int)(leftInches*robot.COUNTS_PER_INCH) + robot.frontLeft.getCurrentPosition();
-            RIGHT_TARGET = (int)(rightInches*robot.COUNTS_PER_INCH) + robot.frontRight.getCurrentPosition();
+            LEFT_TARGET = (int)(leftInches*robot.getCPI()) + robot.frontLeft.getCurrentPosition();
+            RIGHT_TARGET = (int)(rightInches*robot.getCPI()) + robot.frontRight.getCurrentPosition();
 
             robot.driveSetTarget(LEFT_TARGET,RIGHT_TARGET);
             robot.driveSetMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -62,8 +81,8 @@ public class SonicRedGrabAuto extends LinearOpMode {
     private void encoderDriveIntake(double speed, double leftInches, double rightInches, double direction){
         int LEFT_TARGET, RIGHT_TARGET;
         if(opModeIsActive()){
-            LEFT_TARGET = (int)(leftInches*robot.COUNTS_PER_INCH) + robot.frontLeft.getCurrentPosition();
-            RIGHT_TARGET = (int)(rightInches*robot.COUNTS_PER_INCH) + robot.frontRight.getCurrentPosition();
+            LEFT_TARGET = (int)(leftInches*robot.getCPI()) + robot.frontLeft.getCurrentPosition();
+            RIGHT_TARGET = (int)(rightInches*robot.getCPI()) + robot.frontRight.getCurrentPosition();
 
             robot.driveSetTarget(LEFT_TARGET,RIGHT_TARGET);
             robot.driveSetMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -122,5 +141,17 @@ public class SonicRedGrabAuto extends LinearOpMode {
             robot.arm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         }
     }*/
+
+    @Override
+    public boolean isMenuUpButton() { return gamepad1.dpad_up; }
+
+    @Override
+    public boolean isMenuDownButton() { return gamepad1.dpad_down; }
+
+    @Override
+    public boolean isMenuEnterButton() { return gamepad1.dpad_right; }
+
+    @Override
+    public boolean isMenuBackButton() { return gamepad1.dpad_left; }
 
 }

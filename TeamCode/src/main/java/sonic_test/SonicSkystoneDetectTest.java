@@ -1,4 +1,4 @@
-package testing;
+package sonic_test;
 
 
 import com.disnodeteam.dogecv.detectors.skystone.SkystoneDetector;

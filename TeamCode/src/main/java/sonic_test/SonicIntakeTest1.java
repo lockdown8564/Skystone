@@ -1,4 +1,4 @@
-package testing;
+package sonic_test;
 
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
@@ -8,12 +8,12 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import org.firstinspires.ftc.robotcontroller.internal.FtcOpModeRegister;
 
 /**
- * testing hook of intake night before lm1, 12/1/19
+ * test program for 6 wheel intake built on 9/15/19
  */
 
 @Disabled
-@TeleOp(name="hook test",group="test")
-public class SonicHookTest extends OpMode {
+@TeleOp(name="color test",group="test")
+public class SonicIntakeTest1 extends OpMode {
     private SonicTestHardware robot = new SonicTestHardware();
     public void init(){
         robot.init(hardwareMap);
@@ -24,12 +24,7 @@ public class SonicHookTest extends OpMode {
     public void start(){ }
     @Override
     public void loop(){
-        if(gamepad2.x){
-            robot.hook.setPosition(0.5);
-        }
-        else if(gamepad2.y){
-            robot.hook.setPosition(0.9);
-        }
+
     }
     @Override
     public void stop(){

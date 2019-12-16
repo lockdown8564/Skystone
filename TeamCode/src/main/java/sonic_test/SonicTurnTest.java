@@ -1,4 +1,4 @@
-package testing;
+package sonic_test;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.hardware.bosch.JustLoggingAccelerationIntegrator;
@@ -17,6 +17,11 @@ import org.firstinspires.ftc.robotcore.external.navigation.Velocity;
 
 import java.util.Locale;
 
+/**
+ * program to test imu functionality
+ * created: 12/14/19
+ * last updated: 12/14/19
+ */
 @Disabled
 @TeleOp(name = "imu test", group = "test")
 public class SonicTurnTest extends LinearOpMode {

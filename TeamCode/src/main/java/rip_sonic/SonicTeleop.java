@@ -1,4 +1,4 @@
-package testing;
+package rip_sonic;
 
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
@@ -6,20 +6,21 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 /**
- * mecanum drivetrain test
- * created: 12/7/19
- * last updated: 12/7/19
+ * teleop for Sonic, 2019-2020 skystone robot
+ * last updated 12/6/19
+ * changes infrequently, only after files are tested
  */
 @Disabled
-@TeleOp(name="mecanum test",group="test")
-public class SonicMecanumTest extends OpMode {
-    private SonicTestHardware robot = new SonicTestHardware();
+@TeleOp(name="Sonic Teleop",group="ftc8564")
+public class SonicTeleop extends OpMode {
+    private SonicHardware robot = new SonicHardware();
     private DriveMode driveMode = DriveMode.TANK;
     private DriveSpeed driveSpeed = DriveSpeed.FAST;
     private DriveDirection driveDirection = DriveDirection.FORWARD;
 
     private double lPower, rPower, drivePower, turnPower = 0;
     private double num = 1;
+    private int initialSlide = 0;
 
     private enum DriveMode{
         ARCADE,
@@ -71,14 +72,19 @@ public class SonicMecanumTest extends OpMode {
             driveDirection = DriveDirection.REVERSE;
         }
 
+        //TODO: clean up with methods
         switch(driveMode){
             case TANK:{
                 switch(driveDirection) {
                     case REVERSE:
-
+                        lPower = -gamepad1.left_stick_y;
+                        rPower = -gamepad1.right_stick_y;
+                        robot.driveSetPower(lPower * num, rPower * num);
                         break;
                     case FORWARD:
-
+                        lPower = gamepad1.right_stick_y;
+                        rPower = gamepad1.left_stick_y;
+                        robot.driveSetPower(lPower * num, rPower * num);
                         break;
                 }
                 break;
@@ -86,10 +92,14 @@ public class SonicMecanumTest extends OpMode {
             case ARCADE:{
                 switch(driveDirection) {
                     case REVERSE:
-                        System.out.println("x");
+                        drivePower = -gamepad1.left_stick_y;
+                        turnPower = gamepad1.right_stick_x;
+                        robot.driveSetPower((drivePower-turnPower)*num,(drivePower+turnPower)*num);
                         break;
                     case FORWARD:
-
+                        drivePower = gamepad1.left_stick_y;
+                        turnPower = gamepad1.right_stick_x;
+                        robot.driveSetPower((drivePower + turnPower)*num,(drivePower - turnPower)*num);
                         break;
                 }
                 break;
