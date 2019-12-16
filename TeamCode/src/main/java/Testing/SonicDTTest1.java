@@ -105,7 +105,16 @@ public class SonicDTTest1 extends OpMode {
         }
 
         //down = in
-        if(gamepad2.right_stick_y > 0) {
+        if(gamepad2.right_trigger != 0){
+            if(gamepad2.right_stick_y > 0) {
+                robot.intakeSetPower(-0.5);
+            }
+            //up = out
+            else if(gamepad2.right_stick_y < 0){
+                robot.intakeSetPower(0.5);
+            }
+        }
+        else if(gamepad2.right_stick_y > 0) {
             robot.intakeSetPower(-1);
         }
         //up = out

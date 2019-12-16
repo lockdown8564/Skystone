@@ -2,6 +2,8 @@ package testing;
 
 
 import com.disnodeteam.dogecv.detectors.skystone.SkystoneDetector;
+import com.disnodeteam.dogecv.detectors.skystone.StoneDetector;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
@@ -19,6 +21,7 @@ import java.util.Locale;
  * Original Work Copright(c) 2019 OpenFTC Team
  * Derived Work Copyright(c) 2019 DogeDevs
  */
+@Disabled
 @TeleOp(name = "cv test", group="test")
 
 public class SonicSkystoneDetectTest extends LinearOpMode {
@@ -49,6 +52,7 @@ public class SonicSkystoneDetectTest extends LinearOpMode {
          * (while a streaming session is in flight) *IS* supported.
          */
         skyStoneDetector = new SkystoneDetector();
+        StoneDetector stoneDetector = new StoneDetector();
         phoneCam.setPipeline(skyStoneDetector);
 
         /*
@@ -74,7 +78,7 @@ public class SonicSkystoneDetectTest extends LinearOpMode {
             /*
              * Send some stats to the telemetry
              */
-            telemetry.addData("Stone Position X", skyStoneDetector.getScreenPosition().x);
+            telemetry.addData("Stone Position X1", stoneDetector.foundScreenPositions());
             telemetry.addData("Stone Position Y", skyStoneDetector.getScreenPosition().y);
             telemetry.addData("Frame Count", phoneCam.getFrameCount());
             telemetry.addData("FPS", String.format(Locale.US, "%.2f", phoneCam.getFps()));

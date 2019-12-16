@@ -15,13 +15,13 @@ import org.firstinspires.ftc.robotcore.external.tfod.Recognition;
 import org.firstinspires.ftc.robotcore.external.tfod.TFObjectDetector;
 
 import java.util.List;
+import java.util.Locale;
 
 /**
  * testing skystone autonomous
  * created 12/13/19
  */
-@Disabled
-@Autonomous(name = "red stone park", group = "test")
+@Autonomous(name = "red stone cv test", group = "test")
 public class SonicRedStoneAuto extends LinearOpMode {
     private SonicTestHardware robot = new SonicTestHardware();
     private static final String TFOD_MODEL_ASSET = "Skystone.tflite";
@@ -30,7 +30,7 @@ public class SonicRedStoneAuto extends LinearOpMode {
     private static final String VUFORIA_KEY = "AbxdFCj/////AAABmWeoUc73KkCmj5FqhZSgVY+F7nUU10SIb4BdCXOy/K6S02LySDpnqQLBeJJpbV4/TLkXnY87P/aoBefrJSvjPOt4zbx8v9JQrqvJ5ZWDRqxmtjzjSJz1o9XW5BZ9AlOBeBiFc5MaQLCHXajJorWs+hVDGoXLTDGHSbBiZx1zQKyCI5P5geu7TI3dllw3nE7pECZOXRRaYHUG2snAbJyOk5p10jk8jy7cv3QahxWECRKkrRGjZ5MTb6gfQRkheZVHEE+May9jY2lUoe4u6KCvXElFlDSdvNgzd0f3IGgSOjzPyJkBGaqO7fg1CrKAh6a7iyFL1Ktkhe25ZEVsIrGNWHiHIW2EC12bf00Vk2QcwWNQ";
     private VuforiaLocalizer vuforia;
     private TFObjectDetector tfod;
-    private Skystone skystone = Skystone.RIGHT;
+    private Skystone skystone = Skystone.MIDDLE;
 
     private enum Skystone{
         LEFT,
@@ -62,7 +62,7 @@ public class SonicRedStoneAuto extends LinearOpMode {
         waitForStart();
 
         //releaseIntake();
-        encoderDrive(0.7,-10,-10);
+        encoderDrive(0.7,6.5,6.5);
 
         if (tfod != null){
             List<Recognition> updatedRecognitions = tfod.getUpdatedRecognitions();
@@ -72,35 +72,98 @@ public class SonicRedStoneAuto extends LinearOpMode {
                         if(recognition.getLeft() < 100){
                             skystone = Skystone.LEFT;
                         }
-                        else if(recognition.getLeft() > 100 && recognition.getLeft() < 350){
+                        else if(recognition.getLeft() > 100 && recognition.getLeft() < 370){
                             skystone = Skystone.MIDDLE;
                         }
                         else{
                             skystone = Skystone.RIGHT;
                         }
-                        telemetry.addData("Skystone:",recognition.getLabel());
-                        telemetry.update();
                     }
                 }
             }
         }
 
-        sleep(1000);
-        turnLeft(90,0.4);
+        telemetry.addData("Skystone:", skystone.toString());
+        telemetry.update();
+        sleep(500);
+        encoderDrive(0.6,10,10);
+        sleep(500);
+        turnRight(79,0.4);
+        robot.hook.setPosition(1);
+        sleep(500);
+        robot.latch.setPosition(0);
+        sleep(600);
+        robot.hook.setPosition(0.5);
+        robot.stopMotors();
 
         switch(skystone){
             case LEFT:{
-
+                encoderDrive(0.5,-16,-16);
+                sleep(500);
+                robot.stopMotors();
+                turnRight(131,0.35);
+                sleep(500);
+                encoderDriveIntake(0.4,-20,-20,1);
+                sleep(800);
+                encoderDrive(0.5,37.5,37.5);
+                robot.hook.setPosition(0.6);
+                sleep(500);
+                turnLeft(75,-0.4);
+                turnRight(-107,0.4);
+                encoderDrive(0.6,-54,-54);
+                /*robot.intakeSetPower(-0.5);
+                sleep(2500);*/
+                sleep(1000);
+                robot.stopMotors();
+                encoderDriveIntake(0.5,12,12,-0.5);
                 break;
             }
             case MIDDLE:{
-
+                encoderDrive(0.5,-14,-14);
+                sleep(500);
+                robot.stopMotors();
+                turnRight(132,0.35);
+                sleep(500);
+                encoderDriveIntake(0.4,-20,-20,1);
+                sleep(800);
+                encoderDrive(0.5,37,37);
+                robot.hook.setPosition(0.6);
+                sleep(500);
+                turnLeft(75,-0.4);
+                turnRight(-107,0.4);
+                encoderDrive(0.6,-53,-53);
+                /*robot.intakeSetPower(-0.5);
+                sleep(2500);*/
+                sleep(1000);
+                robot.stopMotors();
+                encoderDriveIntake(0.5,12,12,-0.5);
                 break;
             }
             case RIGHT:{
-
+                encoderDrive(0.5,-10.5,-10.5);
+                sleep(500);
+                robot.stopMotors();
+                turnRight(132,0.35);
+                sleep(500);
+                encoderDriveIntake(0.4,-20,-20,1);
+                sleep(800);
+                encoderDrive(0.5,37,37);
+                robot.hook.setPosition(0.6);
+                sleep(500);
+                turnLeft(75,-0.4);
+                turnRight(-98,0.4);
+                encoderDrive(0.6,-53,-53);
+                /*robot.intakeSetPower(-0.5);
+                sleep(2500);
+                 */
+                sleep(1000);
+                robot.stopMotors();
                 break;
             }
+        }
+
+        if (tfod != null) {
+            tfod.deactivate();
         }
 
     }
@@ -143,26 +206,26 @@ public class SonicRedStoneAuto extends LinearOpMode {
     private void turnRight(final float TARGET_ANGLE, double power){
         while(opModeIsActive()){
             float currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
-            if(currentAngle>=-TARGET_ANGLE){
-                robot.driveSetPower(-power,power);
+            while(currentAngle>=-TARGET_ANGLE){
+                currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
+                robot.driveSetPower(power, -power);
             }
-            else{
-                robot.stopMotors();
-                break;
-            }
+            robot.stopMotors();
+            break;
         }
     }
 
     private void turnLeft(final float TARGET_ANGLE, double power){
         while(opModeIsActive()){
             float currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
-            if(currentAngle<=TARGET_ANGLE){
-                robot.driveSetPower(power,-power);
+            while(currentAngle<=TARGET_ANGLE){
+                currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
+                robot.driveSetPower(-power,power);
+                telemetry.addData("Heading:",currentAngle);
+                telemetry.update();
             }
-            else{
-                robot.stopMotors();
-                break;
-            }
+            robot.stopMotors();
+            break;
         }
     }
 
@@ -184,7 +247,7 @@ public class SonicRedStoneAuto extends LinearOpMode {
     private void initTfod() {
         int tfodMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("tfodMonitorViewId", "id", hardwareMap.appContext.getPackageName());
         TFObjectDetector.Parameters tfodParameters = new TFObjectDetector.Parameters(tfodMonitorViewId);
-        tfodParameters.minimumConfidence = 0.4;
+        tfodParameters.minimumConfidence = 0.3;
         tfod = ClassFactory.getInstance().createTFObjectDetector(tfodParameters, vuforia);
         tfod.loadModelFromAsset(TFOD_MODEL_ASSET, LABEL_FIRST_ELEMENT, LABEL_SECOND_ELEMENT);
     }
@@ -193,6 +256,15 @@ public class SonicRedStoneAuto extends LinearOpMode {
         robot.hook.setPosition(0.9);
         robot.latch.setPosition(0);
     }
+
+    String formatAngle(AngleUnit angleUnit, double angle) {
+        return formatDegrees(AngleUnit.DEGREES.fromUnit(angleUnit, angle));
+    }
+
+    String formatDegrees(double degrees){
+        return String.format(Locale.getDefault(), "%.1f", AngleUnit.DEGREES.normalize(degrees));
+    }
+
     /*
     private void resetArm(int TARGET){
         if(opModeIsActive()){

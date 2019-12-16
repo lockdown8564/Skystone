@@ -21,8 +21,6 @@ public class SonicRedFoundParkAuto extends LinearOpMode {
         robot.init(hardwareMap);
         robot.driveSetMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         waitForStart();
-
-        releaseIntake();
         encoderDrive(0.7,-24,-24);
     }
 
