@@ -1,6 +1,9 @@
 package sonic_test;
 
+import android.media.MediaDrm;
+
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
@@ -21,7 +24,8 @@ import hallib.HalDashboard;
  * last updated: 12/4/19
  */
 
-@Autonomous(name = "menu test", group = "test")
+@Disabled
+@Autonomous(name = "sonic menu test", group = "test")
 public class SonicMenuTest extends LinearOpMode implements FtcMenu.MenuButtons{
     private SonicTestHardware robot = new SonicTestHardware();
     private enum Alliance{
