@@ -7,12 +7,12 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.Range;
 
 /**
- * mecanum drivetrain test for sonic
- * created: 12/27/19
+ * mecanum drivetrain test for shadow
+ * created: 12/7/19
  * last updated: 12/27/19
  */
-@Disabled
-@TeleOp(name="mecanum test",group="test")
+
+@TeleOp(name="shadow mec test",group="test")
 public class ShadowMecanumTest extends OpMode {
     private ShadowTestHardware robot = new ShadowTestHardware();
     private DriveSpeed driveSpeed = DriveSpeed.FAST;
