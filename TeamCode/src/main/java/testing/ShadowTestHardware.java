@@ -1,10 +1,7 @@
 package testing;
 
-import android.graphics.Color;
-
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.hardware.rev.RevBlinkinLedDriver;
-import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.DigitalChannel;
@@ -17,8 +14,8 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 public class ShadowTestHardware {
     DcMotor frontLeft, frontRight, backLeft, backRight = null;
     private DcMotor lIntake, rIntake = null;
-    DcMotor arm = null;
-    DcMotor winch = null;
+    //DcMotor arm = null;
+    //DcMotor winch = null;
     Servo found1, found2 = null;
     BNO055IMU imu;
     private static final double     COUNTS_PER_MOTOR_REV    = 723.24 ; //5201 Spur Gear 26:1
@@ -45,8 +42,8 @@ public class ShadowTestHardware {
         backRight = hwMap.get(DcMotor.class,"br");
         lIntake = hwMap.get(DcMotor.class,"lIn");
         rIntake = hwMap.get(DcMotor.class,"rIn");
-        arm = hwMap.get(DcMotor.class,"arm");
-        winch = hwMap.get(DcMotor.class,"winch");
+        //arm = hwMap.get(DcMotor.class,"arm");
+        //winch = hwMap.get(DcMotor.class,"winch");
 
         found1 = hwMap.get(Servo.class,"found1");
         found2 = hwMap.get(Servo.class,"found2");
@@ -57,16 +54,16 @@ public class ShadowTestHardware {
         parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
         imu.initialize(parameters);
 
-        frontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
-        backLeft.setDirection(DcMotorSimple.Direction.REVERSE);
-        frontRight.setDirection(DcMotorSimple.Direction.FORWARD);
+        frontLeft.setDirection(DcMotorSimple.Direction.FORWARD);
+        backLeft.setDirection(DcMotorSimple.Direction.FORWARD);
+        frontRight.setDirection(DcMotorSimple.Direction.REVERSE);
         backRight.setDirection(DcMotorSimple.Direction.FORWARD);
 
         lIntake.setDirection(DcMotorSimple.Direction.FORWARD);
         rIntake.setDirection(DcMotorSimple.Direction.REVERSE);
 
-        arm.setDirection(DcMotorSimple.Direction.FORWARD);
-        winch.setDirection(DcMotorSimple.Direction.FORWARD);
+        //arm.setDirection(DcMotorSimple.Direction.FORWARD);
+        //winch.setDirection(DcMotorSimple.Direction.FORWARD);
 
         frontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         backLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -76,8 +73,8 @@ public class ShadowTestHardware {
         lIntake.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rIntake.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
-        arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        winch.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        //arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        //winch.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         frontLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         backLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
@@ -87,12 +84,10 @@ public class ShadowTestHardware {
         lIntake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rIntake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        arm.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        winch.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        //arm.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        //winch.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         stopMotors();
-
-        //TODO: add some methods to help with teleop and auto
     }
     public void driveSetPower(double flPower, double frPower, double blPower, double brPower) {
         frontLeft.setPower(flPower);
@@ -102,25 +97,24 @@ public class ShadowTestHardware {
     }
 
     void mecanumDrive(double forward, double strafe, double turn, DriveDirection direction, double maxSpeed){
+        double num = 1;
         switch(direction){
             case FORWARD:{
-                flPower = forward + strafe + turn;
-                frPower = forward - strafe - turn;
-                blPower = forward - strafe + turn;
-                brPower = forward + strafe - turn;
+                num = 1;
                 break;
             }
-
             case REVERSE:{
-                blPower = forward + strafe + turn;
-                brPower = forward - strafe - turn;
-                flPower = forward - strafe + turn;
-                frPower = forward + strafe - turn;
+                num = -1;
                 break;
             }
         }
 
-        setSpeedsMec(flPower, frPower, blPower, brPower, maxSpeed);
+        flPower = forward + strafe + turn;
+        frPower = forward - strafe - turn;
+        blPower = forward - strafe + turn;
+        brPower = forward + strafe - turn;
+        setSpeedsMec(flPower * num, frPower * num,
+                blPower * num, brPower * num, maxSpeed);
     }
 
     void setSpeedsMec(double frontLeftPower, double frontRightPower, double backLeftPower, double backRightPower, double max){
@@ -164,8 +158,8 @@ public class ShadowTestHardware {
         driveSetPowerAll(0);
         lIntake.setPower(0);
         rIntake.setPower(0);
-        winch.setPower(0);
-        arm.setPower(0);
+        //winch.setPower(0);
+        //arm.setPower(0);
     }
 
     public void intakeSetPower(double power){

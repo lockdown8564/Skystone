@@ -1,6 +1,7 @@
 package testing;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
@@ -24,6 +25,7 @@ import hallib.HalDashboard;
  * last updated: 12/16/19
  */
 
+@Disabled
 @Autonomous(name = "menu test", group = "test")
 public class MenuTest extends LinearOpMode implements FtcMenu.MenuButtons{
     private enum Alliance{

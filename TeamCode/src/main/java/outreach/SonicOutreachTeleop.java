@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-import ftc8564.SonicHardware;
+import rip_sonic.SonicHardware;
 
 /**
  * teleop for Sonic, 2019-2020 skystone robot
