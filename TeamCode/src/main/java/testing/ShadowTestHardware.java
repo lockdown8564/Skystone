@@ -2,6 +2,7 @@ package testing;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.hardware.rev.RevBlinkinLedDriver;
+import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.DigitalChannel;
@@ -12,12 +13,15 @@ import java.util.Arrays;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 public class ShadowTestHardware {
-    DcMotor frontLeft, frontRight, backLeft, backRight = null;
+    private DcMotor frontLeft, frontRight, backLeft, backRight = null;
     private DcMotor lIntake, rIntake = null;
     //DcMotor arm = null;
-    //DcMotor winch = null;
+    DcMotor slide = null;
+    DcMotor swing = null;
     Servo found1, found2 = null;
-    BNO055IMU imu;
+    Servo grip = null;
+
+    private BNO055IMU imu;
     private static final double     COUNTS_PER_MOTOR_REV    = 723.24 ; //5201 Spur Gear 26:1
     private static final double     DRIVE_GEAR_REDUCTION    = 1.0 ;  //1:1
     private static final double     WHEEL_DIAMETER_INCHES   = 4.0 ;
@@ -28,6 +32,8 @@ public class ShadowTestHardware {
     Orientation angles;
     private HardwareMap hwMap;
     private double flPower, frPower, blPower, brPower = 0;
+    DigitalChannel touch = null;
+    ColorSensor color = null;
 
     public enum DriveDirection{
         FORWARD,
@@ -42,12 +48,15 @@ public class ShadowTestHardware {
         backRight = hwMap.get(DcMotor.class,"br");
         lIntake = hwMap.get(DcMotor.class,"lIn");
         rIntake = hwMap.get(DcMotor.class,"rIn");
-        //arm = hwMap.get(DcMotor.class,"arm");
-        //winch = hwMap.get(DcMotor.class,"winch");
+        swing = hwMap.get(DcMotor.class,"swing");
+        slide = hwMap.get(DcMotor.class,"slide");
 
         found1 = hwMap.get(Servo.class,"found1");
         found2 = hwMap.get(Servo.class,"found2");
+        grip = hwMap.get(Servo.class,"grip");
 
+        touch = hwMap.get(DigitalChannel.class, "touch");
+        color = hwMap.get(ColorSensor.class,"color");
         imu = hwMap.get(BNO055IMU.class, "imu");
 
         BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
@@ -60,32 +69,29 @@ public class ShadowTestHardware {
         backRight.setDirection(DcMotorSimple.Direction.FORWARD);
 
         lIntake.setDirection(DcMotorSimple.Direction.FORWARD);
-        rIntake.setDirection(DcMotorSimple.Direction.REVERSE);
+        rIntake.setDirection(DcMotorSimple.Direction.FORWARD);
 
         //arm.setDirection(DcMotorSimple.Direction.FORWARD);
-        //winch.setDirection(DcMotorSimple.Direction.FORWARD);
+        slide.setDirection(DcMotorSimple.Direction.FORWARD);
 
-        frontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        backLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        frontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        backRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        driveSetZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         lIntake.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rIntake.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
-        //arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        //winch.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        swing.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        slide.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
-        frontLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        backLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        frontRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        backRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        driveSetMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        driveSetMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         lIntake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rIntake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         //arm.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        //winch.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        slide.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
+        touch.setMode(DigitalChannel.Mode.INPUT);
 
         stopMotors();
     }
@@ -100,7 +106,6 @@ public class ShadowTestHardware {
         double num = 1;
         switch(direction){
             case FORWARD:{
-                num = 1;
                 break;
             }
             case REVERSE:{
@@ -117,7 +122,7 @@ public class ShadowTestHardware {
                 blPower * num, brPower * num, maxSpeed);
     }
 
-    void setSpeedsMec(double frontLeftPower, double frontRightPower, double backLeftPower, double backRightPower, double max){
+    private void setSpeedsMec(double frontLeftPower, double frontRightPower, double backLeftPower, double backRightPower, double max){
         double[] arr = {1.0, frontLeftPower, frontRightPower, backLeftPower, backRightPower};
         Arrays.sort(arr);
         double largest = arr[4];
@@ -140,6 +145,16 @@ public class ShadowTestHardware {
         backRight.setZeroPowerBehavior(zero);
     }
 
+    void releaseFoundation(){
+        found1.setPosition(1);
+        found2.setPosition(0);
+    }
+
+    void gripFoundation(){
+        found1.setPosition(0);
+        found2.setPosition(1);
+    }
+
     void driveSetTarget(int lTarget, int rTarget){
         frontLeft.setTargetPosition(lTarget);
         backLeft.setTargetPosition(lTarget);
@@ -154,15 +169,15 @@ public class ShadowTestHardware {
         backRight.setPower(power);
     }
 
-    public void stopMotors(){
+    void stopMotors(){
         driveSetPowerAll(0);
         lIntake.setPower(0);
         rIntake.setPower(0);
-        //winch.setPower(0);
+        slide.setPower(0);
         //arm.setPower(0);
     }
 
-    public void intakeSetPower(double power){
+    void intakeSetPower(double power){
         lIntake.setPower(power);
         rIntake.setPower(power);
     }
@@ -174,5 +189,4 @@ public class ShadowTestHardware {
     double getCPI(){
         return COUNTS_PER_INCH;
     }
-
 }
