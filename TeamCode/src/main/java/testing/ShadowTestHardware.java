@@ -13,15 +13,14 @@ import java.util.Arrays;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 public class ShadowTestHardware {
-    private DcMotor frontLeft, frontRight, backLeft, backRight = null;
+    DcMotor frontLeft, frontRight, backLeft, backRight = null;
     private DcMotor lIntake, rIntake = null;
-    //DcMotor arm = null;
     DcMotor slide = null;
     DcMotor swing = null;
     Servo found1, found2 = null;
     Servo grip = null;
 
-    private BNO055IMU imu;
+    BNO055IMU imu;
     private static final double     COUNTS_PER_MOTOR_REV    = 723.24 ; //5201 Spur Gear 26:1
     private static final double     DRIVE_GEAR_REDUCTION    = 1.0 ;  //1:1
     private static final double     WHEEL_DIAMETER_INCHES   = 4.0 ;
@@ -71,7 +70,7 @@ public class ShadowTestHardware {
         lIntake.setDirection(DcMotorSimple.Direction.FORWARD);
         rIntake.setDirection(DcMotorSimple.Direction.FORWARD);
 
-        //arm.setDirection(DcMotorSimple.Direction.FORWARD);
+        swing.setDirection(DcMotorSimple.Direction.FORWARD);
         slide.setDirection(DcMotorSimple.Direction.FORWARD);
 
         driveSetZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -88,8 +87,10 @@ public class ShadowTestHardware {
         lIntake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rIntake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        //arm.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        slide.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        swing.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        slide.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        swing.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        slide.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         touch.setMode(DigitalChannel.Mode.INPUT);
 
@@ -102,7 +103,7 @@ public class ShadowTestHardware {
         backRight.setPower(brPower);
     }
 
-    void mecanumDrive(double forward, double strafe, double turn, DriveDirection direction, double maxSpeed){
+    public void mecanumDrive(double forward, double strafe, double turn, DriveDirection direction, double maxSpeed){
         double num = 1;
         switch(direction){
             case FORWARD:{
@@ -145,14 +146,14 @@ public class ShadowTestHardware {
         backRight.setZeroPowerBehavior(zero);
     }
 
-    void releaseFoundation(){
+    void gripFoundation(){
         found1.setPosition(1);
         found2.setPosition(0);
     }
 
-    void gripFoundation(){
-        found1.setPosition(0);
-        found2.setPosition(1);
+    void releaseFoundation(){
+        found1.setPosition(0.05);
+        found2.setPosition(0.95);
     }
 
     void driveSetTarget(int lTarget, int rTarget){
@@ -169,12 +170,12 @@ public class ShadowTestHardware {
         backRight.setPower(power);
     }
 
-    void stopMotors(){
+    public void stopMotors(){
         driveSetPowerAll(0);
         lIntake.setPower(0);
         rIntake.setPower(0);
         slide.setPower(0);
-        //arm.setPower(0);
+        swing.setPower(0);
     }
 
     void intakeSetPower(double power){

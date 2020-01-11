@@ -1,16 +1,18 @@
 package outreach;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.DcMotor;
 
 import rip_sonic.SonicHardware;
 
 /**
- * teleop for Sonic, 2019-2020 skystone robot
+ * outreach teleop for sonic
+ * allows for slow driving and override on second controller
  * last updated 12/6/19
  * changes infrequently, only after files are tested
  */
+@Disabled
 @TeleOp(name="outreach teleop",group="test")
 public class SonicOutreachTeleop extends OpMode {
     private SonicHardware robot = new SonicHardware();

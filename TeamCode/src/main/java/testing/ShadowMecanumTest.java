@@ -26,6 +26,10 @@ public class ShadowMecanumTest extends OpMode {
     private double maxSpeed = 1;
     private double sign = 1;
     private double num = 0.1;
+    private int slideInitPosition = 0;
+    private int swingInitPosition = 0;
+    private int level = 1;
+    private int levelVar = 0;
 
     private enum DriveSpeed{
         FAST,
@@ -51,6 +55,8 @@ public class ShadowMecanumTest extends OpMode {
     public void init(){
         robot.init(hardwareMap);
         robot.touch.setMode(DigitalChannel.Mode.INPUT);
+        slideInitPosition = robot.slide.getCurrentPosition();
+        swingInitPosition = robot.swing.getCurrentPosition();
     }
 
     @Override
@@ -75,6 +81,14 @@ public class ShadowMecanumTest extends OpMode {
 
         else if(gamepad1.x){
             driveDirection = ShadowTestHardware.DriveDirection.REVERSE;
+        }
+
+        if(gamepad1.a){
+            robot.gripFoundation();
+        }
+
+        else if(gamepad1.b){
+            robot.releaseFoundation();
         }
 
         if(Math.abs(gamepad1.left_stick_y) > deadzone){
@@ -113,19 +127,97 @@ public class ShadowMecanumTest extends OpMode {
             robot.intakeSetPower(0);
         }
 
-        if(gamepad2.x){
-            robot.gripFoundation();
+        //scoring
+        /*if(gamepad2.x){
+            switch(level){
+                case 1: {
+                    levelVar = -100;
+                    break;
+                }
+                case 2: {
+                    levelVar = 100;
+                    break;
+                }
+                case 3: {
+                    levelVar = 200;
+                    break;
+                }
+                case 4: {
+                    levelVar = 300;
+                    break;
+                }
+                case 5: {
+                    levelVar = 400;
+                    break;
+                }
+                case 6: {
+                    levelVar = 500;
+                    break;
+                }
+            }
+
+            robot.grip.setPosition(0.8);
+            num = 0.16;
+
+            robot.slide.setTargetPosition(slideInitPosition + 500);
+            robot.slide.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.slide.setPower(0.4);
+            while(robot.slide.isBusy()){
+            }
+
+            robot.stopMotors();
+            robot.slide.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
+            /*robot.swing.setTargetPosition(swingInitPosition + 120);
+            robot.swing.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.swing.setPower(-0.4);
+            while(robot.swing.isBusy()){
+            }
+
+            robot.stopMotors();
+            robot.swing.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
+            robot.slide.setTargetPosition(slideInitPosition + levelVar);
+            robot.slide.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.slide.setPower(0.4);
+            while(robot.slide.isBusy()){
+            }
+
+            robot.stopMotors();
+
+            robot.slide.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         }
+
+        //original
         else if(gamepad2.y){
-            robot.releaseFoundation();
-        }
+            robot.grip.setPosition(0);
+            num = 0.1;
+
+            /*robot.swing.setTargetPosition(swingInitPosition);
+            robot.swing.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.swing.setPower(0.4);
+            while(robot.swing.isBusy()){
+            }
+
+            robot.stopMotors();
+            robot.swing.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
+            robot.slide.setTargetPosition(slideInitPosition);
+            robot.slide.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.slide.setPower(0.4);
+            while(robot.slide.isBusy()){
+            }
+
+            robot.stopMotors();
+            robot.slide.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        }*/
 
         if (gamepad2.left_stick_y != 0) {
             robot.slide.setPower(-gamepad2.left_stick_y);
         }
 
         else {
-            robot.slide.setPower(0.1);
+            robot.slide.setPower(0.0001);
         }
 
         if(gamepad2.a){
@@ -135,16 +227,16 @@ public class ShadowMecanumTest extends OpMode {
 
         else if(gamepad2.b){
             robot.grip.setPosition(0.8);
-            num = 0.18;
+            num = 0.16;
         }
 
         if(gamepad2.right_stick_y != 0) {
-            robot.swing.setPower(gamepad2.right_stick_y * 0.5);
+            robot.swing.setPower(gamepad2.right_stick_y);
             sign = Math.signum(gamepad2.right_stick_y);
         }
 
         else{
-            robot.swing.setPower(num * sign);
+            robot.swing.setPower(0);
         }
 
         if (robot.touch.getState()) {
@@ -162,7 +254,17 @@ public class ShadowMecanumTest extends OpMode {
             hopper = Hopper.FALSE;
         }
 
+        if(gamepad2.right_bumper){
+            level++;
+        }
+        else if(gamepad2.right_trigger != 0){
+            level--;
+        }
+
         telemetry.addData("Hopper:",hopper.toString());
+        telemetry.addData("Level:",level);
+        telemetry.addData("Swing Pos:",robot.swing.getCurrentPosition());
+        telemetry.addData("Slide Pos:",robot.slide.getCurrentPosition());
         telemetry.update();
     }
 
