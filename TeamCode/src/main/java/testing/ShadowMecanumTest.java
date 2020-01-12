@@ -267,7 +267,6 @@ public class ShadowMecanumTest extends OpMode {
         }
 
         telemetry.addData("Hopper:",hopper.toString());
-        telemetry.addData("Level:",level);
         telemetry.addData("Swing Pos:",robot.swing.getCurrentPosition());
         telemetry.addData("Slide Pos:",robot.slide.getCurrentPosition());
         telemetry.update();
