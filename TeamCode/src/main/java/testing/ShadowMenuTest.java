@@ -25,6 +25,7 @@ import hallib.HalDashboard;
  * last updated: 1/2/20
  */
 
+@Disabled
 @Autonomous(name = "shadow menu test", group = "test")
 public class ShadowMenuTest extends LinearOpMode implements FtcMenu.MenuButtons{
     private enum Alliance{

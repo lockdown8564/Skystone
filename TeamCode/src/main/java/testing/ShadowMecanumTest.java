@@ -26,10 +26,10 @@ public class ShadowMecanumTest extends OpMode {
     private double maxSpeed = 1;
     private double sign = 1;
     private double num = 0.1;
-    private int slideInitPosition = 0;
+    /*private int slideInitPosition = 0;
     private int swingInitPosition = 0;
     private int level = 1;
-    private int levelVar = 0;
+    private int levelVar = 0;*/
 
     private enum DriveSpeed{
         FAST,
@@ -55,8 +55,8 @@ public class ShadowMecanumTest extends OpMode {
     public void init(){
         robot.init(hardwareMap);
         robot.touch.setMode(DigitalChannel.Mode.INPUT);
-        slideInitPosition = robot.slide.getCurrentPosition();
-        swingInitPosition = robot.swing.getCurrentPosition();
+        /*slideInitPosition = robot.slide.getCurrentPosition();
+        swingInitPosition = robot.swing.getCurrentPosition();*/
     }
 
     @Override
@@ -92,7 +92,7 @@ public class ShadowMecanumTest extends OpMode {
         }
 
         if(Math.abs(gamepad1.left_stick_y) > deadzone){
-            forward = gamepad1.left_stick_y;
+            forward = -gamepad1.left_stick_y;
         }
         else{
             forward = 0;
@@ -107,10 +107,10 @@ public class ShadowMecanumTest extends OpMode {
 
         if(Math.abs(gamepad1.right_stick_x) > deadzone){
             if(driveDirection == ShadowTestHardware.DriveDirection.FORWARD){
-                turn = gamepad1.right_stick_x;
+                turn = -gamepad1.right_stick_x;
             }
             else{
-                turn = -gamepad1.right_stick_x;
+                turn = gamepad1.right_stick_x;
             }
         }
         else{
@@ -259,7 +259,7 @@ public class ShadowMecanumTest extends OpMode {
             hopper = Hopper.FALSE;
         }
 
-        if(gamepad2.right_bumper){
+        /*if(gamepad2.right_bumper){
             level++;
         }
         else if(gamepad2.right_trigger != 0){
@@ -269,7 +269,7 @@ public class ShadowMecanumTest extends OpMode {
         telemetry.addData("Hopper:",hopper.toString());
         telemetry.addData("Swing Pos:",robot.swing.getCurrentPosition());
         telemetry.addData("Slide Pos:",robot.slide.getCurrentPosition());
-        telemetry.update();
+        telemetry.update();*/
     }
 
     @Override

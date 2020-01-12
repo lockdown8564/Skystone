@@ -1,9 +1,11 @@
 package testing;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
+@Disabled
 @Autonomous (name = "nr 40 test", group = "test")
 public class ShadowNRTest extends LinearOpMode {
     @Override

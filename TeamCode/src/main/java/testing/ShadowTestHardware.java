@@ -21,7 +21,7 @@ public class ShadowTestHardware {
     Servo grip = null;
 
     BNO055IMU imu;
-    private static final double     COUNTS_PER_MOTOR_REV    = 723.24 ; //5201 Spur Gear 26:1
+    private static final double     COUNTS_PER_MOTOR_REV    = 1120 ; //neverest 40
     private static final double     DRIVE_GEAR_REDUCTION    = 1.0 ;  //1:1
     private static final double     WHEEL_DIAMETER_INCHES   = 3.93701 ;
     private static final double     COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION)/
@@ -65,7 +65,7 @@ public class ShadowTestHardware {
         frontLeft.setDirection(DcMotorSimple.Direction.FORWARD);
         backLeft.setDirection(DcMotorSimple.Direction.FORWARD);
         frontRight.setDirection(DcMotorSimple.Direction.REVERSE);
-        backRight.setDirection(DcMotorSimple.Direction.FORWARD);
+        backRight.setDirection(DcMotorSimple.Direction.REVERSE);
 
         lIntake.setDirection(DcMotorSimple.Direction.FORWARD);
         rIntake.setDirection(DcMotorSimple.Direction.FORWARD);
@@ -157,7 +157,7 @@ public class ShadowTestHardware {
     }
 
     void releaseFoundation(){
-        found1.setPosition(0.05);
+        found1.setPosition(0.25);
         found2.setPosition(0.95);
     }
 

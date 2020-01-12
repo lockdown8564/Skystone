@@ -38,10 +38,10 @@ import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocaliz
 /**
  * testing autonomous for shadow
  * created: 1/2/20
- * last updated: 1/2/20
+ * last updated: 1/11/20
  */
 
-@Autonomous(name = "shadow auto test", group = "test")
+@Autonomous(name = "red depot 1 stone park", group = "test")
 public class ShadowAutoTest extends LinearOpMode implements FtcMenu.MenuButtons{
     private ShadowTestHardware robot = new ShadowTestHardware();
     private static final String TFOD_MODEL_ASSET = "Skystone.tflite";
@@ -93,7 +93,7 @@ public class ShadowAutoTest extends LinearOpMode implements FtcMenu.MenuButtons{
 
         waitForStart();
 
-        encoderDrive(0.3,18,18);
+        encoderDrive(0.3,-18,-18);
         sleep(1000);
 
         if (tfod != null){
@@ -117,13 +117,15 @@ public class ShadowAutoTest extends LinearOpMode implements FtcMenu.MenuButtons{
 
         switch(skystone){
             case LEFT:{
-                encoderDrive(0.3,0.5,0.5);
+                encoderDrive(0.3,-10,-10);
                 robot.strafe(-1, 0.4);
                 sleep(500);
                 robot.stopMotors();
                 robot.found2.setPosition(0);
                 sleep(1000);
-                encoderDrive(-0.3,-18,-18);
+                encoderDrive(0.3,15,15);
+                turnRight(90,0.3);
+                encoderDrive(0.5,-50,-50);
                 break;
             }
             case MIDDLE:{
@@ -182,7 +184,7 @@ public class ShadowAutoTest extends LinearOpMode implements FtcMenu.MenuButtons{
             float currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
             while(currentAngle>=-TARGET_ANGLE){
                 currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
-                robot.driveSetPower(power, -power, power, -power);
+                robot.driveSetPower(-power, power, -power, power);
             }
             robot.stopMotors();
             break;
@@ -194,7 +196,7 @@ public class ShadowAutoTest extends LinearOpMode implements FtcMenu.MenuButtons{
             float currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
             while(currentAngle<=TARGET_ANGLE){
                 currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
-                robot.driveSetPower(-power, power, -power, power);
+                robot.driveSetPower(power, -power, power, -power);
                 telemetry.addData("Heading:",currentAngle);
                 telemetry.update();
             }

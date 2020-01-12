@@ -1,9 +1,11 @@
 package testing;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
+@Disabled
 @TeleOp(name = "nr test", group = "test")
 public class ShadowNRTeleTest extends OpMode {
     DcMotor motor, bl = null;

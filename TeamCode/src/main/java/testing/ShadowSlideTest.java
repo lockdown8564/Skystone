@@ -8,11 +8,12 @@ import com.qualcomm.robotcore.hardware.DigitalChannel;
 import com.qualcomm.robotcore.util.Range;
 
 /**
- * mecanum drivetrain test for shadow
+ * slide test
  * created: 12/28/19
  * last updated: 12/28/19
  */
 
+@Disabled
 @TeleOp(name="shadow slide test",group="test")
 public class ShadowSlideTest extends OpMode {
     private ShadowTestHardware robot = new ShadowTestHardware();
