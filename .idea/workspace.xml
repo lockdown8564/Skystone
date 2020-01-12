@@ -5,24 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3d1bd61-beb2-4612-ba41-0aaf941b8865" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/outreach/ShadowOutreachTeleop.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowAutoTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowMenuTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FtcRobotController/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/FtcRobotController/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TeamCode/TeamCode.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/TeamCode.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/outreach/SonicOutreachTeleop$DriveDirection.class" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/outreach/SonicOutreachTeleop$DriveDirection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/outreach/SonicOutreachTeleop$DriveMode.class" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/outreach/SonicOutreachTeleop$DriveMode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/outreach/SonicOutreachTeleop$DriveSpeed.class" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/outreach/SonicOutreachTeleop$DriveSpeed.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/outreach/SonicOutreachTeleop.class" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/outreach/SonicOutreachTeleop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/0/outreach/SonicOutreachTeleop$DriveDirection.dex" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/0/outreach/SonicOutreachTeleop$DriveDirection.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/0/outreach/SonicOutreachTeleop$DriveMode.dex" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/0/outreach/SonicOutreachTeleop$DriveMode.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/0/outreach/SonicOutreachTeleop$DriveSpeed.dex" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/0/outreach/SonicOutreachTeleop$DriveSpeed.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/0/outreach/SonicOutreachTeleop.dex" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/0/outreach/SonicOutreachTeleop.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/0/testing/ShadowMecanumTest$DriveSpeed.dex" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/0/testing/ShadowMecanumTest$DriveSpeed.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/0/testing/ShadowMecanumTest$Hopper.dex" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/0/testing/ShadowMecanumTest$Hopper.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/0/testing/ShadowTestHardware$1.dex" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/0/testing/ShadowTestHardware$1.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/0/testing/ShadowTestHardware$DriveDirection.dex" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/0/testing/ShadowTestHardware$DriveDirection.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/outreach/SonicOutreachTeleop.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/outreach/SonicOutreachTeleop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sl/values-sl 2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/mergeDebugResources/merged.dir/values-vi/values-vi 2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/sonic_test/SonicRedStoneAuto.class" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/sonic_test/SonicRedStoneAuto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/sonic_test/SonicSkystoneDetectTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/sonic_test/SonicSkystoneDetectTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/testing/SonicVuforiaTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/sonic_test/SonicRedStoneAuto.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/sonic_test/SonicRedStoneAuto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/sonic_test/SonicSkystoneDetectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/sonic_test/SonicSkystoneDetectTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/sonic_test/SonicVuforiaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/sonic_test/SonicVuforiaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowAutoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowAutoTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowMecanumTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowMecanumTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowTestHardware.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowTestHardware.java" afterDir="false" />
     </list>
@@ -45,11 +39,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowTestHardware.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="155" column="31" selection-start-line="155" selection-start-column="31" selection-end-line="155" selection-end-column="31" />
+            <state relative-caret-position="167">
+              <caret line="138" lean-forward="true" selection-start-line="138" selection-end-line="138" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -57,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowMecanumTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2450">
-              <caret line="244" lean-forward="true" selection-start-line="244" selection-end-line="244" />
+            <state relative-caret-position="182">
+              <caret line="69" column="26" selection-start-line="69" selection-start-column="26" selection-end-line="69" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -69,8 +63,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowAutoTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="593">
-              <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
+            <state relative-caret-position="905">
+              <caret line="168" selection-start-line="168" selection-end-line="168" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/sonic_test/SonicRedStoneAuto.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="563">
+              <caret line="143" column="24" lean-forward="true" selection-start-line="143" selection-start-column="24" selection-end-line="143" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -138,9 +141,9 @@
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowMenuTest.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/outreach/ShadowOutreachTeleop.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/outreach/SonicOutreachTeleop.java" />
+        <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowTestHardware.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowAutoTest.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowMecanumTest.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowTestHardware.java" />
       </list>
     </option>
   </component>
@@ -154,10 +157,25 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Skystone" type="1abcf292:AndroidViewProjectNode" />
+              <item name="TeamCode" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="Skystone" type="1abcf292:AndroidViewProjectNode" />
+              <item name="TeamCode" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -425,13 +443,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/rip_sonic/SonicAutonomous.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-131">
-          <caret line="18" column="3" lean-forward="true" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/rip_sonic/SonicHardware.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -518,13 +529,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/sonic_test/SonicRedStoneAuto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="231" column="5" lean-forward="true" selection-start-line="172" selection-start-column="1" selection-end-line="231" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/sonic_test/SonicRedStoneParkAuto.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -539,27 +543,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowAutoTest.java">
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/rip_sonic/SonicAutonomous.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="593">
-          <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
+        <state relative-caret-position="-67">
+          <caret line="18" column="3" lean-forward="true" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowMecanumTest.java">
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/sonic_test/SonicRedStoneAuto.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2450">
-          <caret line="244" lean-forward="true" selection-start-line="244" selection-end-line="244" />
+        <state relative-caret-position="563">
+          <caret line="143" column="24" lean-forward="true" selection-start-line="143" selection-start-column="24" selection-end-line="143" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowAutoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="905">
+          <caret line="168" selection-start-line="168" selection-end-line="168" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowTestHardware.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="155" column="31" selection-start-line="155" selection-start-column="31" selection-end-line="155" selection-end-column="31" />
+        <state relative-caret-position="167">
+          <caret line="138" lean-forward="true" selection-start-line="138" selection-end-line="138" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowMecanumTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="69" column="26" selection-start-line="69" selection-start-column="26" selection-end-line="69" selection-end-column="26" />
         </state>
       </provider>
     </entry>

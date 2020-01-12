@@ -23,7 +23,7 @@ public class ShadowTestHardware {
     BNO055IMU imu;
     private static final double     COUNTS_PER_MOTOR_REV    = 723.24 ; //5201 Spur Gear 26:1
     private static final double     DRIVE_GEAR_REDUCTION    = 1.0 ;  //1:1
-    private static final double     WHEEL_DIAMETER_INCHES   = 4.0 ;
+    private static final double     WHEEL_DIAMETER_INCHES   = 3.93701 ;
     private static final double     COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION)/
             (WHEEL_DIAMETER_INCHES * Math.PI);
     /*RevBlinkinLedDriver ledDriver;
@@ -130,6 +130,11 @@ public class ShadowTestHardware {
 
         driveSetPower((frontLeftPower/largest) * max, (frontRightPower/largest) * max,
                 (backLeftPower/largest) * max, (backRightPower/largest) * max);
+    }
+
+    //- is left, + is right
+    void strafe(int direction, double power){
+        driveSetPower(power * direction, -power * direction, -power * direction, power * direction);
     }
 
     void driveSetMode(DcMotor.RunMode mode){

@@ -74,12 +74,12 @@ public class SonicRedStoneAuto extends LinearOpMode {
                         if(recognition.getLeft() < 100){
                             skystone = Skystone.LEFT;
                         }
-                        else if(recognition.getLeft() > 100 && recognition.getLeft() < 370){
+                        else {
                             skystone = Skystone.MIDDLE;
                         }
-                        else{
-                            skystone = Skystone.RIGHT;
-                        }
+                    }
+                    else {
+                        skystone = Skystone.RIGHT;
                     }
                 }
             }

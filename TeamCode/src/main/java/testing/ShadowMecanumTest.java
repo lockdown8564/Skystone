@@ -67,7 +67,7 @@ public class ShadowMecanumTest extends OpMode {
     public void loop(){
         if(gamepad1.right_trigger != 0){
             driveSpeed = DriveSpeed.SLOW;
-            maxSpeed = 0.5;
+            maxSpeed = 0.3;
         }
 
         else {
@@ -106,7 +106,12 @@ public class ShadowMecanumTest extends OpMode {
         }
 
         if(Math.abs(gamepad1.right_stick_x) > deadzone){
-            turn = gamepad1.right_stick_x;
+            if(driveDirection == ShadowTestHardware.DriveDirection.FORWARD){
+                turn = gamepad1.right_stick_x;
+            }
+            else{
+                turn = -gamepad1.right_stick_x;
+            }
         }
         else{
             turn = 0;
