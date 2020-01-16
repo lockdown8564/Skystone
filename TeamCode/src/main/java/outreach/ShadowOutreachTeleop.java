@@ -6,23 +6,13 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import testing.ShadowTestHardware;
 
-@Disabled
-@TeleOp(name="shadow outreach teleop", group = "test")
+@TeleOp(name="outreach teleop", group = "test")
 public class ShadowOutreachTeleop extends OpMode {
     private ShadowTestHardware robot = new ShadowTestHardware();
     private ShadowTestHardware.DriveDirection driveDirection = ShadowTestHardware.DriveDirection.FORWARD;
 
-    private double flPower, frPower, blPower, brPower = 0;
     private double forward, strafe, turn = 0;
     private double deadzone = 0.1;
-    private double maxSpeed = 1;
-    private double sign = 1;
-    private double num = 0.1;
-
-    private enum DriveSpeed{
-        FAST,
-        SLOW
-    }
 
     /**
      Whether or not the hopper contains a stone
@@ -58,28 +48,59 @@ public class ShadowOutreachTeleop extends OpMode {
             driveDirection = ShadowTestHardware.DriveDirection.REVERSE;
         }
 
-        if(Math.abs(gamepad1.left_stick_y) > deadzone){
-            forward = gamepad1.left_stick_y;
-        }
-        else{
-            forward = 0;
+        if(gamepad2.right_trigger != 0) {
+            if(Math.abs(gamepad2.left_stick_y) > deadzone){
+                forward = gamepad2.left_stick_y;
+            }
+            else{
+                forward = 0;
+            }
+
+            if(Math.abs(gamepad2.left_stick_x) > deadzone){
+                strafe = gamepad2.left_stick_x;
+            }
+            else{
+                strafe = 0;
+            }
+
+            if(Math.abs(gamepad2.right_stick_x) > deadzone){
+                turn = gamepad2.right_stick_x;
+            }
+            else{
+                turn = 0;
+            }
+
+            robot.mecanumDrive(forward, strafe, turn, driveDirection, 1);
         }
 
-        if(Math.abs(gamepad1.left_stick_x) > deadzone){
-            strafe = gamepad1.left_stick_x;
-        }
-        else{
-            strafe = 0;
+        else if (gamepad1.left_stick_y != 0 || gamepad1.right_stick_x != 0 || gamepad1.left_stick_x != 0 || gamepad1.right_stick_y != 0){
+            if(Math.abs(gamepad1.left_stick_y) > deadzone){
+                forward = gamepad1.left_stick_y;
+            }
+            else{
+                forward = 0;
+            }
+
+            if(Math.abs(gamepad1.left_stick_x) > deadzone){
+                strafe = gamepad1.left_stick_x;
+            }
+            else{
+                strafe = 0;
+            }
+
+            if(Math.abs(gamepad1.right_stick_x) > deadzone){
+                turn = gamepad1.right_stick_x;
+            }
+            else{
+                turn = 0;
+            }
+
+            robot.mecanumDrive(forward, strafe, turn, driveDirection, 0.7);
         }
 
-        if(Math.abs(gamepad1.right_stick_x) > deadzone){
-            turn = gamepad1.right_stick_x;
+        else {
+            robot.stopMotors();
         }
-        else{
-            turn = 0;
-        }
-
-        robot.mecanumDrive(forward, strafe, turn, driveDirection, 0.7);
     }
 
     @Override
