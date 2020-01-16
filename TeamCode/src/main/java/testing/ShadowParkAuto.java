@@ -38,7 +38,7 @@ import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocaliz
 /**
  * park ONLY auto
  * created: 1/11/20
- * last updated: 1/11/20
+ * last updated: 1/12/20
  */
 
 @Autonomous(name = "park wall", group = "test")

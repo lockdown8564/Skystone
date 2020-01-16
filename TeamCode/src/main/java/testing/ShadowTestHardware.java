@@ -23,7 +23,7 @@ public class ShadowTestHardware {
     BNO055IMU imu;
     private static final double     COUNTS_PER_MOTOR_REV    = 1120 ; //neverest 40
     private static final double     DRIVE_GEAR_REDUCTION    = 1.0 ;  //1:1
-    private static final double     WHEEL_DIAMETER_INCHES   = 3.93701 ;
+    private static final double     WHEEL_DIAMETER_INCHES   = 3.93701 ; //10 cm
     private static final double     COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION)/
             (WHEEL_DIAMETER_INCHES * Math.PI);
     /*RevBlinkinLedDriver ledDriver;

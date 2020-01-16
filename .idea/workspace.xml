@@ -5,30 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3d1bd61-beb2-4612-ba41-0aaf941b8865" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowBlueFoundAuto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowDTEncoderTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowParkAuto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowParkFar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowRedFoundAuto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController/build/.transforms/239076919d47c819d04c5c275c301c87/classes/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/FtcRobotController/build/.transforms/239076919d47c819d04c5c275c301c87/classes/classes.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorDigitalTouch.java" beforeDir="false" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorDigitalTouch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/sonic_test/SonicVuforiaTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/sonic_test/SonicVuforiaTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/testing/ShadowMenuTest$Alliance.class" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/testing/ShadowMenuTest$Alliance.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/testing/ShadowMenuTest$Skystones.class" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/testing/ShadowMenuTest$Skystones.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/testing/ShadowMenuTest$StartingSide.class" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/testing/ShadowMenuTest$StartingSide.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/testing/ShadowMenuTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/testing/ShadowMenuTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/testing/ShadowNRTeleTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/testing/ShadowNRTeleTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/testing/ShadowNRTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/testing/ShadowNRTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/0/testing/ShadowNRTeleTest.dex" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/0/testing/ShadowNRTeleTest.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/0/testing/ShadowNRTest.dex" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/0/testing/ShadowNRTest.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/sonic_test/SonicVuforiaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/sonic_test/SonicVuforiaTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowAutoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowAutoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowMecanumTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowMecanumTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/TeamCode.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/TeamCode.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/testing/ShadowBlueFoundAuto.class" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/testing/ShadowBlueFoundAuto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/testing/ShadowDTEncoderTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/testing/ShadowDTEncoderTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/testing/ShadowParkAuto.class" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/testing/ShadowParkAuto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/testing/ShadowParkFar.class" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/testing/ShadowParkFar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/testing/ShadowRedFoundAuto.class" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/classes/testing/ShadowRedFoundAuto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/0/testing/ShadowBlueFoundAuto.dex" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/0/testing/ShadowBlueFoundAuto.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/0/testing/ShadowDTEncoderTest.dex" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/0/testing/ShadowDTEncoderTest.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/0/testing/ShadowParkAuto.dex" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/0/testing/ShadowParkAuto.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/0/testing/ShadowParkFar.dex" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/0/testing/ShadowParkFar.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/0/testing/ShadowRedFoundAuto.dex" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/0/testing/ShadowRedFoundAuto.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowBlueFoundAuto.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowBlueFoundAuto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowMenuTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowMenuTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowNRTeleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowNRTeleTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowNRTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowNRTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowSlideTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowSlideTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowParkAuto.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowParkAuto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowRedFoundAuto.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowRedFoundAuto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowTestHardware.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowTestHardware.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,7 +33,6 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="ZY224N536M" />
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
@@ -53,8 +45,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowTestHardware.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-220">
-              <caret line="157" lean-forward="true" selection-start-line="157" selection-end-line="157" />
+            <state relative-caret-position="-1051">
+              <caret line="34" column="19" lean-forward="true" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -62,51 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowRedFoundAuto.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="55" column="30" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowBlueFoundAuto.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1232">
-              <caret line="120" column="5" selection-start-line="120" selection-start-column="5" selection-end-line="120" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowParkAuto.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="52" column="30" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowParkFar.java">
+        <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowMenuTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="52" column="30" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowMecanumTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-931">
-              <caret line="113" column="13" lean-forward="true" selection-start-line="113" selection-start-column="13" selection-end-line="113" selection-end-column="13" />
-              <folding>
-                <element signature="e#7395#7396#0" expanded="true" />
-                <element signature="e#7429#7430#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="57">
+              <caret line="131" column="30" selection-start-line="131" selection-start-column="30" selection-end-line="131" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -163,20 +115,20 @@
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/outreach/ShadowOutreachTeleop.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/outreach/SonicOutreachTeleop.java" />
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorDigitalTouch.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowMenuTest.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowSlideTest.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowTFODTest.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/sonic_test/SonicVuforiaTest.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowNRTeleTest.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowNRTest.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowMecanumTest.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowTestHardware.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowAutoTest.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowBlueFoundAuto.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowRedFoundAuto.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowDTEncoderTest.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowParkAuto.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowParkFar.java" />
+        <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowTestHardware.java" />
+        <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowParkAuto.java" />
+        <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowRedFoundAuto.java" />
+        <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowBlueFoundAuto.java" />
+        <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowMenuTest.java" />
       </list>
     </option>
   </component>
@@ -192,7 +144,6 @@
     <panes>
       <pane id="PackagesPane" />
       <pane id="ProjectPane" />
-      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -215,6 +166,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -335,10 +287,10 @@
       <window_info anchor="bottom" id="Version Control" order="0" sideWeight="0.49924472" weight="0.32867134" />
       <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.49924472" weight="0.32867134" />
       <window_info anchor="bottom" id="TODO" order="2" sideWeight="0.49924472" weight="0.32867134" />
-      <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.49924472" visible="true" weight="0.32867134" />
+      <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.49924472" weight="0.32342657" />
       <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.50151056" side_tool="true" weight="0.31643358" />
-      <window_info anchor="bottom" id="Build" order="5" sideWeight="0.49848944" weight="0.31643358" />
-      <window_info anchor="bottom" id="Android Profiler" order="6" weight="0.32867134" />
+      <window_info anchor="bottom" id="Build" order="5" sideWeight="0.49848944" visible="true" weight="0.31643358" />
+      <window_info anchor="bottom" id="Android Profiler" order="6" show_stripe_button="false" weight="0.32867134" />
       <window_info anchor="bottom" id="Run" order="7" weight="0.32867134" />
       <window_info anchor="bottom" id="Debug" order="8" />
       <window_info anchor="bottom" id="Find" order="9" />
@@ -601,59 +553,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowTestHardware.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-220">
-          <caret line="157" lean-forward="true" selection-start-line="157" selection-end-line="157" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowAutoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="205" column="5" selection-start-line="205" selection-start-column="5" selection-end-line="205" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/MenuTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-280">
           <caret line="27" column="9" lean-forward="true" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowMenuTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-27">
-          <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowMecanumTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-931">
-          <caret line="113" column="13" lean-forward="true" selection-start-line="113" selection-start-column="13" selection-end-line="113" selection-end-column="13" />
-          <folding>
-            <element signature="e#7395#7396#0" expanded="true" />
-            <element signature="e#7429#7430#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowRedFoundAuto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="55" column="30" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowBlueFoundAuto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1232">
-          <caret line="120" column="5" selection-start-line="120" selection-start-column="5" selection-end-line="120" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -667,17 +570,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowParkAuto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="52" column="30" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowParkFar.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="52" column="30" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowParkAuto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="40" column="21" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowRedFoundAuto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="109" selection-start-line="109" selection-end-line="133" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowBlueFoundAuto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="56" column="21" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowAutoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="71" column="5" lean-forward="true" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowMecanumTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="29" column="38" lean-forward="true" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowTestHardware.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1051">
+          <caret line="34" column="19" lean-forward="true" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowMenuTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="131" column="30" selection-start-line="131" selection-start-column="30" selection-end-line="131" selection-end-column="30" />
         </state>
       </provider>
     </entry>

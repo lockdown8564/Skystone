@@ -36,12 +36,12 @@ import static org.firstinspires.ftc.robotcore.external.navigation.AxesReference.
 import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer.CameraDirection.BACK;
 
 /**
- * red foundation auto no skystones
+ * blue foundation auto no skystones
  * created: 1/11/20
- * last updated: 1/11/20
+ * last updated: 1/12/20
  */
 
-@Autonomous(name = "blue found park wall", group = "test")
+@Autonomous(name = "blue found park", group = "test")
 public class ShadowBlueFoundAuto extends LinearOpMode{
     private ShadowTestHardware robot = new ShadowTestHardware();
 
@@ -54,7 +54,7 @@ public class ShadowBlueFoundAuto extends LinearOpMode{
         robot.gripFoundation();
         sleep(1000);
         encoderDrive(0.5,11,11);
-        turnLeft(84,0.3);
+        turnLeftPivot(84,0.3);
         encoderDrive(0.5,-15,-15);
         robot.releaseFoundation();
         encoderDrive(0.5,43,43);
@@ -101,6 +101,32 @@ public class ShadowBlueFoundAuto extends LinearOpMode{
             while(currentAngle>=-TARGET_ANGLE){
                 currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
                 robot.driveSetPower(-power, power, -power, power);
+            }
+            robot.stopMotors();
+            break;
+        }
+    }
+
+    private void turnLeftPivot(final float TARGET_ANGLE, double power){
+        while(opModeIsActive()){
+            float currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
+            while(currentAngle<=TARGET_ANGLE){
+                currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
+                robot.driveSetPower(power, 0, power, 0);
+                telemetry.addData("Heading:",currentAngle);
+                telemetry.update();
+            }
+            robot.stopMotors();
+            break;
+        }
+    }
+
+    private void turnRightPivot(final float TARGET_ANGLE, double power){
+        while(opModeIsActive()){
+            float currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
+            while(currentAngle>=-TARGET_ANGLE){
+                currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
+                robot.driveSetPower(0, power, 0, power);
             }
             robot.stopMotors();
             break;
