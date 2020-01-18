@@ -25,7 +25,6 @@ import hallib.HalDashboard;
  * last updated: 1/16/20
  */
 
-@Disabled
 @Autonomous(name = "shadow menu test", group = "test")
 public class ShadowMenuTest extends LinearOpMode implements FtcMenu.MenuButtons{
     private enum Alliance{
@@ -192,9 +191,9 @@ public class ShadowMenuTest extends LinearOpMode implements FtcMenu.MenuButtons{
         foundationMenu.addChoice("Yes", Foundation.YES, true, parkMenu);
         foundationMenu.addChoice("No", Foundation.NO, false, parkMenu);
 
-        parkMenu.addChoice("Wall", Park.WALL, true);
-        parkMenu.addChoice("Bridge", Park.BRIDGE, false);
-        parkMenu.addChoice("No Park", Park.NONE, false);
+        parkMenu.addChoice("Wall", Park.WALL, true, delayMenu);
+        parkMenu.addChoice("Bridge", Park.BRIDGE, false, delayMenu);
+        parkMenu.addChoice("No Park", Park.NONE, false, delayMenu);
 
         delayMenu.setChildMenu(null);
 
@@ -207,12 +206,12 @@ public class ShadowMenuTest extends LinearOpMode implements FtcMenu.MenuButtons{
         park = parkMenu.getCurrentChoiceObject();
         delay = (int) delayMenu.getCurrentValue();
 
-        dashboard.displayPrintf(10, "Alliance: %s (%s)", allianceMenu.getCurrentChoiceText(), alliance.toString());
-        dashboard.displayPrintf(11, "Start Position: %s (%s)", startPosMenu.getCurrentChoiceText(), startpos.toString());
-        dashboard.displayPrintf(12, "Skystones: %s (%s)", skystonesMenu.getCurrentChoiceText(), skystones.toString());
-        dashboard.displayPrintf(13, "Stones: %s (%s)", stonesMenu.getCurrentChoiceText(), stones.toString());
-        dashboard.displayPrintf(14, "Foundation: %s (%s)", foundationMenu.getCurrentChoiceText(), foundation.toString());
-        dashboard.displayPrintf(15, "Park: %s (%s)", parkMenu.getCurrentChoiceText(), park.toString());
-        dashboard.displayPrintf(16, "Delay: %d msec", delay);
+        dashboard.displayPrintf(0, "Alliance: %s (%s)", allianceMenu.getCurrentChoiceText(), alliance.toString());
+        dashboard.displayPrintf(1, "Start Position: %s (%s)", startPosMenu.getCurrentChoiceText(), startpos.toString());
+        dashboard.displayPrintf(2, "Skystones: %s (%s)", skystonesMenu.getCurrentChoiceText(), skystones.toString());
+        dashboard.displayPrintf(3, "Stones: %s (%s)", stonesMenu.getCurrentChoiceText(), stones.toString());
+        dashboard.displayPrintf(4, "Foundation: %s (%s)", foundationMenu.getCurrentChoiceText(), foundation.toString());
+        dashboard.displayPrintf(5, "Park: %s (%s)", parkMenu.getCurrentChoiceText(), park.toString());
+        dashboard.displayPrintf(6, "Delay: %d msec", delay);
     }
 }

@@ -6,6 +6,12 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import testing.ShadowTestHardware;
 
+/**
+ * outreach teleop for shadow
+ * allows for override on second controller and slower driving
+ * changes infrequeently, only after things are tested
+ * last updated: 1/16/20
+ */
 @TeleOp(name="outreach teleop", group = "test")
 public class ShadowOutreachTeleop extends OpMode {
     private ShadowTestHardware robot = new ShadowTestHardware();

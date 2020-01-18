@@ -54,7 +54,7 @@ public class ShadowRedFoundAuto extends LinearOpMode{
         robot.gripFoundation();
         sleep(1000);
         encoderDrive(0.7,11,11);
-        turnRightPivot(84,0.3);
+        turnRightPivot(90,0.45);
         encoderDrive(0.7,-15,-15);
         robot.releaseFoundation();
         encoderDrive(0.7,43,43);
