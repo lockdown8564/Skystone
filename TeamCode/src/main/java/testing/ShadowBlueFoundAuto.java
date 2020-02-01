@@ -50,14 +50,17 @@ public class ShadowBlueFoundAuto extends LinearOpMode{
         robot.init(hardwareMap);
         waitForStart();
 
-        encoderDrive(0.5,-30,-30);
+        encoderDrive(0.5,-31,-31);
         robot.gripFoundation();
         sleep(1000);
-        encoderDrive(0.5,11,11);
-        turnLeftPivot(84,0.3);
-        encoderDrive(0.5,-15,-15);
+        encoderDrive(0.5,6,6);
+
+        //strafeEncoder(0.6,-1, 10);
+
+        turnLeftCurvy(84,0.2);
+        encoderDrive(0.7,-15,-15);
         robot.releaseFoundation();
-        encoderDrive(0.5,43,43);
+        encoderDrive(0.7,35,35);
     }
 
     private void encoderDrive(double speed, double leftInches, double rightInches){
@@ -92,6 +95,18 @@ public class ShadowBlueFoundAuto extends LinearOpMode{
 
             robot.stopMotors();
             robot.driveSetMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        }
+    }
+
+    private void turnLeftCurvy(final float TARGET_ANGLE, double power){
+        while(opModeIsActive()){
+            float currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
+            while(currentAngle>=-TARGET_ANGLE){
+                currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
+                robot.driveSetPower(power*4, power, power*4, power);
+            }
+            robot.stopMotors();
+            break;
         }
     }
 

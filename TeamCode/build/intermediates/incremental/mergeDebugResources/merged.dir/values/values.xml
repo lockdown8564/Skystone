@@ -138,6 +138,7 @@
     <color name="dark_purple">#21014b</color>
     <color name="dark_red">#4e0106</color>
     <color name="dark_teal">#01384b</color>
+    <color name="dashboardColor">#2962ff</color>
     <color name="firstblue">#009cd7</color>
     <color name="firstgreen">#00a651</color>
     <color name="firstorgange">#f57e25</color>

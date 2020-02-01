@@ -12,6 +12,7 @@ MERGED from [:WirelessP2p-release:] /Users/William/.gradle/caches/transforms-2/f
 MERGED from [:tfod-release:] /Users/William/.gradle/caches/transforms-2/files-2.1/732762c53b2616e8aad790f9099d6c5a/tfod-release/AndroidManifest.xml:2:1-11:12
 MERGED from [:tensorflow-lite-0.0.0-nightly:] /Users/William/.gradle/caches/transforms-2/files-2.1/f36f1519eb99b161bb770e5fc9552dc5/tensorflow-lite-0.0.0-nightly/AndroidManifest.xml:2:1-6:12
 MERGED from [com.github.dogecv:dogecv:2020.4-alpha] /Users/William/.gradle/caches/transforms-2/files-2.1/507efc144667e4c634f98a58359630bd/dogecv-2020.4-alpha/AndroidManifest.xml:2:1-17:12
+MERGED from [com.acmerobotics.dashboard:dashboard:0.3.7] /Users/William/.gradle/caches/transforms-2/files-2.1/a5f7fb0a6be55e16dc491940fba46a22/dashboard-0.3.7/AndroidManifest.xml:2:1-9:12
 MERGED from [:Inspection-release:] /Users/William/.gradle/caches/transforms-2/files-2.1/3844c1eb765798006e1b6667f00aeb9f/Inspection-release/AndroidManifest.xml:2:1-32:12
 MERGED from [:Blocks-release:] /Users/William/.gradle/caches/transforms-2/files-2.1/10e70c0f3a794e390d1dcbdc42d40061/Blocks-release/AndroidManifest.xml:2:1-26:12
 MERGED from [:RobotServer-release:] /Users/William/.gradle/caches/transforms-2/files-2.1/f2656a77d139c7d5f6f39ba11edf7650/RobotServer-release/AndroidManifest.xml:2:1-11:12
@@ -92,6 +93,8 @@ MERGED from [:tfod-release:] /Users/William/.gradle/caches/transforms-2/files-2.
 MERGED from [:tfod-release:] /Users/William/.gradle/caches/transforms-2/files-2.1/732762c53b2616e8aad790f9099d6c5a/tfod-release/AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.dogecv:dogecv:2020.4-alpha] /Users/William/.gradle/caches/transforms-2/files-2.1/507efc144667e4c634f98a58359630bd/dogecv-2020.4-alpha/AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.dogecv:dogecv:2020.4-alpha] /Users/William/.gradle/caches/transforms-2/files-2.1/507efc144667e4c634f98a58359630bd/dogecv-2020.4-alpha/AndroidManifest.xml:7:5-9:41
+MERGED from [com.acmerobotics.dashboard:dashboard:0.3.7] /Users/William/.gradle/caches/transforms-2/files-2.1/a5f7fb0a6be55e16dc491940fba46a22/dashboard-0.3.7/AndroidManifest.xml:5:5-7:41
+MERGED from [com.acmerobotics.dashboard:dashboard:0.3.7] /Users/William/.gradle/caches/transforms-2/files-2.1/a5f7fb0a6be55e16dc491940fba46a22/dashboard-0.3.7/AndroidManifest.xml:5:5-7:41
 MERGED from [:Inspection-release:] /Users/William/.gradle/caches/transforms-2/files-2.1/3844c1eb765798006e1b6667f00aeb9f/Inspection-release/AndroidManifest.xml:7:5-9:41
 MERGED from [:Inspection-release:] /Users/William/.gradle/caches/transforms-2/files-2.1/3844c1eb765798006e1b6667f00aeb9f/Inspection-release/AndroidManifest.xml:7:5-9:41
 MERGED from [:Blocks-release:] /Users/William/.gradle/caches/transforms-2/files-2.1/10e70c0f3a794e390d1dcbdc42d40061/Blocks-release/AndroidManifest.xml:7:5-9:41

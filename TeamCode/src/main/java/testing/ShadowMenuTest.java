@@ -99,7 +99,7 @@ public class ShadowMenuTest extends LinearOpMode implements FtcMenu.MenuButtons{
     Park park = Park.WALL;
     Foundation foundation = Foundation.YES;
 
-    private HalDashboard dashboard;
+    private static HalDashboard dashboard;
 
     @Override
     public void runOpMode() {
@@ -213,5 +213,9 @@ public class ShadowMenuTest extends LinearOpMode implements FtcMenu.MenuButtons{
         dashboard.displayPrintf(4, "Foundation: %s (%s)", foundationMenu.getCurrentChoiceText(), foundation.toString());
         dashboard.displayPrintf(5, "Park: %s (%s)", parkMenu.getCurrentChoiceText(), park.toString());
         dashboard.displayPrintf(6, "Delay: %d msec", delay);
+    }
+
+    public static HalDashboard getDashboard() {
+        return dashboard;
     }
 }

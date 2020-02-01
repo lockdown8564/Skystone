@@ -44,20 +44,32 @@ import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocaliz
 @Autonomous(name = "red found park", group = "test")
 public class ShadowRedFoundAuto extends LinearOpMode{
     private ShadowTestHardware robot = new ShadowTestHardware();
+    double globalAngle;
+    private static HalDashboard dashboard;
+    Orientation lastAngles;
 
     @Override
     public void runOpMode() {
         robot.init(hardwareMap);
         waitForStart();
 
-        encoderDrive(0.7,-30,-30);
+        encoderDrive(0.5,-31,-31);
         robot.gripFoundation();
         sleep(1000);
-        encoderDrive(0.7,11,11);
-        turnRightPivot(90,0.45);
+        encoderDrive(0.5,6,6);
+
+        //strafeEncoder(0.6,-1, 10);
+
+        turnRightCurvy(84,0.2);
         encoderDrive(0.7,-15,-15);
         robot.releaseFoundation();
-        encoderDrive(0.7,43,43);
+        encoderDrive(0.7,35,35);
+
+        /*robot.drivePID(-30,false);
+        robot.gripFoundation();
+        sleep(1000);
+        robot.drivePID(6,true);
+        turnRight(84,0.5);*/
     }
 
     private void encoderDrive(double speed, double leftInches, double rightInches){
@@ -121,16 +133,35 @@ public class ShadowRedFoundAuto extends LinearOpMode{
         }
     }
 
-    private void turnRightPivot(final float TARGET_ANGLE, double power){
+    private void turnRightCurvy(final float TARGET_ANGLE, double power){
         while(opModeIsActive()){
             float currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
             while(currentAngle>=-TARGET_ANGLE){
                 currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
-                robot.driveSetPower(0, power, 0, power);
+                robot.driveSetPower(power, power*4, power, power*4);
             }
             robot.stopMotors();
             break;
         }
+    }
+
+    private void strafeEncoder(double power, int direction, double inches){
+        int TARGET;
+        robot.driveSetMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        if(opModeIsActive()){
+            TARGET = (int)(inches*robot.getCPI()) + robot.frontRight.getCurrentPosition();
+            power = Math.abs(power);
+            robot.driveSetTargetInd(TARGET * direction,-TARGET * direction, -TARGET * direction, TARGET * direction);
+            robot.driveSetMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+            robot.driveSetPower(power * direction, power * direction, power * direction, power * direction);
+            while(robot.driveIsBusy() && opModeIsActive()){
+            }
+
+            robot.stopMotors();
+            robot.driveSetMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        }
+
     }
 
     private void turnLeft(final float TARGET_ANGLE, double power){
@@ -145,6 +176,35 @@ public class ShadowRedFoundAuto extends LinearOpMode{
             robot.stopMotors();
             break;
         }
+    }
+
+    private void resetAngle() {
+        lastAngles = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
+
+        globalAngle = 0;
+    }
+
+    private double getAngle() {
+        robot.angles = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
+
+        double deltaAngle = robot.angles.firstAngle - lastAngles.firstAngle;
+
+        if (deltaAngle < -180) {
+            deltaAngle += 360;
+        }
+        else if (deltaAngle > 180) {
+            deltaAngle -= 360;
+        }
+
+        globalAngle += deltaAngle;
+
+        lastAngles = robot.angles;
+
+        return globalAngle;
+    }
+
+    public static HalDashboard getDashboard() {
+        return dashboard;
     }
 
 }
