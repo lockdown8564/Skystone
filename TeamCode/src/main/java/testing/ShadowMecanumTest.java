@@ -98,7 +98,7 @@ public class ShadowMecanumTest extends OpMode {
         }
 
         if(Math.abs(gamepad1.left_stick_x) > deadzone){
-            strafe = -gamepad1.left_stick_x;
+            strafe = gamepad1.left_stick_x;
         }
         else{
             strafe = 0;
@@ -120,11 +120,11 @@ public class ShadowMecanumTest extends OpMode {
 
         //down = in
         if(gamepad2.left_bumper) {
-            robot.intakeSetPower(-1);
+            robot.intakeSetPower(-0.7);
         }
         //up = out
         else if(gamepad2.left_trigger != 0){
-            robot.intakeSetPower(1);
+            robot.intakeSetPower(0.85);
         }
 
         else{
@@ -148,7 +148,7 @@ public class ShadowMecanumTest extends OpMode {
         }
 
         if(gamepad2.right_stick_y != 0) {
-            robot.swing.setPower(gamepad2.right_stick_y);
+            robot.swing.setPower(gamepad2.right_stick_y*.7);
         }
 
         else if(gamepad2.y){

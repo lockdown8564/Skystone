@@ -382,7 +382,6 @@ color dark_purple
 color dark_red
 color dark_red_background
 color dark_teal
-color dashboardColor
 color dim_foreground_disabled_material_dark
 color dim_foreground_disabled_material_light
 color dim_foreground_material_dark

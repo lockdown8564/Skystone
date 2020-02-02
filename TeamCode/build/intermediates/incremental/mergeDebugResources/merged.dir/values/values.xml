@@ -138,7 +138,6 @@
     <color name="dark_purple">#21014b</color>
     <color name="dark_red">#4e0106</color>
     <color name="dark_teal">#01384b</color>
-    <color name="dashboardColor">#2962ff</color>
     <color name="firstblue">#009cd7</color>
     <color name="firstgreen">#00a651</color>
     <color name="firstorgange">#f57e25</color>
@@ -1109,11 +1108,6 @@
     <style name="TextAppearance.Compat.Notification.Title" parent="@android:style/TextAppearance.StatusBar.EventContent.Title"/>
     <style name="Widget.Compat.NotificationActionContainer" parent=""/>
     <style name="Widget.Compat.NotificationActionText" parent=""/>
-    <declare-styleable name="CameraBridgeViewBase"><attr format="boolean" name="show_fps"/><attr format="integer" name="camera_id">
-          <enum name="any" value="-1"/>
-          <enum name="back" value="99"/>
-          <enum name="front" value="98"/>
-       </attr></declare-styleable>
     <declare-styleable name="ColorListPreference">
         <attr format="reference" name="colors"/>
     </declare-styleable>
