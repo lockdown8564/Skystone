@@ -41,6 +41,7 @@ import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocaliz
  * last updated: 1/11/20
  */
 
+@Disabled
 @Autonomous(name = "red depot 1 stone park", group = "test")
 public class ShadowAutoTest extends LinearOpMode implements FtcMenu.MenuButtons{
     private ShadowTestHardware robot = new ShadowTestHardware();

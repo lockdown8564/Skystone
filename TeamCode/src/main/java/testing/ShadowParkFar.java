@@ -41,6 +41,7 @@ import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocaliz
  * last updated: 1/11/20
  */
 
+@Disabled
 @Autonomous(name = "park far", group = "test")
 public class ShadowParkFar extends LinearOpMode{
     private ShadowTestHardware robot = new ShadowTestHardware();

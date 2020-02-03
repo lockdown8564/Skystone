@@ -120,11 +120,11 @@ public class ShadowMecanumTest extends OpMode {
 
         //down = in
         if(gamepad2.left_bumper) {
-            robot.intakeSetPower(-0.7);
+            robot.intakeSetPower(-1);
         }
         //up = out
         else if(gamepad2.left_trigger != 0){
-            robot.intakeSetPower(0.85);
+            robot.intakeSetPower(1);
         }
 
         else{

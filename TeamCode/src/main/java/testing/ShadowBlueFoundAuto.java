@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.util.Range;
 
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 import org.firstinspires.ftc.robotcore.external.matrices.OpenGLMatrix;
@@ -38,7 +39,7 @@ import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocaliz
 /**
  * blue foundation auto no skystones
  * created: 1/11/20
- * last updated: 1/12/20
+ * last updated: 2/2/20
  */
 
 @Autonomous(name = "blue found park", group = "test")
@@ -159,6 +160,93 @@ public class ShadowBlueFoundAuto extends LinearOpMode{
             }
             robot.stopMotors();
             break;
+        }
+    }
+
+    private void encImuDrive(double speed, double distance, double angle){
+        int LEFT_TARGET, RIGHT_TARGET;
+        double error;
+        double steer;
+        double leftSpeed, rightSpeed;
+        double max;
+
+        if(opModeIsActive()){
+            LEFT_TARGET = (int)(distance*robot.getCPI()) + robot.frontLeft.getCurrentPosition();
+            RIGHT_TARGET = (int)(distance*robot.getCPI()) + robot.frontRight.getCurrentPosition();
+
+            robot.driveSetTarget(LEFT_TARGET,RIGHT_TARGET);
+            robot.driveSetMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.driveSetPowerAll(Math.abs(speed));
+
+            while(robot.driveIsBusy() && opModeIsActive()){
+                error = robot.getError(angle);
+                steer = robot.getSteer(error, robot.P_DRIVE_COEFF);
+
+                if (distance < 0) {
+                    steer *= -1.0;
+                }
+
+                leftSpeed = speed - steer;
+                rightSpeed = speed + steer;
+
+                max = Math.max(Math.abs(leftSpeed), Math.abs(rightSpeed));
+
+                if(max > 1.0){
+                    leftSpeed /= max;
+                    rightSpeed /= max;
+                }
+
+                robot.driveSetPower(leftSpeed, rightSpeed, leftSpeed, rightSpeed);
+
+            }
+
+            robot.stopMotors();
+            robot.driveSetMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        }
+    }
+
+    // - is right, + is left
+    private void imuStrafe(double speed, double distance, double angle){
+        int flTarget, frTarget, blTarget, brTarget;
+        double error;
+        double steer;
+        double leftSpeed, rightSpeed;
+        double max;
+
+        if(opModeIsActive()){
+            flTarget = (robot.frontLeft.getCurrentPosition()) + (int)(distance*robot.getCPI());
+            frTarget = (robot.frontRight.getCurrentPosition()) - (int)(distance*robot.getCPI());
+            blTarget = (robot.backLeft.getCurrentPosition()) - (int)(distance*robot.getCPI());
+            brTarget = (robot.backRight.getCurrentPosition()) + (int)(distance*robot.getCPI());
+
+            robot.driveSetTargetInd(flTarget, frTarget, blTarget, brTarget);
+            robot.driveSetMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.driveSetPowerAll(Math.abs(speed));
+
+            while(robot.driveIsBusy() && opModeIsActive()){
+                error = robot.getError(angle);
+                steer = robot.getSteer(error, robot.P_DRIVE_COEFF);
+
+                if (distance < 0) {
+                    steer *= -1.0;
+                }
+
+                leftSpeed = speed - steer;
+                rightSpeed = speed + steer;
+
+                max = Math.max(Math.abs(leftSpeed), Math.abs(rightSpeed));
+
+                if(max > 1.0){
+                    leftSpeed /= max;
+                    rightSpeed /= max;
+                }
+
+                robot.driveSetPower(leftSpeed, rightSpeed, leftSpeed, rightSpeed);
+
+            }
+
+            robot.stopMotors();
+            robot.driveSetMode(DcMotor.RunMode.RUN_USING_ENCODER);
         }
     }
 

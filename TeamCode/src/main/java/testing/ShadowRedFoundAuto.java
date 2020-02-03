@@ -203,6 +203,94 @@ public class ShadowRedFoundAuto extends LinearOpMode{
         return globalAngle;
     }
 
+    private void encImuDrive(double speed, double distance, double angle){
+        int LEFT_TARGET, RIGHT_TARGET;
+        double error;
+        double steer;
+        double leftSpeed, rightSpeed;
+        double max;
+
+        if(opModeIsActive()){
+            LEFT_TARGET = (int)(distance*robot.getCPI()) + robot.frontLeft.getCurrentPosition();
+            RIGHT_TARGET = (int)(distance*robot.getCPI()) + robot.frontRight.getCurrentPosition();
+
+            robot.driveSetTarget(LEFT_TARGET,RIGHT_TARGET);
+            robot.driveSetMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.driveSetPowerAll(Math.abs(speed));
+
+            while(robot.driveIsBusy() && opModeIsActive()){
+                error = robot.getError(angle);
+                steer = robot.getSteer(error, robot.P_DRIVE_COEFF);
+
+                if (distance < 0) {
+                    steer *= -1.0;
+                }
+
+                leftSpeed = speed - steer;
+                rightSpeed = speed + steer;
+
+                max = Math.max(Math.abs(leftSpeed), Math.abs(rightSpeed));
+
+                if(max > 1.0){
+                    leftSpeed /= max;
+                    rightSpeed /= max;
+                }
+
+                robot.driveSetPower(leftSpeed, rightSpeed, leftSpeed, rightSpeed);
+
+            }
+
+            robot.stopMotors();
+            robot.driveSetMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        }
+    }
+
+    // - is right, + is left
+    private void imuStrafe(double speed, double distance, double angle){
+        int flTarget, frTarget, blTarget, brTarget;
+        double error;
+        double steer;
+        double leftSpeed, rightSpeed;
+        double max;
+
+        if(opModeIsActive()){
+            flTarget = (robot.frontLeft.getCurrentPosition()) + (int)(distance*robot.getCPI());
+            frTarget = (robot.frontRight.getCurrentPosition()) - (int)(distance*robot.getCPI());
+            blTarget = (robot.backLeft.getCurrentPosition()) - (int)(distance*robot.getCPI());
+            brTarget = (robot.backRight.getCurrentPosition()) + (int)(distance*robot.getCPI());
+
+            robot.driveSetTargetInd(flTarget, frTarget, blTarget, brTarget);
+            robot.driveSetMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.driveSetPowerAll(Math.abs(speed));
+
+            while(robot.driveIsBusy() && opModeIsActive()){
+                error = robot.getError(angle);
+                steer = robot.getSteer(error, robot.P_DRIVE_COEFF);
+
+                if (distance < 0) {
+                    steer *= -1.0;
+                }
+
+                leftSpeed = speed - steer;
+                rightSpeed = speed + steer;
+
+                max = Math.max(Math.abs(leftSpeed), Math.abs(rightSpeed));
+
+                if(max > 1.0){
+                    leftSpeed /= max;
+                    rightSpeed /= max;
+                }
+
+                robot.driveSetPower(leftSpeed, rightSpeed, leftSpeed, rightSpeed);
+
+            }
+
+            robot.stopMotors();
+            robot.driveSetMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        }
+    }
+
+
     public static HalDashboard getDashboard() {
         return dashboard;
     }

@@ -46,6 +46,7 @@ import org.firstinspires.ftc.robotcore.external.tfod.Recognition;
  * last updated: 1/11/20
  */
 
+@Disabled
 @TeleOp(name = "tfod test", group = "test")
 public class ShadowTFODTest extends LinearOpMode {
     private static final String TFOD_MODEL_ASSET = "Skystone.tflite";

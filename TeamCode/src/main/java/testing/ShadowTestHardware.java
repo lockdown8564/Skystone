@@ -2,14 +2,15 @@ package testing;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.hardware.rev.RevBlinkinLedDriver;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.DigitalChannel;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.robotcore.util.Range;
 
 import java.util.Arrays;
 
@@ -49,6 +50,10 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
     DigitalChannel touch = null;
     ColorSensor color = null;
     public PIDControlTest pidControl, pidControlTurn;
+
+    static final double     HEADING_THRESHOLD       = 1 ;      // As tight as we can make it with an integer gyro
+    static final double     P_TURN_COEFF            = 0.1;     // Larger is more responsive, but also less stable
+    static final double     P_DRIVE_COEFF           = 0.15;     // Larger is more responsive, but also less stable
 
     private final static double SCALE = (WHEEL_DIAMETER_INCHES * Math.PI)/
             (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION); //inches per count
@@ -241,11 +246,6 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
 
             //safety: abort when needed. Please uncomment when in actual competition.
 
-            /*if(abortTrigger != null && abortTrigger.shouldAbort())
-            {
-                break;
-            }*/
-
             //Variable Definition and Assignment -----------------------------------------------
             int currLeftPos = (backLeft.getCurrentPosition() + frontLeft.getCurrentPosition())/2;//this is an encoder output
             int currRightPos = (backRight.getCurrentPosition() + frontRight.getCurrentPosition())/2;//another encoder output
@@ -261,14 +261,12 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
 
             //--------------------------------------------------------------------------------
             double currTime = HalUtil.getCurrentTime();
-            if (currLeftPos != prevLeftPos || currRightPos != prevRightPos)
-            {
+            if (currLeftPos != prevLeftPos || currRightPos != prevRightPos) {
                 stallStartTime = currTime;
                 prevLeftPos = currLeftPos;
                 prevRightPos = currRightPos;
             }
-            else if (currTime > stallStartTime + 0.15)
-            {
+            else if (currTime > stallStartTime + 0.15) {
                 // The motors are stalled for more than 0.15 seconds.
                 break;
             }
@@ -314,31 +312,35 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
         //------------------------------------------------------------------------------------
         //calling in the degrees for spinning
         this.degrees = degrees;
-        if(Math.abs(degrees - intZ()) < 10.0)      //<10 deg PID dial
-        {
+
+        if(Math.abs(degrees - intZ()) < 10.0) {  //<10 deg PID dial
             //pidControlTurn.setPID(0.05,0,0.0005,0);
             pidControlTurn.setPID(0.15,0,0.0005,0);
-        } else if(Math.abs(degrees - intZ()) < 20.0)//<20deg PID dial
-        {
+        }
+        else if(Math.abs(degrees - intZ()) < 20.0) { //<20deg PID dial
             //pidControlTurn.setPID(0.03,0,0.002,0);
             pidControlTurn.setPID(0.13,0,0.002,0);
-        } else if(Math.abs(degrees - intZ()) < 45.0)//<40deg PID dial
-        {
+        }
+        else if(Math.abs(degrees - intZ()) < 45.0) { //<40deg PID dial
             //pidControlTurn.setPID(0.022,0,0.0011,0);
             pidControlTurn.setPID(0.122,0,0.0011,0);
-        } else if(Math.abs(degrees - intZ()) < 90.0)//<90deg PID dial
-        {
+        }
+        else if(Math.abs(degrees - intZ()) < 90.0) { //<90deg PID dial
             pidControlTurn.setPID(0.123,0,0.0005,0);
             //pidControlTurn.setPID(0.023,0,0.0005,0);
-        } else {                                       //More than 90deg PID dial
+        }
+        else {                                       //More than 90deg PID dial
             pidControlTurn.setPID(0.123,0,0,0);
             //pidControlTurn.setPID(0.023,0,0,0)
         }
+
         //-----------------------------------------------------------------------------------
         pidControlTurn.setTarget(degrees);//sets target degrees.
         stallStartTime = HalUtil.getCurrentTime();//check time
+
         //----------------------------------------------------------------------------------
         //While: pidControlTurn not on target and OpMode is Active
+
         while (!pidControlTurn.isOnTarget() /*&& opMode.opModeIsActive()*/) {
 
             //-----------------------------------------------------------------------------
@@ -375,6 +377,7 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
             pidControlTurn.displayPidInfo(0);
             //opMode.idle();
         }
+
         //sets it to 0 when done.
         stopMotors();
         resetPIDDrive();//reset
@@ -558,22 +561,13 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
         return COUNTS_PER_INCH;
     }
 
-    private double scalePower(double dVal) {
-        return -(Math.signum(dVal) * ((Math.pow(dVal, 2) * (.9)) + .1));
-    }
-
-    private double scalePowerSlow(double dVal) {
-        return -(Math.signum(dVal) * ((Math.pow(dVal, 2) * (.55)) + .1));
-    }
-
     public void resetPIDDrive() {
         pidControl.reset();
         pidControlTurn.reset();
     }
 
     @Override
-    public double getInput(PIDControlTest pidCtrl)
-    {
+    public double getInput(PIDControlTest pidCtrl) {
         double input = 0.0;
         if (pidCtrl == pidControl) {
             input = (backLeft.getCurrentPosition() + frontLeft.getCurrentPosition() + frontRight.getCurrentPosition() + backRight.getCurrentPosition())*SCALE/4.0;
@@ -585,5 +579,25 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
         }
 
         return input;
+    }
+
+    public double getError(double targetAngle) {
+        double robotError;
+
+        // calculate error in -179 to +180 range  (
+        robotError = targetAngle - intZ();
+        while (robotError > 180)  robotError -= 360;
+        while (robotError <= -180) robotError += 360;
+        return robotError;
+    }
+
+    /**
+     * returns desired steering force.  +/- 1 range.  +ve = steer left
+     * @param error   Error angle in robot relative degrees
+     * @param PCoeff  Proportional Gain Coefficient
+     * @return steer
+     */
+    public double getSteer(double error, double PCoeff) {
+        return Range.clip(error * PCoeff, -1, 1);
     }
 }
