@@ -51,7 +51,7 @@ public class ShadowStrafeTest extends LinearOpMode{
         robot.init(hardwareMap);
         waitForStart();
 
-        encImuDrive(0.5,40, robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, DEGREES).firstAngle);
+        encImuDrive(0.7,60, robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, DEGREES).firstAngle);
         //imuStrafe(0.5,60, robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle);
     }
 

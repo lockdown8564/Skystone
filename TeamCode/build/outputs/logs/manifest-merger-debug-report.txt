@@ -11,11 +11,13 @@ MERGED from [:FtcCommon-release:] /Users/William/.gradle/caches/transforms-2/fil
 MERGED from [:WirelessP2p-release:] /Users/William/.gradle/caches/transforms-2/files-2.1/efbb00219c1555546d06b1cbbaf36ba6/WirelessP2p-release/AndroidManifest.xml:2:1-11:12
 MERGED from [:tfod-release:] /Users/William/.gradle/caches/transforms-2/files-2.1/732762c53b2616e8aad790f9099d6c5a/tfod-release/AndroidManifest.xml:2:1-11:12
 MERGED from [:tensorflow-lite-0.0.0-nightly:] /Users/William/.gradle/caches/transforms-2/files-2.1/f36f1519eb99b161bb770e5fc9552dc5/tensorflow-lite-0.0.0-nightly/AndroidManifest.xml:2:1-6:12
+MERGED from [org.openftc:easyopencv:1.3.2] /Users/William/.gradle/caches/transforms-2/files-2.1/2285a9dabbc97ff418168319622a4cbc/easyopencv-1.3.2/AndroidManifest.xml:2:1-11:12
 MERGED from [:Inspection-release:] /Users/William/.gradle/caches/transforms-2/files-2.1/3844c1eb765798006e1b6667f00aeb9f/Inspection-release/AndroidManifest.xml:2:1-32:12
 MERGED from [:Blocks-release:] /Users/William/.gradle/caches/transforms-2/files-2.1/10e70c0f3a794e390d1dcbdc42d40061/Blocks-release/AndroidManifest.xml:2:1-26:12
 MERGED from [:RobotServer-release:] /Users/William/.gradle/caches/transforms-2/files-2.1/f2656a77d139c7d5f6f39ba11edf7650/RobotServer-release/AndroidManifest.xml:2:1-11:12
 MERGED from [:OnBotJava-release:] /Users/William/.gradle/caches/transforms-2/files-2.1/a3e664add683968f5a6bbe097785eec0/OnBotJava-release/AndroidManifest.xml:34:1-43:12
 MERGED from [com.android.support:support-compat:28.0.0] /Users/William/.gradle/caches/transforms-2/files-2.1/b73d0db3c489aeab8b531c92b0313ef9/support-compat-28.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [org.openftc:opencv-repackaged:4.1.0-B] /Users/William/.gradle/caches/transforms-2/files-2.1/6d565a1cd9115be53f268b175678efee/opencv-repackaged-4.1.0-B/AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/William/.gradle/caches/transforms-2/files-2.1/b93ddaf99704c9896c23344bb8a6cc5b/versionedparcelable-28.0.0/AndroidManifest.xml:17:1-25:12
 MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/William/.gradle/caches/transforms-2/files-2.1/912d14cf8b7da59afd70a06b1ab8df17/runtime-1.1.1/AndroidManifest.xml:17:1-22:12
 INJECTED from /Users/William/Desktop/Skystone/TeamCode/src/main/AndroidManifest.xml:8:1-12:12
@@ -83,6 +85,8 @@ MERGED from [:WirelessP2p-release:] /Users/William/.gradle/caches/transforms-2/f
 MERGED from [:WirelessP2p-release:] /Users/William/.gradle/caches/transforms-2/files-2.1/efbb00219c1555546d06b1cbbaf36ba6/WirelessP2p-release/AndroidManifest.xml:5:5-7:41
 MERGED from [:tfod-release:] /Users/William/.gradle/caches/transforms-2/files-2.1/732762c53b2616e8aad790f9099d6c5a/tfod-release/AndroidManifest.xml:7:5-9:41
 MERGED from [:tfod-release:] /Users/William/.gradle/caches/transforms-2/files-2.1/732762c53b2616e8aad790f9099d6c5a/tfod-release/AndroidManifest.xml:7:5-9:41
+MERGED from [org.openftc:easyopencv:1.3.2] /Users/William/.gradle/caches/transforms-2/files-2.1/2285a9dabbc97ff418168319622a4cbc/easyopencv-1.3.2/AndroidManifest.xml:7:5-9:41
+MERGED from [org.openftc:easyopencv:1.3.2] /Users/William/.gradle/caches/transforms-2/files-2.1/2285a9dabbc97ff418168319622a4cbc/easyopencv-1.3.2/AndroidManifest.xml:7:5-9:41
 MERGED from [:Inspection-release:] /Users/William/.gradle/caches/transforms-2/files-2.1/3844c1eb765798006e1b6667f00aeb9f/Inspection-release/AndroidManifest.xml:7:5-9:41
 MERGED from [:Inspection-release:] /Users/William/.gradle/caches/transforms-2/files-2.1/3844c1eb765798006e1b6667f00aeb9f/Inspection-release/AndroidManifest.xml:7:5-9:41
 MERGED from [:Blocks-release:] /Users/William/.gradle/caches/transforms-2/files-2.1/10e70c0f3a794e390d1dcbdc42d40061/Blocks-release/AndroidManifest.xml:7:5-9:41
@@ -93,6 +97,8 @@ MERGED from [:OnBotJava-release:] /Users/William/.gradle/caches/transforms-2/fil
 MERGED from [:OnBotJava-release:] /Users/William/.gradle/caches/transforms-2/files-2.1/a3e664add683968f5a6bbe097785eec0/OnBotJava-release/AndroidManifest.xml:39:5-41:41
 MERGED from [com.android.support:support-compat:28.0.0] /Users/William/.gradle/caches/transforms-2/files-2.1/b73d0db3c489aeab8b531c92b0313ef9/support-compat-28.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-compat:28.0.0] /Users/William/.gradle/caches/transforms-2/files-2.1/b73d0db3c489aeab8b531c92b0313ef9/support-compat-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [org.openftc:opencv-repackaged:4.1.0-B] /Users/William/.gradle/caches/transforms-2/files-2.1/6d565a1cd9115be53f268b175678efee/opencv-repackaged-4.1.0-B/AndroidManifest.xml:7:5-9:41
+MERGED from [org.openftc:opencv-repackaged:4.1.0-B] /Users/William/.gradle/caches/transforms-2/files-2.1/6d565a1cd9115be53f268b175678efee/opencv-repackaged-4.1.0-B/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/William/.gradle/caches/transforms-2/files-2.1/b93ddaf99704c9896c23344bb8a6cc5b/versionedparcelable-28.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/William/.gradle/caches/transforms-2/files-2.1/b93ddaf99704c9896c23344bb8a6cc5b/versionedparcelable-28.0.0/AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/William/.gradle/caches/transforms-2/files-2.1/912d14cf8b7da59afd70a06b1ab8df17/runtime-1.1.1/AndroidManifest.xml:20:5-44
