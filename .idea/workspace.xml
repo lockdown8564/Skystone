@@ -8,15 +8,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3d1bd61-beb2-4612-ba41-0aaf941b8865" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowRedSSTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowSSTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/testing/SkystoneDetector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowStrafeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowStrafeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowTestHardware.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowTestHardware.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,28 +44,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowTestHardware.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1583">
+            <state relative-caret-position="-7639">
               <caret line="61" column="19" selection-start-line="61" selection-start-column="19" selection-end-line="61" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TeamCode/build.release.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/TeamCode/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2">
-              <folding>
-                <element signature="e#0#2#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -69,26 +53,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowMenuTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1684">
+            <state relative-caret-position="-1650">
               <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ThroughboreAutoTest.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowRedSSTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
+            <state relative-caret-position="1038">
+              <caret line="313" column="63" lean-forward="true" selection-start-line="313" selection-start-column="63" selection-end-line="313" selection-end-column="63" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowStrafeTest.java">
+        <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowSSTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="53" column="26" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
+            <state relative-caret-position="-350">
+              <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -123,11 +110,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/SonicSkystoneDetectTest.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/SonicRedGrabAuto.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/SonicRedFoundParkAuto.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/SonicParkFar.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/SonicDTTest1.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/SonicRedStoneAuto.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/rip_sonic/SonicAutonomous.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/rip_sonic/SonicHardware.java" />
@@ -174,6 +156,11 @@
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowMecanumTest.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowStrafeTest.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowTestHardware.java" />
+        <option value="$PROJECT_DIR$/build.common.gradle" />
+        <option value="$PROJECT_DIR$/TeamCode/build.gradle" />
+        <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/SkystoneDetector.java" />
+        <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowSSTest.java" />
+        <option value="$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowRedSSTest.java" />
       </list>
     </option>
   </component>
@@ -207,10 +194,6 @@
               <item name="TeamCode" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="testing" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Skystone" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
             </path>
           </expand>
           <select />
@@ -336,7 +319,7 @@
       <window_info anchor="bottom" id="Version Control" order="0" sideWeight="0.49924472" weight="0.32867134" />
       <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.49924472" weight="0.32867134" />
       <window_info anchor="bottom" id="TODO" order="2" sideWeight="0.49924472" weight="0.32867134" />
-      <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.49924472" visible="true" weight="0.32342657" />
+      <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.49924472" visible="true" weight="0.3146853" />
       <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.50151056" side_tool="true" weight="0.31643358" />
       <window_info anchor="bottom" id="Build" order="5" sideWeight="0.49848944" weight="0.31643358" />
       <window_info anchor="bottom" id="Android Profiler" order="6" weight="0.32867134" />
@@ -352,45 +335,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/FtcRobotController/build/intermediates/packaged_res/debug/values/values.xml" />
-    <entry file="file://$PROJECT_DIR$/local.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptSoundsSKYSTONE.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-201">
-          <caret line="39" column="48" selection-start-line="39" selection-start-column="48" selection-end-line="39" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorREVColorDistance.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-668">
-          <caret line="56" column="13" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/rip_sonic/SonicTeleop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="161" column="12" selection-start-line="161" selection-start-column="12" selection-end-line="166" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/sonic_test/SonicRedAutoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/sonic_test/SonicRedStoneAuto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="563">
-          <caret line="143" column="24" lean-forward="true" selection-start-line="143" selection-start-column="24" selection-end-line="143" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/rip_sonic/SonicAutonomous.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-816">
@@ -430,13 +374,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowTFODTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
         </state>
       </provider>
     </entry>
@@ -481,20 +418,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowParkFar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="52" column="30" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowParkAuto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="40" column="21" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -546,13 +469,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/PushbotAutoDriveByGyro_Linear.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="672">
@@ -572,13 +488,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowAutoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2239">
-          <caret line="244" column="5" selection-start-line="244" selection-start-column="5" selection-end-line="244" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowSlideTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-211">
@@ -593,13 +502,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="713" column="44" selection-start-line="713" selection-start-column="44" selection-end-line="713" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FtcRobotController/build.release.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="63" selection-start-line="10" selection-start-column="63" selection-end-line="10" selection-end-column="63" />
         </state>
       </provider>
     </entry>
@@ -630,13 +532,6 @@
     <entry file="file://$PROJECT_DIR$/TeamCode/build/generated/source/buildConfig/debug/org/firstinspires/ftc/teamcode/BuildConfig.java" />
     <entry file="file://$PROJECT_DIR$/TeamCode/build/generated/not_namespaced_r_class_sources/debug/r/androidx/versionedparcelable/R 3.java" />
     <entry file="file://$PROJECT_DIR$/TeamCode/build/generated/not_namespaced_r_class_sources/debug/r/androidx/versionedparcelable/R.java" />
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowBlueFoundAuto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-127">
-          <caret line="56" selection-start-line="56" selection-end-line="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowMecanumTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-410">
@@ -644,31 +539,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowMenuTest.java">
+    <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1684">
-          <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+        <state relative-caret-position="195">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ThroughboreAutoTest.java">
+    <entry file="file://$PROJECT_DIR$/build.common.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
+        <state relative-caret-position="220">
+          <caret line="107" column="13" selection-start-line="107" selection-start-column="13" selection-end-line="107" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#656#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#2#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowStrafeTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
+        <state relative-caret-position="285">
           <caret line="53" column="26" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowTestHardware.java">
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowTFODTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1583">
-          <caret line="61" column="19" selection-start-line="61" selection-start-column="19" selection-end-line="61" selection-end-column="19" />
+        <state relative-caret-position="-424">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/sonic_test/SonicHookTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/sonic_test/SonicSkystoneDetectTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="155" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/sonic_test/SonicTFODTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="120" lean-forward="true" selection-start-line="120" selection-end-line="120" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FtcRobotController/build.release.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -679,12 +615,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/build.gradle">
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ThroughboreAutoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2">
+        <state relative-caret-position="165">
+          <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowParkFar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowParkAuto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="40" column="21" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowAutoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="244" lean-forward="true" selection-start-line="244" selection-end-line="244" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowBlueFoundAuto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2870">
+          <caret line="45" column="32" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowTestHardware.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7639">
+          <caret line="61" column="19" selection-start-line="61" selection-start-column="19" selection-end-line="61" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowMenuTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1650">
+          <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/SkystoneDetector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
           <folding>
-            <element signature="e#0#2#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowSSTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-350">
+          <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/testing/ShadowRedSSTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1038">
+          <caret line="313" column="63" lean-forward="true" selection-start-line="313" selection-start-column="63" selection-end-line="313" selection-end-column="63" />
         </state>
       </provider>
     </entry>

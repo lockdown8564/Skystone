@@ -18,6 +18,7 @@ attr backgroundMediumLight
 attr backgroundMediumMedium
 attr backgroundVeryDark
 attr backgroundVeryVeryDark
+attr camera_id
 attr colors
 attr feedbackBackground
 attr feedbackBorder
@@ -34,6 +35,7 @@ attr fontVariationSettings
 attr fontWeight
 attr lineBright
 attr lineLight
+attr show_fps
 attr textBright
 attr textLight
 attr textMedium
@@ -189,10 +191,12 @@ id activity_fix_misconfig_wifi_direct
 id addButton
 id addressListCaption
 id airplaneMode
+id any
 id appsInstalled
 id appsStatus
 id async
 id attached_title
+id back
 id backButton
 id backbar
 id backgroundDarkGrayHolder
@@ -251,6 +255,7 @@ id filename_editText
 id files_holder
 id fixButton
 id forever
+id front
 id groupList
 id holds_buttons
 id horizontalButtons
@@ -1183,6 +1188,7 @@ style TextAppearance_Compat_Notification_Time
 style TextAppearance_Compat_Notification_Title
 style Widget_Compat_NotificationActionContainer
 style Widget_Compat_NotificationActionText
+styleable CameraBridgeViewBase camera_id show_fps
 styleable ColorListPreference colors
 styleable ColorStateListItem android_color android_alpha alpha
 styleable FontFamily fontProviderAuthority fontProviderCerts fontProviderFetchStrategy fontProviderFetchTimeout fontProviderPackage fontProviderQuery
