@@ -41,6 +41,7 @@ import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocaliz
  * last updated: 2/2/20
  */
 
+@Disabled
 @Autonomous(name = "throughbore auto test", group = "test")
 public class ThroughboreAutoTest extends LinearOpMode{
     private ShadowTestHardware robot = new ShadowTestHardware();

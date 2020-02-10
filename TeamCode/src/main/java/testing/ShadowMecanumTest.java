@@ -120,11 +120,11 @@ public class ShadowMecanumTest extends OpMode {
 
         //down = in
         if(gamepad2.left_bumper) {
-            robot.intakeSetPower(-1);
+            robot.intakeSetPower(-0.8);
         }
         //up = out
         else if(gamepad2.left_trigger != 0){
-            robot.intakeSetPower(1);
+            robot.intakeSetPower(0.8);
         }
 
         else{
@@ -140,11 +140,11 @@ public class ShadowMecanumTest extends OpMode {
         }
 
         if(gamepad2.a){
-            robot.grip.setPosition(0);
+            robot.grip.setPosition(0.6);
         }
 
         else if(gamepad2.b){
-            robot.grip.setPosition(0.8);
+            robot.grip.setPosition(0.95);
         }
 
         if(gamepad2.right_stick_y != 0) {

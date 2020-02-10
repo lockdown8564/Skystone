@@ -13,6 +13,7 @@ import com.qualcomm.robotcore.util.Range;
  * last updated: 2/2/20
  */
 
+@Disabled
 @TeleOp(name="throughbore test",group="test")
 public class ThroughboreTeleTest extends OpMode {
     private ShadowTestHardware robot = new ShadowTestHardware();

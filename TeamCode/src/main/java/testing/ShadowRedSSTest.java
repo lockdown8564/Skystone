@@ -83,22 +83,53 @@ public class ShadowRedSSTest extends LinearOpMode{
 
         waitForStart();
 
+        encoderDrive(0.5, -23.5, -23.5);
+        turnRight(87, 0.4);
+
         switch(skystone){
             case LEFT:{
+                encoderDrive(0.6, 15.5, 15.5);
+
+                robot.strafe(1, 0.5);
+                sleep(500);
+                robot.stopMotors();
+
+                turnRight(113, 0.4);
+                encoderDriveIntake(0.5, 25, 25, -1);
+                robot.intakeSetPower(-1);
+                sleep(1000);
+                robot.stopMotors();
+
+                encoderDrive(0.6, -33, -33);
+                turnLeft(-92, 0.3);
+                encoderDrive(0.6, -50, -50);
 
                 break;
             }
 
             case MIDDLE:{
-
+                encoderDrive(0.6, 14, 14);
+                turnRight(120, 0.4);
+                encoderDriveIntake(0.6, 10, 10, -1);
+                encoderDrive(0.6, -10, -10);
+                turnLeft(-90, 0.3);
+                encoderDrive(0.6, -36, -36);
                 break;
             }
 
             case RIGHT:{
-
+                encoderDrive(0.6, 12, 12);
+                turnRight(120, 0.4);
+                encoderDriveIntake(0.6, 10, 10, -1);
+                encoderDrive(0.6, -10, -10);
+                turnLeft(-90, 0.3);
+                encoderDrive(0.6, -32, -32);
                 break;
             }
         }
+
+        webcam.stopStreaming();
+        webcam.closeCameraDevice();
 
     }
 
@@ -302,13 +333,13 @@ public class ShadowRedSSTest extends LinearOpMode{
 
             Imgproc.cvtColor(workingMatrix, workingMatrix, Imgproc.COLOR_RGB2YCrCb);
 
-            Mat matLeft = workingMatrix.submat(600, 700, 400, 640);
-            Mat matCenter = workingMatrix.submat(600, 700, 820, 1060);
-            Mat matRight = workingMatrix.submat(600, 700, 1240, 1480);
+            Mat matLeft = workingMatrix.submat(650, 750, 550, 710);
+            Mat matCenter = workingMatrix.submat(650, 750, 910, 1070);
+            Mat matRight = workingMatrix.submat(650, 750, 1270, 1430);
 
-            Imgproc.rectangle(workingMatrix, new Rect(400, 600, 170, 120), new Scalar(0, 255, 0));
-            Imgproc.rectangle(workingMatrix, new Rect(820, 600, 170, 120), new Scalar(0, 255, 0));
-            Imgproc.rectangle(workingMatrix, new Rect(1240, 600, 170, 120), new Scalar(0, 255, 0));
+            Imgproc.rectangle(workingMatrix, new Rect(550, 650, 160, 100), new Scalar(0, 0, 255));
+            Imgproc.rectangle(workingMatrix, new Rect(910, 650, 160, 100), new Scalar(0, 0, 255));
+            Imgproc.rectangle(workingMatrix, new Rect(1270, 650, 160, 100), new Scalar(0, 0, 255));
 
             double leftSum = Core.sumElems(matLeft).val[2];
             double centerSum = Core.sumElems(matCenter).val[2];

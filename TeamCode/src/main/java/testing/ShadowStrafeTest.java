@@ -42,6 +42,7 @@ import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocaliz
  * last updated: 1/12/20
  */
 
+@Disabled
 @Autonomous(name = "strafe test", group = "test")
 public class ShadowStrafeTest extends LinearOpMode{
     private ShadowTestHardware robot = new ShadowTestHardware();
