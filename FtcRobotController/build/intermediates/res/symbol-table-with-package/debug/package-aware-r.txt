@@ -834,6 +834,7 @@ id info_btn
 id inspectionRootLayout
 id isCCInstalled
 id isDSInstalled
+id isDefaultPassword
 id isRCInstalled
 id italic
 id item_list_parent
@@ -988,6 +989,7 @@ id textView7
 id textView8
 id textView9
 id textViewHubFirmware
+id textViewPassword
 id tfodMonitorViewId
 id time
 id title
@@ -1440,13 +1442,16 @@ string load_menu_item
 string locationServices
 string log_label
 string lynxAnalogInputControllerDisplayName
-string lynxBatteryToLowMotor
-string lynxBatteryToLowServo
 string lynxDcMotorControllerDisplayName
 string lynxDigitalChannelControllerDisplayName
 string lynxFirmwareUpdateReadme
 string lynxI2cDeviceSynchDisplayName
+string lynxModuleBatteryIsCurrentlyLow
+string lynxModuleBatteryWasLow
+string lynxModuleCurrentlyNotResponding
 string lynxModuleDisplayName
+string lynxModulePowerLost
+string lynxModulePreviouslyNotResponding
 string lynxPwmOutputControllerDisplayName
 string lynxServoControllerDisplayName
 string lynxUnavailableFWVersionString
@@ -1551,7 +1556,7 @@ string pairing_kind_title
 string passphrase_label
 string peerStatusConnected
 string peerStatusDisconnected
-string permAccessCoarseLocationExplain
+string permAccessLocationExplain
 string permDsReadExternalStorageExplain
 string permDsWriteExternalStorageExplain
 string permGenericExplain
@@ -1560,7 +1565,9 @@ string permPermanentlyDeniedRecovery
 string permRcCameraExplain
 string permRcReadExternalStorageExplain
 string permRcWriteExternalStorageExplain
+string permReadPhoneState
 string port
+string powerIssueTip
 string pref_app_category
 string pref_app_category_rc
 string pref_app_theme
@@ -1690,6 +1697,7 @@ string rev_spark_mini_description
 string rev_spark_mini_name
 string rev_touch_sensor_description
 string robotControllerAppUpdateReadme
+string robotOffTip
 string robotStateEmergencyStop
 string robotStateInit
 string robotStateInternalError
@@ -1816,6 +1824,7 @@ string usb_vid_name_qualcomm
 string userSensorTypeBusDefault
 string view_logs_activity
 string warningProblemCommunicatingWithUSBDevice
+string warningTtsFailedToInitialize
 string warningUSBDeviceDetached
 string warningUnableToOpen
 string webViewDownloadRequestDescription

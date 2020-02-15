@@ -5,6 +5,13 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
+/**
+ * Teleop test to see if our Neverest encoders were working.
+ * Returned telemetry about the encoder position of the motor.
+ *
+ * @version 1.0
+ * @see ShadowNRTest
+ */
 @Disabled
 @TeleOp(name = "nr test", group = "test")
 public class ShadowNRTeleTest extends OpMode {

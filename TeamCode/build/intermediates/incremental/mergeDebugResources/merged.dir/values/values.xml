@@ -459,7 +459,7 @@
     <string name="edit_swap_devices_activity">Swap USB Devices</string>
     <string name="edit_webcam_activity">Edit Camera</string>
     <string name="errorConfigurationNotFound">"Configuration not found: %s"</string>
-    <string name="errorExpansionHubIsMissing">Expansion Hub \"%s\" is missing</string>
+    <string name="errorExpansionHubIsMissing">Expansion Hub \"%s\" was missing at startup. Robot Restart required for hub operation</string>
     <string name="errorFailedToOpenDeviceManager">Failed to open the Device Manager</string>
     <string name="errorOpModeStuck">OpMode \'%1$s\' stuck in %2$s. Restarting robot controller app.</string>
     <string name="errorParsingConfiguration">"Error parsing configuration: %s"</string>
@@ -500,13 +500,16 @@
     for Wifi Direct peers.  Pressing Ok will redirect you to the Location Services setting page where this may be enabled.</string>
     <string name="log_label">Server log:</string>
     <string name="lynxAnalogInputControllerDisplayName">Expansion Hub Analog Input Controller</string>
-    <string name="lynxBatteryToLowMotor">The expansion hub reported that the battery is too low to run motors.  Please check the battery connection and/or replace with a charged battery.</string>
-    <string name="lynxBatteryToLowServo">The expansion hub reported that the battery is too low to run servos.  Please check the battery connection and/or replace with a charged battery.</string>
     <string name="lynxDcMotorControllerDisplayName">Expansion Hub DC Motor Controller</string>
     <string name="lynxDigitalChannelControllerDisplayName">Expansion Hub Digital Channel Controller</string>
     <string name="lynxFirmwareUpdateReadme">Place any downloaded Expansion Hub firmware updates you wish to install in this folder. You can then install those updates using the Advanced Settings menu on the Driver Station or Robot Controller.</string>
     <string name="lynxI2cDeviceSynchDisplayName">Expansion Hub I2C Device</string>
+    <string name="lynxModuleBatteryIsCurrentlyLow">reported that the battery is currently too low to run motors and servos.</string>
+    <string name="lynxModuleBatteryWasLow">temporarily reported that the battery was too low to run motors and servos while an Op Mode was running.</string>
+    <string name="lynxModuleCurrentlyNotResponding">not currently responding to commands</string>
     <string name="lynxModuleDisplayName">Expansion Hub</string>
+    <string name="lynxModulePowerLost">reported a temporary complete power loss while an Op Mode was running. Unexpected behavior may result.</string>
+    <string name="lynxModulePreviouslyNotResponding">temporarily stopped responding to commands while an Op Mode was running</string>
     <string name="lynxPwmOutputControllerDisplayName">Expansion Hub Pwm Controller</string>
     <string name="lynxServoControllerDisplayName">Expansion Hub Servo Controller</string>
     <string name="lynxUnavailableFWVersionString">firmware version unavailable</string>
@@ -611,8 +614,8 @@
     <string name="passphrase_label">Use the following passphrase to gain access to the network:</string>
     <string name="peerStatusConnected">connected</string>
     <string name="peerStatusDisconnected">disconnected</string>
-    <string name="permAccessCoarseLocationExplain">The SDK infrastructure does WiFi scans to help with pairing of
-    phones.  Knowing what access points are available can allow an application to know a coarse approximation of its
+    <string name="permAccessLocationExplain">The SDK infrastructure does WiFi scans to help with pairing of
+    phones.  Knowing what access points are available can allow an application to know an approximation of its
     location.  Even though the SDK does not use location information, Android requires that we ask for this permission.
     It is not possible to run the application without this permission.  You must allow all permissions.</string>
     <string name="permDsReadExternalStorageExplain">The Driver Station must be able to access external storage
@@ -634,7 +637,12 @@
     <string name="permRcWriteExternalStorageExplain">The Robot Controller must be able to access external storage
     for the Blocks and OnBot Java developement environments and robot logging.  It is not possible to run the
     application without this permission.  You must allow all permissions.</string>
+    <string name="permReadPhoneState">The SDK uses this to access the device serial number.  This may be used
+    for diagnostic purposes.  FIRST does not store the serial number off device or use it in any other fashion.
+    Android requires that we ask for this permission.
+    It is not possible to run the application without this permission.  You must allow all permissions.</string>
     <string name="port">Port</string>
+    <string name="powerIssueTip">Check your wiring, battery, and power switch</string>
     <string name="pref_app_category">pref_app_category</string>
     <string name="pref_app_category_rc">pref_app_category_rc</string>
     <string name="pref_app_theme">pref_app_theme</string>
@@ -764,6 +772,7 @@
     <string name="rev_spark_mini_name">REV SPARKmini Controller</string>
     <string name="rev_touch_sensor_description">a REV touch sensor</string>
     <string name="robotControllerAppUpdateReadme">When running on a REV Control Hub (and only on a Control Hub, not merely a robot controller phone), any Android applications (APK files) found in this folder will be automatically installed when the system boots. Once successfully installed, each APK is deleted so as to not be reinstalled on subsequent boots.</string>
+    <string name="robotOffTip">Make sure that your robot is turned on</string>
     <string name="robotStateEmergencyStop">EMERGENCY STOP</string>
     <string name="robotStateInit">initializing</string>
     <string name="robotStateInternalError">internal error</string>
@@ -889,6 +898,7 @@
     <string name="userSensorTypeBusDefault">port</string>
     <string name="view_logs_activity">View Logs</string>
     <string name="warningProblemCommunicatingWithUSBDevice">problem communicating with %s</string>
+    <string name="warningTtsFailedToInitialize">Text-to-speech failed to initialize</string>
     <string name="warningUSBDeviceDetached">%s detached</string>
     <string name="warningUnableToOpen">unable to open %s</string>
     <string name="webViewDownloadRequestDescription">Download file...</string>

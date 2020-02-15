@@ -46,9 +46,11 @@ import static org.firstinspires.ftc.robotcore.external.navigation.AxesReference.
 import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer.CameraDirection.BACK;
 
 /**
- * red stone auto test
- * created: 2/7/20
- * last updated: 2/7/207
+ * Autonomous that starts on the red side and uses OpenCv
+ * to get a stone and also parks.
+ *
+ * @author William Trang
+ * @version 2.2 2/15/20
  */
 
 @Autonomous(name = "red ss test", group = "test")

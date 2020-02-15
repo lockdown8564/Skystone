@@ -8,9 +8,13 @@ import com.qualcomm.robotcore.hardware.DigitalChannel;
 import com.qualcomm.robotcore.util.Range;
 
 /**
- * mecanum drivetrain test for shadow
- * created: 12/7/19
- * last updated: 1/2/20
+ * This program is the main teleop for FTC 8564 as of 1/2/20.
+ * Driver 1 has foundation grippers and the mecanum drivetrain, while
+ * Driver 2 has the arm, linear slides, intake, and the rest of the scoring
+ * mechanisms.
+ *
+ * @author William Trang
+ * @version 5.2 1/2/20
  */
 
 @TeleOp(name="shadow mec test",group="test")

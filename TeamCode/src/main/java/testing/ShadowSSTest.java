@@ -15,6 +15,17 @@ import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
 import org.openftc.easyopencv.OpenCvPipeline;
 
+/**
+ * This program was created to test OpenCv for detecting a Skystone.
+ * It uses a class called SSDetector that looks at 3 specific spots
+ * on the screen and returns thehues in YCbCr. Next, it processes the
+ * images and determines where the skystone is based on the hues. This was
+ * the first OpenCv test we had this season.
+ *
+ * @author William Trang
+ * @version 2.0 2/9/20
+ */
+
 @Disabled
 @Autonomous(name = "ss test 1", group = "test")
 public class ShadowSSTest extends LinearOpMode {

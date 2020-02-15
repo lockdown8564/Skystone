@@ -8,9 +8,12 @@ import com.qualcomm.robotcore.hardware.DigitalChannel;
 import com.qualcomm.robotcore.util.Range;
 
 /**
- * slide test
- * created: 12/28/19
- * last updated: 12/28/19
+ * Testing the linear slide on Shadow.
+ * This happened the same day as us messing up our wiring lol.
+ *
+ * @author William Trang
+ * @version 1.0 12/28/19
+ * @see ShadowTeleopTest
  */
 
 @Disabled

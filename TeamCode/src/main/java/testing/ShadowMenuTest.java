@@ -17,12 +17,13 @@ import ftclib.FtcValueMenu;
 import hallib.HalDashboard;
 
 /**
- * testing menus for shadow
+ * This program is a test for using menus for Shadow's autonomous.
+ *
+ * @author William Trang
+ * @version 2.1 2/2/20
  * @see MenuTest
  * @see ftclib.FtcChoiceMenu
  * @see ftclib.FtcValueMenu
- * made: 1/2/20
- * last updated: 2/2/20
  */
 
 @Autonomous(name = "shadow menu test", group = "test")

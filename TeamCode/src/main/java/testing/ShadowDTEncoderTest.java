@@ -6,6 +6,12 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
+/**
+ * Testing the encoders of the drivetrain. This happened the same day
+ * we decided to switch to Neverest 40 motors.
+ *
+ * @author William Trang
+ */
 @Disabled
 @TeleOp(name = "encoder test", group = "test")
 public class ShadowDTEncoderTest extends OpMode {

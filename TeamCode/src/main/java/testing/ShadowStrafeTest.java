@@ -37,9 +37,10 @@ import static org.firstinspires.ftc.robotcore.external.navigation.AxesReference.
 import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer.CameraDirection.BACK;
 
 /**
- * blue foundation auto no skystones
- * created: 1/11/20
- * last updated: 1/12/20
+ * Autonomous for testing PID strafing
+ *
+ * @author William Trang
+ * @version 1.0 2/2/20
  */
 
 @Disabled

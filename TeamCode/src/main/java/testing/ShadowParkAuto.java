@@ -36,9 +36,12 @@ import static org.firstinspires.ftc.robotcore.external.navigation.AxesReference.
 import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer.CameraDirection.BACK;
 
 /**
- * park ONLY auto
- * created: 1/11/20
- * last updated: 1/12/20
+ * This autonomous creates a hardware object and parks either on the
+ * wall or near the bridge (if angled).
+ *
+ * @author William Trang
+ * @version 1.0 1/12/20
+ * @see sonic_test.SonicRedFoundParkAuto
  */
 
 @Autonomous(name = "park wall", group = "test")

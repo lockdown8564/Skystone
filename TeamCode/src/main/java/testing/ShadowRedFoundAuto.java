@@ -36,9 +36,11 @@ import static org.firstinspires.ftc.robotcore.external.navigation.AxesReference.
 import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer.CameraDirection.BACK;
 
 /**
- * red foundation auto no skystones
- * created: 1/11/20
- * last updated: 1/16/20
+ * Red foundation autonomous. Does not get any skystones and
+ * attempts a park
+ *
+ * @author William Trang
+ * @version 2.0 1/16/20
  */
 
 @Autonomous(name = "red found park", group = "test")

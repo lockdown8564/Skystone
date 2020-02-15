@@ -41,9 +41,10 @@ import org.firstinspires.ftc.robotcore.external.tfod.Recognition;
 
 /**
  * teleop to test the functionality of tensorflow object detection
+ *
+ * @author William Trang
+ * @version 1.0 1/12/20
  * @see sonic_test.SonicTFODTest
- * created: 1/11/20
- * last updated: 1/11/20
  */
 
 @Disabled

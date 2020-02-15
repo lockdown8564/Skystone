@@ -8,9 +8,12 @@ import com.qualcomm.robotcore.hardware.DigitalChannel;
 import com.qualcomm.robotcore.util.Range;
 
 /**
- * mecanum drivetrain test for shadow
- * created: 12/28/19
- * last updated: 12/28/19
+ * Test teleop for shadow. Robot wasn't working so I had to try something
+ * LOL. I thought it might've been the program but it turns out that it
+ * wasn't, just something with the config and wiring.
+ *
+ * @author William Trang
+ * @version 1.0 12/28/19
  */
 
 @Disabled

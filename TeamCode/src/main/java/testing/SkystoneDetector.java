@@ -7,6 +7,13 @@ import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
 import org.openftc.easyopencv.OpenCvPipeline;
 
+/**
+ * First tests of OpenCv. Based on a tutorial we
+ * saw from EasyOpenCv and reddit.
+ *
+ * @author William Trang
+ * @version 1.0 2/6/20
+ */
 public class SkystoneDetector extends OpenCvPipeline {
     private Mat workingMatrix = new Mat();
     public SkystoneDetector(){

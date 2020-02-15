@@ -5,6 +5,14 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
+/**
+ * Tests to see if our Neverest 40 encoder works. This happened
+ * when our Gobilda motors started to break down.
+ *
+ * @author William Trang
+ * @version 1.0
+ * @see ShadowNRTeleTest
+ */
 @Disabled
 @Autonomous (name = "nr 40 test", group = "test")
 public class ShadowNRTest extends LinearOpMode {

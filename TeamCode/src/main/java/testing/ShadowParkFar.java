@@ -36,9 +36,13 @@ import static org.firstinspires.ftc.robotcore.external.navigation.AxesReference.
 import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer.CameraDirection.BACK;
 
 /**
- * park ONLY auto
- * created: 1/11/20
- * last updated: 1/11/20
+ * This was supposed to be an autonomous that parked near the bridge. It is
+ * no longer used because we can just use the normal park auto to do it lol.
+ *
+ * @author William Trang
+ * @version 1.0 1/11/20
+ * @see ShadowParkAuto
+ * @deprecated ShadowParkAuto does the same thing lol
  */
 
 @Disabled

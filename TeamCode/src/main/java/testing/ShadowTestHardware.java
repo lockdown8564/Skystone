@@ -22,6 +22,16 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 import hallib.HalDashboard;
 import hallib.HalUtil;
 
+/**
+ * Main hardware class for Shadow that holds all of the hardware objects for
+ * Shadow. Exists to be created as an object. Also has many methods
+ * for controlling the robot, such as setting the behavior of motors
+ * and mecanum drive.
+ *
+ * @author William Trang
+ * @version 9.1 2/9/20
+ */
+
 public class ShadowTestHardware implements PIDControlTest.PidInput{
     DcMotor frontLeft, frontRight, backLeft, backRight = null;
     private DcMotor lIntake, rIntake = null;
@@ -66,7 +76,6 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
     //private HalDashboard dashboard;
     private ElapsedTime mRunTime;
     private boolean slow = true;
-
 
     public enum DriveDirection{
         FORWARD,
@@ -132,8 +141,6 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
         mRunTime = new ElapsedTime();
         mRunTime.reset();
 
-        //dashboard = ShadowRedFoundAuto.getDashboard();
-
         pidControl = new PIDControlTest(0.03,0,0,0,0.8,0.2,this);
         pidControlTurn = new PIDControlTest(0.02,0,0,0,0.5,0.2,this);
         pidControlTurn.setAbsoluteSetPoint(true);
@@ -150,6 +157,14 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
         prevAngle = angles.firstAngle;
     }
 
+    /**
+     * set power of each individual motor
+     *
+     * @param flPower power to give front left motor
+     * @param frPower power to give front right motor
+     * @param blPower power to give back left motor
+     * @param brPower power to give back right motor
+     */
     public void driveSetPower(double flPower, double frPower, double blPower, double brPower) {
         frontLeft.setPower(flPower);
         frontRight.setPower(frPower);
@@ -168,6 +183,18 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
         while(startTime + seconds > HalUtil.getCurrentTime()) {}
     }
 
+    /**
+     * This method accepts all of the inputs for mecanum drive and does
+     * some basic math to output values into a method to move the robot.
+     *
+     * @param forward the "y" value of the left joystick; determines the robot's
+     *                forwards and backwards movement
+     * @param strafe the "x" value of the left joystick; determines the robot's
+     *               strafing movement
+     * @param turn the "x" value of the right joystick; controls the robot turning
+     * @param direction if the robot is in forward or reverse mode
+     * @param maxSpeed the max speed of driving
+     */
     public void mecanumDrive(double forward, double strafe, double turn, DriveDirection direction, double maxSpeed){
         double num = 1;
         switch(direction){
@@ -188,6 +215,17 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
                 blPower * num, brPower * num, maxSpeed);
     }
 
+    /**
+     * This robot sets the speed of the motors based on inputs from
+     * the joysticks and mecanumDrive method. In addition, the method
+     * scales down the powers from the greatest input.
+     *
+     * @param frontLeftPower power to give front left motor
+     * @param frontRightPower power to give front right motor
+     * @param backLeftPower power to give back left motor
+     * @param backRightPower power to give back right motor
+     * @param max the max speed of driving (slow mode)
+     */
     private void setSpeedsMec(double frontLeftPower, double frontRightPower, double backLeftPower, double backRightPower, double max){
         double[] arr = {1.0, frontLeftPower, frontRightPower, backLeftPower, backRightPower};
         Arrays.sort(arr);
@@ -197,7 +235,13 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
                 (backLeftPower/largest) * max, (backRightPower/largest) * max);
     }
 
-    //- is right, + is left
+    /**
+     * Strafe left or right based on the inputted direction and power.
+     * - is right, + is left
+     *
+     * @param direction -1 or 1, determines left or right
+     * @param power power to strafe at
+     */
     void strafe(int direction, double power){
         driveSetPower(power * direction, -power * direction, -power * direction, power * direction);
     }
@@ -211,7 +255,6 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
      *
      * Assuming this is running in a loop
      */
-    //Tip: Input distance in inches and power with decimal to hundredth place
     public void drivePID(double distance, boolean slow) {//throws InterruptedException {
         this.degrees = 0;
         resetIntZ();
@@ -395,8 +438,7 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
      *              robot. Conversely, turn radius r = -ln(curve)*w for a given value of curve and wheelbase w.
      * @param inverted specifies true to invert control (i.e. robot front becomes robot back).
      */
-    public void curve(double magnitude, double curve, boolean inverted, boolean gyroAssist)
-    {
+    public void curve(double magnitude, double curve, boolean inverted, boolean gyroAssist) {
         double leftOutput;
         double rightOutput;
         double sensitivity = 0.5;
@@ -494,6 +536,12 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
         slowSpeed = slow;
     }
 
+    /**
+     * Sets the drive mode of all the drive motors.
+     *
+     * @param mode runmode to set the motors to, usually run to position or
+     *             run using encoders
+     */
     void driveSetMode(DcMotor.RunMode mode){
         frontLeft.setMode(mode);
         frontRight.setMode(mode);
@@ -501,6 +549,11 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
         backRight.setMode(mode);
     }
 
+    /**
+     * Sets the zero power behavior of all the drive motors
+     *
+     * @param zero zero power behavior to set the motors to, brake or float
+     */
     void driveSetZeroPowerBehavior(DcMotor.ZeroPowerBehavior zero){
         frontLeft.setZeroPowerBehavior(zero);
         frontRight.setZeroPowerBehavior(zero);
@@ -508,16 +561,28 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
         backRight.setZeroPowerBehavior(zero);
     }
 
+    /**
+     * bring both servos to their downwards position to grip the foundation
+     */
     void gripFoundation(){
         found1.setPosition(1);
         found2.setPosition(0);
     }
 
+    /**
+     * bring both servos to their upwards position to release the foundation
+     */
     void releaseFoundation(){
         found1.setPosition(0.25);
         found2.setPosition(0.95);
     }
 
+    /**
+     * Set the targets of the left and right motors.
+     *
+     * @param lTarget target of left motors
+     * @param rTarget target of right motors
+     */
     void driveSetTarget(int lTarget, int rTarget){
         frontLeft.setTargetPosition(lTarget);
         backLeft.setTargetPosition(lTarget);
@@ -525,6 +590,14 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
         backRight.setTargetPosition(rTarget);
     }
 
+    /**
+     * Set the targets of each individual motor.
+     *
+     * @param flTarget target of front left motor
+     * @param frTarget target of front right motor
+     * @param blTarget target of back left motor
+     * @param brTarget target of back right motor
+     */
     void driveSetTargetInd(int flTarget, int frTarget, int blTarget, int brTarget){
         frontLeft.setTargetPosition(flTarget);
         backLeft.setTargetPosition(blTarget);
@@ -532,6 +605,11 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
         backRight.setTargetPosition(brTarget);
     }
 
+    /**
+     * Set the power of all motors to the same speed
+     *
+     * @param power the speed to set the motors to
+     */
     void driveSetPowerAll(double power){
         frontLeft.setPower(power);
         frontRight.setPower(power);
@@ -539,6 +617,9 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
         backRight.setPower(power);
     }
 
+    /**
+     * Stop all movement of motors.
+     */
     public void stopMotors(){
         driveSetPowerAll(0);
         lIntake.setPower(0);
@@ -547,19 +628,38 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
         swing.setPower(0);
     }
 
+    /**
+     * Runs the intake at a desired speed.
+     * - is in + is out
+     *
+     * @param power the power to run the intake motors at
+     */
     void intakeSetPower(double power){
         lIntake.setPower(power);
         rIntake.setPower(power);
     }
 
+    /**
+     * Checks if the motors are busy (used for encoders)
+     *
+     * @return if all of the motors are busy
+     */
     boolean driveIsBusy(){
         return frontLeft.isBusy() && frontRight.isBusy() && backLeft.isBusy() && backRight.isBusy();
     }
 
+    /**
+     * Returns counts per inch (for encoders)
+     *
+     * @return counts per inch variable
+     */
     double getCPI(){
         return COUNTS_PER_INCH;
     }
 
+    /**
+     * reset the pid controllers
+     */
     public void resetPIDDrive() {
         pidControl.reset();
         pidControlTurn.reset();
@@ -580,6 +680,14 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
         return input;
     }
 
+    /**
+     * returns how off the robot is from the desired heading
+     * if it is less than or greater than 180, add or subtract
+     * 360 to get the true value the robot is off
+     *
+     * @param targetAngle the desired heading to stay on
+     * @return how far off the robot is from desired heading
+     */
     public double getError(double targetAngle) {
         double robotError;
 

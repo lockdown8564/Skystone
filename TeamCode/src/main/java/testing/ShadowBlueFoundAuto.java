@@ -37,9 +37,10 @@ import static org.firstinspires.ftc.robotcore.external.navigation.AxesReference.
 import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer.CameraDirection.BACK;
 
 /**
- * blue foundation auto no skystones
- * created: 1/11/20
- * last updated: 2/2/20
+ * This autonomous program was intended to score the foundation then park.
+ *
+ * @author William Trang
+ * @version 3.0 2/2/20
  */
 
 @Autonomous(name = "blue found park", group = "test")
