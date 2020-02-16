@@ -70,7 +70,7 @@ public class ShadowMecanumTest extends OpMode {
     public void loop(){
         if(gamepad1.right_trigger != 0){
             driveSpeed = DriveSpeed.SLOW;
-            maxSpeed = 0.3;
+            maxSpeed = 0.4;
         }
 
         else {
@@ -94,17 +94,19 @@ public class ShadowMecanumTest extends OpMode {
             robot.releaseFoundation();
         }
 
-        if(Math.abs(gamepad1.left_stick_y) > deadzone){
+        if(Math.abs(gamepad1.left_stick_y) > deadzone) {
             forward = -gamepad1.left_stick_y;
         }
-        else{
+
+        else {
             forward = 0;
         }
 
-        if(Math.abs(gamepad1.left_stick_x) > deadzone){
+        if(Math.abs(gamepad1.left_stick_x) > deadzone) {
             strafe = gamepad1.left_stick_x;
         }
-        else{
+
+        else {
             strafe = 0;
         }
 
@@ -210,14 +212,6 @@ public class ShadowMecanumTest extends OpMode {
         }
 
         telemetry.addData("Swing:", robot.swing.getCurrentPosition());
-
-        /*if (robot.touch.getState()) {
-            telemetry.addData("Digital Touch", "Is Not Pressed");
-        }
-
-        else {
-            telemetry.addData("Digital Touch", "Is Pressed");
-        }*/
 
         if(robot.color.red() > 155 && robot.color.green() > 135){
             hopper = Hopper.TRUE;

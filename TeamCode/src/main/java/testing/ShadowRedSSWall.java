@@ -101,6 +101,15 @@ public class ShadowRedSSWall extends LinearOpMode{
                 sleep(1000);
                 robot.stopMotors();
 
+                encStrafeFlBrIntake(0.7, -50, -1);
+                turnLeft(84, -0.4);
+                turnRight(-84, 0.4);
+
+                encoderDrive(0.7, 100, 100);
+                sleep(500);
+                robot.stopMotors();
+                encoderDrive(0.7, -8, -8);
+
                 break;
             }
 
@@ -116,22 +125,22 @@ public class ShadowRedSSWall extends LinearOpMode{
                 sleep(1000);
                 robot.stopMotors();
 
-                encoderDrive(0.7, -60, -60);
-                encoderDrive(0.7, 3, 3);
+                encoderDrive(0.7, -66, -66);
+                encoderDrive(0.7, 4, 4);
                 turnLeft(84, -0.4);
-                turnRight(-84, 0.4);
+                turnRight(-90, 0.4);
 
-                encoderDrive(0.7, 66, 66);
+                encoderDrive(0.7, 75, 75);
                 sleep(500);
                 robot.stopMotors();
-                encoderDrive(0.7, -4, -4);
+                encoderDrive(0.7, -13, -13);
 
                 break;
             }
 
             case RIGHT:{
                 encoderDrive(0.7,-10,-10);
-                encStrafe(0.5, -12);
+                encStrafe(0.5, -13);
                 robot.stopMotors();
 
                 turnRight(175, 0.5);
@@ -140,6 +149,17 @@ public class ShadowRedSSWall extends LinearOpMode{
                 robot.intakeSetPower(-1);
                 sleep(1000);
                 robot.stopMotors();
+
+                encoderDrive(0.7, -72, -72);
+                encoderDrive(0.7, 4, 4);
+                turnLeft(84, -0.4);
+                turnRight(-90, 0.4);
+
+                encoderDrive(0.7, 70, 70);
+                sleep(500);
+                robot.stopMotors();
+                encoderDrive(0.7, -12, -12);
+
                 break;
             }
         }
@@ -414,6 +434,28 @@ public class ShadowRedSSWall extends LinearOpMode{
             robot.driveSetPower(Math.abs(speed), 0, 0 ,Math.abs(speed));
 
             while(robot.driveIsBusy() && opModeIsActive()){
+            }
+
+            robot.stopMotors();
+            robot.driveSetMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        }
+    }
+
+    private void encStrafeFlBrIntake(double speed, double distance, double direction){
+        int flTarget, brTarget;
+
+        if(opModeIsActive()){
+            flTarget = (robot.frontLeft.getCurrentPosition()) + (int)(distance*robot.getCPI());
+            brTarget = (robot.backRight.getCurrentPosition()) + (int)(distance*robot.getCPI());
+
+            robot.frontLeft.setTargetPosition(flTarget);
+            robot.backRight.setTargetPosition(brTarget);
+
+            robot.driveSetMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.driveSetPower(Math.abs(speed), 0, 0 ,Math.abs(speed));
+
+            while(robot.driveIsBusy() && opModeIsActive()){
+                robot.intakeSetPower(direction);
             }
 
             robot.stopMotors();
