@@ -85,42 +85,57 @@ public class ShadowRedSSWall extends LinearOpMode{
 
         switch(skystone){
             case LEFT:{
-                encoderDrive(0.6, 15.5, 15.5);
-
-                robot.strafe(1, 0.5);
-                sleep(500);
+                encoderDrive(0.7, -24, -24);
+                encStrafe(0.5, -6);
                 robot.stopMotors();
 
-                turnRight(113, 0.4);
-                encoderDriveIntake(0.5, 25, 25, -1);
+                turnRight(120, 0.4);
+                encStrafeFlBr(0.6, 15);
+                encoderDriveIntake(0.7, 16, 16, -1);
+
                 robot.intakeSetPower(-1);
                 sleep(1000);
                 robot.stopMotors();
-
-                encoderDrive(0.6, -33, -33);
-                turnLeft(-92, 0.3);
-                encoderDrive(0.6, -50, -50);
 
                 break;
             }
 
             case MIDDLE:{
-                encoderDrive(0.6, 14, 14);
-                turnRight(120, 0.4);
-                encoderDriveIntake(0.6, 10, 10, -1);
-                encoderDrive(0.6, -10, -10);
-                turnLeft(-90, 0.3);
-                encoderDrive(0.6, -36, -36);
+                encoderDrive(0.7,-10,-10);
+                encStrafe(0.5, -6);
+                robot.stopMotors();
+
+                turnRight(175, 0.5);
+                encImuDriveIntake(0.45, 57, robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle, -1);
+
+                robot.intakeSetPower(-1);
+                sleep(1000);
+                robot.stopMotors();
+
+                encoderDrive(0.7, -60, -60);
+                encoderDrive(0.7, 3, 3);
+                turnLeft(84, -0.4);
+                turnRight(-84, 0.4);
+
+                encoderDrive(0.7, 66, 66);
+                sleep(500);
+                robot.stopMotors();
+                encoderDrive(0.7, -4, -4);
+
                 break;
             }
 
             case RIGHT:{
-                encoderDrive(0.6, 12, 12);
-                turnRight(120, 0.4);
-                encoderDriveIntake(0.6, 10, 10, -1);
-                encoderDrive(0.6, -10, -10);
-                turnLeft(-90, 0.3);
-                encoderDrive(0.6, -32, -32);
+                encoderDrive(0.7,-10,-10);
+                encStrafe(0.5, -12);
+                robot.stopMotors();
+
+                turnRight(175, 0.5);
+                encImuDriveIntake(0.45, 66, robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle, -1);
+
+                robot.intakeSetPower(-1);
+                sleep(1000);
+                robot.stopMotors();
                 break;
             }
         }
@@ -271,6 +286,49 @@ public class ShadowRedSSWall extends LinearOpMode{
         }
     }
 
+    private void encImuDriveIntake (double speed, double distance, double angle, double direction){
+        int LEFT_TARGET, RIGHT_TARGET;
+        double error;
+        double steer;
+        double leftSpeed, rightSpeed;
+        double max;
+
+        if(opModeIsActive()){
+            LEFT_TARGET = (int)(distance*robot.getCPI()) + robot.frontLeft.getCurrentPosition();
+            RIGHT_TARGET = (int)(distance*robot.getCPI()) + robot.frontRight.getCurrentPosition();
+
+            robot.driveSetTarget(LEFT_TARGET,RIGHT_TARGET);
+            robot.driveSetMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.driveSetPowerAll(Math.abs(speed));
+
+            while(robot.driveIsBusy() && opModeIsActive()){
+                error = robot.getError(angle);
+                steer = robot.getSteer(error, robot.P_DRIVE_COEFF);
+
+                if (distance < 0) {
+                    steer *= -1.0;
+                }
+
+                leftSpeed = speed - steer;
+                rightSpeed = speed + steer;
+
+                max = Math.max(Math.abs(leftSpeed), Math.abs(rightSpeed));
+
+                if(max > 1.0){
+                    leftSpeed /= max;
+                    rightSpeed /= max;
+                }
+
+                robot.intakeSetPower(direction);
+                robot.driveSetPower(leftSpeed, rightSpeed, leftSpeed, rightSpeed);
+
+            }
+
+            robot.stopMotors();
+            robot.driveSetMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        }
+    }
+
     // - is right, + is left
     private void imuStrafe(double speed, double distance, double angle){
         int flTarget, frTarget, blTarget, brTarget;
@@ -316,6 +374,57 @@ public class ShadowRedSSWall extends LinearOpMode{
         }
     }
 
+    // - is right, + is left
+    private void encStrafe(double speed, double distance){
+        int flTarget, frTarget, blTarget, brTarget;
+        double error;
+        double steer;
+        double leftSpeed, rightSpeed;
+        double max;
+
+        if(opModeIsActive()){
+            flTarget = (robot.frontLeft.getCurrentPosition()) + (int)(distance*robot.getCPI());
+            frTarget = (robot.frontRight.getCurrentPosition()) - (int)(distance*robot.getCPI());
+            blTarget = (robot.backLeft.getCurrentPosition()) - (int)(distance*robot.getCPI());
+            brTarget = (robot.backRight.getCurrentPosition()) + (int)(distance*robot.getCPI());
+
+            robot.driveSetTargetInd(flTarget, frTarget, blTarget, brTarget);
+            robot.driveSetMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.driveSetPowerAll(Math.abs(speed));
+
+            while(robot.driveIsBusy() && opModeIsActive()){
+            }
+
+            robot.stopMotors();
+            robot.driveSetMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        }
+    }
+
+    private void encStrafeFlBr(double speed, double distance){
+        int flTarget, frTarget, blTarget, brTarget;
+        double error;
+        double steer;
+        double leftSpeed, rightSpeed;
+        double max;
+
+        if(opModeIsActive()){
+            flTarget = (robot.frontLeft.getCurrentPosition()) + (int)(distance*robot.getCPI());
+            brTarget = (robot.backRight.getCurrentPosition()) + (int)(distance*robot.getCPI());
+
+            robot.frontLeft.setTargetPosition(flTarget);
+            robot.backRight.setTargetPosition(brTarget);
+
+            robot.driveSetMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.driveSetPower(Math.abs(speed), 0, 0 ,Math.abs(speed));
+
+            while(robot.driveIsBusy() && opModeIsActive()){
+            }
+
+            robot.stopMotors();
+            robot.driveSetMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        }
+    }
+
     static class SSDetector extends OpenCvPipeline {
         private Mat workingMatrix = new Mat();
         Skystone skystone = Skystone.RIGHT;
@@ -330,13 +439,13 @@ public class ShadowRedSSWall extends LinearOpMode{
 
             Imgproc.cvtColor(workingMatrix, workingMatrix, Imgproc.COLOR_RGB2YCrCb);
 
-            Mat matLeft = workingMatrix.submat(500, 600, 550, 710);
-            Mat matCenter = workingMatrix.submat(500, 600, 910, 1070);
-            Mat matRight = workingMatrix.submat(500, 600, 1270, 1430);
+            Mat matLeft = workingMatrix.submat(710, 810, 600, 760);
+            Mat matCenter = workingMatrix.submat(710, 810, 960, 1120);
+            Mat matRight = workingMatrix.submat(710, 810, 1320, 1480);
 
-            Imgproc.rectangle(workingMatrix, new Rect(550, 500, 160, 100), new Scalar(0, 0, 255));
-            Imgproc.rectangle(workingMatrix, new Rect(910, 500, 160, 100), new Scalar(0, 0, 255));
-            Imgproc.rectangle(workingMatrix, new Rect(1270, 500, 160, 100), new Scalar(0, 0, 255));
+            Imgproc.rectangle(workingMatrix, new Rect(600, 710, 160, 100), new Scalar(0, 0, 255));
+            Imgproc.rectangle(workingMatrix, new Rect(960, 710, 160, 100), new Scalar(0, 0, 255));
+            Imgproc.rectangle(workingMatrix, new Rect(1320, 710, 160, 100), new Scalar(0, 0, 255));
 
             double leftSum = Core.sumElems(matLeft).val[2];
             double centerSum = Core.sumElems(matCenter).val[2];

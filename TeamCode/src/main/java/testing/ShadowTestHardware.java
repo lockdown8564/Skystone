@@ -34,7 +34,7 @@ import hallib.HalUtil;
 
 public class ShadowTestHardware implements PIDControlTest.PidInput{
     DcMotor frontLeft, frontRight, backLeft, backRight = null;
-    private DcMotor lIntake, rIntake = null;
+    DcMotor lIntake, rIntake = null;
     DcMotor slide = null;
     DcMotor swing = null;
     Servo found1, found2 = null;
@@ -62,7 +62,7 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
     public PIDControlTest pidControl, pidControlTurn;
 
     static final double     P_TURN_COEFF            = 0.1;     // Larger is more responsive, but also less stable
-    static final double     P_DRIVE_COEFF           = 0.03;     // Larger is more responsive, but also less stable
+    static final double     P_DRIVE_COEFF           = 0.1;     // Larger is more responsive, but also less stable
 
     private final static double SCALE = (WHEEL_DIAMETER_INCHES * Math.PI)/
             (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION); //inches per count
@@ -187,13 +187,13 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
      * This method accepts all of the inputs for mecanum drive and does
      * some basic math to output values into a method to move the robot.
      *
-     * @param forward the "y" value of the left joystick; determines the robot's
-     *                forwards and backwards movement
-     * @param strafe the "x" value of the left joystick; determines the robot's
-     *               strafing movement
-     * @param turn the "x" value of the right joystick; controls the robot turning
+     * @param forward   the "y" value of the left joystick; determines the robot's
+     *                  forwards and backwards movement
+     * @param strafe    the "x" value of the left joystick; determines the robot's
+     *                  strafing movement
+     * @param turn      the "x" value of the right joystick; controls the robot turning
      * @param direction if the robot is in forward or reverse mode
-     * @param maxSpeed the max speed of driving
+     * @param maxSpeed  the max speed of driving
      */
     public void mecanumDrive(double forward, double strafe, double turn, DriveDirection direction, double maxSpeed){
         double num = 1;
@@ -220,11 +220,11 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
      * the joysticks and mecanumDrive method. In addition, the method
      * scales down the powers from the greatest input.
      *
-     * @param frontLeftPower power to give front left motor
+     * @param frontLeftPower  power to give front left motor
      * @param frontRightPower power to give front right motor
-     * @param backLeftPower power to give back left motor
-     * @param backRightPower power to give back right motor
-     * @param max the max speed of driving (slow mode)
+     * @param backLeftPower   power to give back left motor
+     * @param backRightPower  power to give back right motor
+     * @param max             the max speed of driving (slow mode)
      */
     private void setSpeedsMec(double frontLeftPower, double frontRightPower, double backLeftPower, double backRightPower, double max){
         double[] arr = {1.0, frontLeftPower, frontRightPower, backLeftPower, backRightPower};
@@ -240,7 +240,7 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
      * - is right, + is left
      *
      * @param direction -1 or 1, determines left or right
-     * @param power power to strafe at
+     * @param power     power to strafe at
      */
     void strafe(int direction, double power){
         driveSetPower(power * direction, -power * direction, -power * direction, power * direction);
@@ -433,10 +433,10 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
      * Increasing sensitivity causes sharper turns for fixed values of curve.
      *
      * @param magnitude specifies the speed setting for the outside wheel in a turn, forward or backwards, +1 to -1.
-     * @param curve specifies the rate of turn, constant for different forward speeds. Set curve < 0 for left turn or
-     *              curve > 0 for right turn. Set curve = e^(-r/w) to get a turn radius r for wheelbase w of your
-     *              robot. Conversely, turn radius r = -ln(curve)*w for a given value of curve and wheelbase w.
-     * @param inverted specifies true to invert control (i.e. robot front becomes robot back).
+     * @param curve     specifies the rate of turn, constant for different forward speeds. Set curve < 0 for left turn or
+     *                  curve > 0 for right turn. Set curve = e^(-r/w) to get a turn radius r for wheelbase w of your
+     *                  robot. Conversely, turn radius r = -ln(curve)*w for a given value of curve and wheelbase w.
+     * @param inverted  specifies true to invert control (i.e. robot front becomes robot back).
      */
     public void curve(double magnitude, double curve, boolean inverted, boolean gyroAssist) {
         double leftOutput;
@@ -478,9 +478,9 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
      * This method implements tank drive where leftPower controls the left motors and right power controls the right
      * motors.
      *
-     * @param leftPower specifies left power value.
+     * @param leftPower  specifies left power value.
      * @param rightPower specifies right power value.
-     * @param inverted specifies true to invert control (i.e. robot front becomes robot back).
+     * @param inverted   specifies true to invert control (i.e. robot front becomes robot back).
      */
     public void curveDrive(double leftPower, double rightPower, boolean inverted, boolean gyroAssist)
     {

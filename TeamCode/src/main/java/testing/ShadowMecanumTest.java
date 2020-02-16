@@ -155,15 +155,15 @@ public class ShadowMecanumTest extends OpMode {
             robot.swing.setPower(gamepad2.right_stick_y*.7);
         }
 
-        else if(gamepad2.y){
-            /*while(robot.swing.getCurrentPosition() > -60){
+        /*else if(gamepad2.y){
+            while(robot.swing.getCurrentPosition() > -60){
                 robot.swing.setPower(0.6);
             }
 
             robot.swing.setPower(-1);
             robot.sleep(1);
 
-            robot.stopMotors();*/
+            robot.stopMotors();
 
             robot.swing.setTargetPosition(100);
             robot.swing.setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -178,12 +178,12 @@ public class ShadowMecanumTest extends OpMode {
         }
 
         else if(gamepad2.x){
-            /*while(robot.swing.getCurrentPosition() < -20){
+            while(robot.swing.getCurrentPosition() < -20){
                 robot.swing.setPower(-0.6);
             }
 
             robot.swing.setPower(1);
-            robot.sleep(1);*/
+            robot.sleep(1);
 
             robot.swing.setTargetPosition(10);
             robot.swing.setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -203,7 +203,7 @@ public class ShadowMecanumTest extends OpMode {
             }
 
             robot.stopMotors();
-        }
+        }*/
 
         else{
             robot.swing.setPower(0);
@@ -211,13 +211,13 @@ public class ShadowMecanumTest extends OpMode {
 
         telemetry.addData("Swing:", robot.swing.getCurrentPosition());
 
-        if (robot.touch.getState()) {
+        /*if (robot.touch.getState()) {
             telemetry.addData("Digital Touch", "Is Not Pressed");
         }
 
         else {
             telemetry.addData("Digital Touch", "Is Pressed");
-        }
+        }*/
 
         if(robot.color.red() > 155 && robot.color.green() > 135){
             hopper = Hopper.TRUE;

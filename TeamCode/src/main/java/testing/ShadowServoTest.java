@@ -1,5 +1,7 @@
 package testing;
 
+import android.media.MediaDrm;
+
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -52,6 +54,7 @@ import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocaliz
  * @version 1.0 2/7/20
  */
 
+@Disabled
 @Autonomous(name = "servo test auto", group = "test")
 public class ShadowServoTest extends LinearOpMode{
     private ShadowTestHardware robot = new ShadowTestHardware();

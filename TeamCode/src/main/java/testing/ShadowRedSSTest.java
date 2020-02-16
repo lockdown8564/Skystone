@@ -135,6 +135,14 @@ public class ShadowRedSSTest extends LinearOpMode{
 
     }
 
+    /**
+     * Drive an inputted distance in inches using encoders and motor's
+     * run to position mode.
+     *
+     * @param speed       the desired speed to move at
+     * @param leftInches  distance to move the left wheels
+     * @param rightInches distance to move the right wheels
+     */
     private void encoderDrive(double speed, double leftInches, double rightInches){
         int LEFT_TARGET, RIGHT_TARGET;
         if(opModeIsActive()){
@@ -152,6 +160,15 @@ public class ShadowRedSSTest extends LinearOpMode{
         }
     }
 
+    /**
+     * Basically the encoderDrive method but runs the intake while it is moving.
+     * Moves the robot a desired distance based on input.
+     *
+     * @param speed       the desired speed to move at
+     * @param leftInches  distance to move the left wheels
+     * @param rightInches distance to move the right wheels
+     * @param direction   direction to move the intake in (- is in, + is out)
+     */
     private void encoderDriveIntake(double speed, double leftInches, double rightInches, double direction){
         int LEFT_TARGET, RIGHT_TARGET;
         if(opModeIsActive()){
@@ -170,6 +187,13 @@ public class ShadowRedSSTest extends LinearOpMode{
         }
     }
 
+    /**
+     * Creates an arc moving left of the robot. Uses the REV Expansion Hub's
+     * built in IMU.
+     *
+     * @param TARGET_ANGLE desired angle to turn to
+     * @param power        desired power to turn at
+     */
     private void turnLeftCurvy(final float TARGET_ANGLE, double power){
         while(opModeIsActive()){
             float currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
@@ -182,6 +206,13 @@ public class ShadowRedSSTest extends LinearOpMode{
         }
     }
 
+    /**
+     * Turn right and stop at a desired inputted angle. Uses the REV Expansion Hub's
+     * built in IMU to turn.
+     *
+     * @param TARGET_ANGLE desired angle to turn to
+     * @param power        desired power to turn at
+     */
     private void turnRight(final float TARGET_ANGLE, double power){
         while(opModeIsActive()){
             float currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
@@ -194,6 +225,14 @@ public class ShadowRedSSTest extends LinearOpMode{
         }
     }
 
+    /**
+     * Turn left and stop at a desired inputted angle. Uses the REV Expansion Hub's
+     * built in IMU to turn. Unlike the normal turnLeft function, this function only
+     * moves one side of the robot to turn to create a pivot turn.
+     *
+     * @param TARGET_ANGLE desired angle to turn to
+     * @param power        desired power to turn at
+     */
     private void turnLeftPivot(final float TARGET_ANGLE, double power){
         while(opModeIsActive()){
             float currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
@@ -208,6 +247,14 @@ public class ShadowRedSSTest extends LinearOpMode{
         }
     }
 
+    /**
+     * Turn right and stop at a desired inputted angle. Uses the REV Expansion Hub's
+     * built in IMU to turn. Unlike the normal turnRight function, this function only
+     * moves one side of the robot to turn to create a pivot turn.
+     *
+     * @param TARGET_ANGLE desired angle to turn to
+     * @param power        desired power to turn at
+     */
     private void turnRightPivot(final float TARGET_ANGLE, double power){
         while(opModeIsActive()){
             float currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
@@ -220,6 +267,13 @@ public class ShadowRedSSTest extends LinearOpMode{
         }
     }
 
+    /**
+     * Turn left and stop at a desired inputted angle. Uses the REV Expansion Hub's
+     * built in IMU to turn.
+     *
+     * @param TARGET_ANGLE desired angle to turn to
+     * @param power        desired power to turn at
+     */
     private void turnLeft(final float TARGET_ANGLE, double power){
         while(opModeIsActive()){
             float currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
@@ -234,6 +288,15 @@ public class ShadowRedSSTest extends LinearOpMode{
         }
     }
 
+    /**
+     * Drive based on an inputted distance and speed. Uses the REV IMU
+     * to attempt to drive straight (stay on its current heading, similar to
+     * a PID Drive).
+     *
+     * @param speed    desired speed to move at
+     * @param distance desired distance to move
+     * @param angle    angle to stay at
+     */
     private void encImuDrive(double speed, double distance, double angle){
         int LEFT_TARGET, RIGHT_TARGET;
         double error;
@@ -276,7 +339,14 @@ public class ShadowRedSSTest extends LinearOpMode{
         }
     }
 
-    // - is right, + is left
+    /**
+     * Strafe using the REV Expansion Hub's built in IMU to
+     * stay on a desired heading throughout.
+     *
+     * @param speed    desired speed to move at
+     * @param distance desired distance to move (-distance is right, + is left)
+     * @param angle    desired angle to reach/stay on
+     */
     private void imuStrafe(double speed, double distance, double angle){
         int flTarget, frTarget, blTarget, brTarget;
         double error;
@@ -351,15 +421,18 @@ public class ShadowRedSSTest extends LinearOpMode{
                 if (leftSum > rightSum) {
                     //skystone is left
                     skystone = Skystone.LEFT;
-                } else {
+                }
+                else {
                     //skystone is right
                     skystone = Skystone.RIGHT;
                 }
-            } else {
+            }
+            else {
                 if (centerSum > rightSum) {
                     //skystone is center
                     skystone = Skystone.MIDDLE;
-                } else {
+                }
+                else {
                     //skystone is right
                     skystone = Skystone.RIGHT;
                 }
