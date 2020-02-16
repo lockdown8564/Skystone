@@ -46,9 +46,13 @@ import static org.firstinspires.ftc.robotcore.external.navigation.AxesReference.
 import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer.CameraDirection.BACK;
 
 /**
- * red stone auto test
- * created: 2/9/20
- * last updated: 2/9/20
+ * Red stone autonomous test for position right next to the wall. Uses OpenCV
+ * to read the orientation of the stones from initial position. From there, grabs the
+ * skystone and parks under the bridge. This program relies heavily on encoders
+ * for both strafing and moving forward and back.
+ *
+ * @author William Trang
+ * @version 2.1 2/15/20
  */
 
 @Autonomous(name = "red ss wall", group = "test")
@@ -377,10 +381,6 @@ public class ShadowRedSSWall extends LinearOpMode{
     // - is right, + is left
     private void encStrafe(double speed, double distance){
         int flTarget, frTarget, blTarget, brTarget;
-        double error;
-        double steer;
-        double leftSpeed, rightSpeed;
-        double max;
 
         if(opModeIsActive()){
             flTarget = (robot.frontLeft.getCurrentPosition()) + (int)(distance*robot.getCPI());
@@ -401,11 +401,7 @@ public class ShadowRedSSWall extends LinearOpMode{
     }
 
     private void encStrafeFlBr(double speed, double distance){
-        int flTarget, frTarget, blTarget, brTarget;
-        double error;
-        double steer;
-        double leftSpeed, rightSpeed;
-        double max;
+        int flTarget, brTarget;
 
         if(opModeIsActive()){
             flTarget = (robot.frontLeft.getCurrentPosition()) + (int)(distance*robot.getCPI());
