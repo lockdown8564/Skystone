@@ -52,33 +52,48 @@ import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocaliz
  * for both strafing and moving forward and back.
  *
  * @author William Trang
- * @version 2.1 2/15/20
+ * @version 2.1 2/16/20
  */
 
 @Autonomous(name = "red ss wall", group = "test")
 public class ShadowRedSSWall extends LinearOpMode{
     private ShadowTestHardware robot = new ShadowTestHardware();
+
+    //create opmode members
     private OpenCvCamera webcam;
     private SSDetector detector;
     private Skystone skystone = Skystone.RIGHT;
 
     private enum Skystone{
+        /**
+         * left position of skystone
+         */
         LEFT,
+
+        /**
+         * center position of skystone
+         */
         MIDDLE,
+
+        /**
+         * right position of skystone
+         */
         RIGHT
     }
 
     @Override
     public void runOpMode() {
         robot.init(hardwareMap);
+
+        //create and open camera device
         int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
         webcam = OpenCvCameraFactory.getInstance().createWebcam(hardwareMap.get(WebcamName.class, "Webcam 1"), cameraMonitorViewId);
         detector = new SSDetector();
-
         webcam.openCameraDevice();
         webcam.setPipeline(detector);
         webcam.startStreaming(1920, 1080, OpenCvCameraRotation.UPRIGHT);
 
+        //update position on phone before match starts
         while(!isStarted()) {
             skystone = detector.skystone;
             telemetry.addData("skystone:", skystone);
@@ -89,10 +104,12 @@ public class ShadowRedSSWall extends LinearOpMode{
 
         switch(skystone){
             case LEFT:{
+                //drive forward to stones
                 encoderDrive(0.7, -24, -24);
                 encStrafe(0.5, -6);
                 robot.stopMotors();
 
+                //turn toward left stone and strafe diagonal
                 turnRight(120, 0.4);
                 encStrafeFlBr(0.6, 15);
                 encoderDriveIntake(0.7, 16, 16, -1);
@@ -169,6 +186,14 @@ public class ShadowRedSSWall extends LinearOpMode{
 
     }
 
+    /**
+     * Drive an inputted distance in inches using encoders and motor's
+     * run to position mode.
+     *
+     * @param speed       the desired speed to move at
+     * @param leftInches  distance to move the left wheels
+     * @param rightInches distance to move the right wheels
+     */
     private void encoderDrive(double speed, double leftInches, double rightInches){
         int LEFT_TARGET, RIGHT_TARGET;
         if(opModeIsActive()){
@@ -186,6 +211,15 @@ public class ShadowRedSSWall extends LinearOpMode{
         }
     }
 
+    /**
+     * Basically the encoderDrive method but runs the intake while it is moving.
+     * Moves the robot a desired distance based on input.
+     *
+     * @param speed       the desired speed to move at
+     * @param leftInches  distance to move the left wheels
+     * @param rightInches distance to move the right wheels
+     * @param direction   direction to move the intake in (- is in, + is out)
+     */
     private void encoderDriveIntake(double speed, double leftInches, double rightInches, double direction){
         int LEFT_TARGET, RIGHT_TARGET;
         if(opModeIsActive()){
@@ -204,6 +238,13 @@ public class ShadowRedSSWall extends LinearOpMode{
         }
     }
 
+    /**
+     * Creates an arc moving left of the robot. Uses the REV Expansion Hub's
+     * built in IMU.
+     *
+     * @param TARGET_ANGLE desired angle to turn to
+     * @param power        desired power to turn at
+     */
     private void turnLeftCurvy(final float TARGET_ANGLE, double power){
         while(opModeIsActive()){
             float currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
@@ -216,6 +257,13 @@ public class ShadowRedSSWall extends LinearOpMode{
         }
     }
 
+    /**
+     * Turn right and stop at a desired inputted angle. Uses the REV Expansion Hub's
+     * built in IMU to turn.
+     *
+     * @param TARGET_ANGLE desired angle to turn to
+     * @param power        desired power to turn at
+     */
     private void turnRight(final float TARGET_ANGLE, double power){
         while(opModeIsActive()){
             float currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
@@ -228,6 +276,14 @@ public class ShadowRedSSWall extends LinearOpMode{
         }
     }
 
+    /**
+     * Turn left and stop at a desired inputted angle. Uses the REV Expansion Hub's
+     * built in IMU to turn. Unlike the normal turnLeft function, this function only
+     * moves one side of the robot to turn to create a pivot turn.
+     *
+     * @param TARGET_ANGLE desired angle to turn to
+     * @param power        desired power to turn at
+     */
     private void turnLeftPivot(final float TARGET_ANGLE, double power){
         while(opModeIsActive()){
             float currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
@@ -242,6 +298,14 @@ public class ShadowRedSSWall extends LinearOpMode{
         }
     }
 
+    /**
+     * Turn right and stop at a desired inputted angle. Uses the REV Expansion Hub's
+     * built in IMU to turn. Unlike the normal turnRight function, this function only
+     * moves one side of the robot to turn to create a pivot turn.
+     *
+     * @param TARGET_ANGLE desired angle to turn to
+     * @param power        desired power to turn at
+     */
     private void turnRightPivot(final float TARGET_ANGLE, double power){
         while(opModeIsActive()){
             float currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
@@ -254,6 +318,13 @@ public class ShadowRedSSWall extends LinearOpMode{
         }
     }
 
+    /**
+     * Turn left and stop at a desired inputted angle. Uses the REV Expansion Hub's
+     * built in IMU to turn.
+     *
+     * @param TARGET_ANGLE desired angle to turn to
+     * @param power        desired power to turn at
+     */
     private void turnLeft(final float TARGET_ANGLE, double power){
         while(opModeIsActive()){
             float currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
@@ -268,6 +339,15 @@ public class ShadowRedSSWall extends LinearOpMode{
         }
     }
 
+    /**
+     * Drive based on an inputted distance and speed. Uses the REV IMU
+     * to attempt to drive straight (stay on its current heading, similar to
+     * a PID Drive).
+     *
+     * @param speed    desired speed to move at
+     * @param distance desired distance to move
+     * @param angle    angle to stay at
+     */
     private void encImuDrive(double speed, double distance, double angle){
         int LEFT_TARGET, RIGHT_TARGET;
         double error;
@@ -353,7 +433,14 @@ public class ShadowRedSSWall extends LinearOpMode{
         }
     }
 
-    // - is right, + is left
+    /**
+     * Strafe using the REV Expansion Hub's built in IMU to
+     * stay on a desired heading throughout.
+     *
+     * @param speed    desired speed to move at
+     * @param distance desired distance to move (-distance is right, + is left)
+     * @param angle    desired angle to reach/stay on
+     */
     private void imuStrafe(double speed, double distance, double angle){
         int flTarget, frTarget, blTarget, brTarget;
         double error;
@@ -420,6 +507,12 @@ public class ShadowRedSSWall extends LinearOpMode{
         }
     }
 
+    /**
+     * Strafe diagonally using only the front left and back right motors
+     *
+     * @param speed    speed to move at
+     * @param distance distance to move
+     */
     private void encStrafeFlBr(double speed, double distance){
         int flTarget, brTarget;
 
@@ -441,6 +534,13 @@ public class ShadowRedSSWall extends LinearOpMode{
         }
     }
 
+    /**
+     * Strafe diagonally while intaking using only the front left and back right motors
+     *
+     * @param speed     speed to move at
+     * @param distance  distance to move at
+     * @param direction direction to intake (- for in + for out)
+     */
     private void encStrafeFlBrIntake(double speed, double distance, double direction){
         int flTarget, brTarget;
 
