@@ -41,6 +41,7 @@ import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocaliz
  *
  * @author William Trang
  * @version 1.0 2/2/20
+ * @deprecated
  */
 
 @Disabled

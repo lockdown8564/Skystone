@@ -45,6 +45,7 @@ import org.firstinspires.ftc.robotcore.external.tfod.Recognition;
  * @author William Trang
  * @version 1.0 1/12/20
  * @see sonic_test.SonicTFODTest
+ * @deprecated we use OpenCV now
  */
 
 @Disabled

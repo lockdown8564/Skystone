@@ -94,6 +94,8 @@ public class ShadowMecanumTest extends OpMode {
             robot.releaseFoundation();
         }
 
+        telemetry.addData("found1: ", robot.found1.getPosition());
+
         if(Math.abs(gamepad1.left_stick_y) > deadzone) {
             forward = -gamepad1.left_stick_y;
         }
@@ -154,7 +156,7 @@ public class ShadowMecanumTest extends OpMode {
         }
 
         if(gamepad2.right_stick_y != 0) {
-            robot.swing.setPower(gamepad2.right_stick_y*.7);
+            robot.swing.setPower(gamepad2.right_stick_y);
         }
 
         /*else if(gamepad2.y){

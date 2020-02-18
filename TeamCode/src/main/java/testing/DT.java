@@ -2,17 +2,21 @@ package testing;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
 
 public class DT extends OpMode {
     private ShadowTestHardware robot = new ShadowTestHardware();
-    private IntakeMode intakeMode = IntakeMode.FAST;
     private DriveMode driveMode = DriveMode.TANK;
+    private DriveSpeed driveSpeed = DriveSpeed.FAST;
+
+    private double num = 1;
 
     private enum DriveMode{
         ARCADE,
         TANK
     }
-    private enum IntakeMode{
+
+    private enum DriveSpeed{
         FAST,
         SLOW
     }
@@ -33,20 +37,22 @@ public class DT extends OpMode {
 
     @Override
     public void loop() {
+        //switch drive mode with button presses
         if (gamepad1.a) {
             driveMode = DriveMode.ARCADE;
-        } else if (gamepad1.b) {
+        }
+        else if (gamepad1.b) {
             driveMode = DriveMode.TANK;
         }
 
-
-        if (gamepad2.a) {
-            intakeMode = IntakeMode.SLOW;
-        } else if (gamepad2.b) {
-            intakeMode = IntakeMode.FAST;
+        if(gamepad1.right_bumper){
+            driveSpeed = DriveSpeed.FAST;
+            num = 1; //speed factor
         }
-
-        robot.driveSetPower(gamepad1.left_stick_y, gamepad1.right_stick_y, gamepad1.left_stick_y, gamepad1.right_stick_y);
+        else if(gamepad1.right_trigger != 0){
+            driveSpeed = DriveSpeed.SLOW;
+            num = 0.5; //speed factor
+        }
 
         //switch based on selected drive mode
         switch(driveMode){
@@ -54,31 +60,49 @@ public class DT extends OpMode {
                 //set left motors = left stick and right motors = right stick
                 double lPower = gamepad1.left_stick_y;
                 double rPower = gamepad1.right_stick_y;
-                robot.driveSetPower(lPower,rPower, lPower, rPower);
+                robot.driveSetPower(lPower*num,rPower*num, lPower*num, rPower*num);
                 break;
             }
             case ARCADE:{
                 double drivePower = gamepad1.left_stick_y; //forward and back on left stick y
                 double turnPower = gamepad1.right_stick_x; //turn on right stick x
-                robot.driveSetPower(drivePower-turnPower,drivePower+turnPower,
-                        drivePower-turnPower, drivePower + turnPower);
+                robot.driveSetPower(drivePower-turnPower * num,drivePower+turnPower * num,
+                        drivePower-turnPower * num, drivePower + turnPower * num);
                 break;
             }
         }
 
-        //switch based on desired intake mode
-        switch(intakeMode) {
-            case FAST: {
-                robot.lIntake.setPower(gamepad2.left_stick_y);
-                robot.rIntake.setPower(gamepad2.left_stick_y);
-                break;
-            }
-            case SLOW: {
-                robot.lIntake.setPower(gamepad2.left_stick_y * .5);
-                robot.rIntake.setPower(gamepad2.left_stick_y * .5);
-                break;
-            }
+        if(gamepad2.a) { //in
+            robot.intakeSetPower(-1);
         }
+        else if(gamepad2.b) { //out
+            robot.intakeSetPower(1);
+        }
+        else {
+            robot.intakeSetPower(0);
+        }
+
+        if(gamepad2.right_stick_y<0){ //moving out
+            robot.swing.setPower(gamepad2.right_stick_y * .15);
+        }
+        else{ //moving back in
+            robot.swing.setPower(gamepad2.right_stick_y * .15);
+        }
+
+        if(gamepad2.right_bumper){ //up position, ungripped
+            robot.grip.setPosition(0.4);
+        }
+        else if(gamepad2.left_bumper){ //down position, gripped
+            robot.grip.setPosition(0);
+        }
+
+        //kick out intake
+        if(gamepad1.x){
+            robot.latch.setPosition(1);
+        }
+
+        // positive down negative up
+        robot.slide.setPower(gamepad2.left_stick_y);
     }
     @Override
     public void stop(){

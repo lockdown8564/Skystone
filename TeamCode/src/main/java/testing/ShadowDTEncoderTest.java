@@ -11,6 +11,8 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
  * we decided to switch to Neverest 40 motors.
  *
  * @author William Trang
+ * @version 1.0
+ * @deprecated we already know that it works now
  */
 @Disabled
 @TeleOp(name = "encoder test", group = "test")

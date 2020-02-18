@@ -39,6 +39,7 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
     DcMotor swing = null;
     Servo found1, found2 = null;
     Servo grip = null;
+    Servo latch = null;
 
     BNO055IMU imu;
     //private LinearOpMode opMode;
@@ -145,6 +146,7 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
         pidControlTurn = new PIDControlTest(0.02,0,0,0,0.5,0.2,this);
         pidControlTurn.setAbsoluteSetPoint(true);
 
+        releaseFoundation();
         stopMotors();
     }
 
@@ -564,7 +566,7 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
     /**
      * bring both servos to their downwards position to grip the foundation
      */
-    void gripFoundation(){
+    void releaseFoundation(){
         found1.setPosition(1);
         found2.setPosition(0);
     }
@@ -572,9 +574,9 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
     /**
      * bring both servos to their upwards position to release the foundation
      */
-    void releaseFoundation(){
-        found1.setPosition(0.25);
-        found2.setPosition(0.95);
+    void gripFoundation(){
+        found1.setPosition(0);
+        found2.setPosition(1);
     }
 
     /**

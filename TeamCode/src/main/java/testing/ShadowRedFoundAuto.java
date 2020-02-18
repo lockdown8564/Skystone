@@ -40,7 +40,8 @@ import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocaliz
  * attempts a park
  *
  * @author William Trang
- * @version 2.0 1/16/20
+ * 2.0 1/16/20
+ * @version 3.0 2/17/20
  */
 
 @Autonomous(name = "red found park", group = "test")
@@ -55,23 +56,20 @@ public class ShadowRedFoundAuto extends LinearOpMode{
         robot.init(hardwareMap);
         waitForStart();
 
-        encoderDrive(0.5,-31,-31);
+        encoderDrive(0.5,-35,-35);
         robot.gripFoundation();
         sleep(1000);
-        encoderDrive(0.5,6,6);
+        //encoderDrive(0.5,8,8);
 
         //strafeEncoder(0.6,-1, 10);
 
-        turnRightCurvy(84,0.2);
-        encoderDrive(0.7,-15,-15);
+        turnRightCurvy(85,0.15);
+        encoderDrive(0.7,-30,-30);
         robot.releaseFoundation();
-        encoderDrive(0.7,35,35);
+        sleep(500);
+        encStrafe(0.5, -9);
+        encoderDrive(0.7,55,55);
 
-        /*robot.drivePID(-30,false);
-        robot.gripFoundation();
-        sleep(1000);
-        robot.drivePID(6,true);
-        turnRight(84,0.5);*/
     }
 
     private void encoderDrive(double speed, double leftInches, double rightInches){
@@ -140,7 +138,7 @@ public class ShadowRedFoundAuto extends LinearOpMode{
             float currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
             while(currentAngle>=-TARGET_ANGLE){
                 currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
-                robot.driveSetPower(power, power*4, power, power*4);
+                robot.driveSetPower(power, power*6, power, power*6);
             }
             robot.stopMotors();
             break;
@@ -203,6 +201,28 @@ public class ShadowRedFoundAuto extends LinearOpMode{
         lastAngles = robot.angles;
 
         return globalAngle;
+    }
+
+    // - is right, + is left
+    private void encStrafe(double speed, double distance){
+        int flTarget, frTarget, blTarget, brTarget;
+
+        if(opModeIsActive()){
+            flTarget = (robot.frontLeft.getCurrentPosition()) + (int)(distance*robot.getCPI());
+            frTarget = (robot.frontRight.getCurrentPosition()) - (int)(distance*robot.getCPI());
+            blTarget = (robot.backLeft.getCurrentPosition()) - (int)(distance*robot.getCPI());
+            brTarget = (robot.backRight.getCurrentPosition()) + (int)(distance*robot.getCPI());
+
+            robot.driveSetTargetInd(flTarget, frTarget, blTarget, brTarget);
+            robot.driveSetMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.driveSetPowerAll(Math.abs(speed));
+
+            while(robot.driveIsBusy() && opModeIsActive()){
+            }
+
+            robot.stopMotors();
+            robot.driveSetMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        }
     }
 
     private void encImuDrive(double speed, double distance, double angle){

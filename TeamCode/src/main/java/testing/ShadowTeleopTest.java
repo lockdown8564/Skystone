@@ -14,6 +14,7 @@ import com.qualcomm.robotcore.util.Range;
  *
  * @author William Trang
  * @version 1.0 12/28/19
+ * @deprecated
  */
 
 @Disabled
