@@ -7,6 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DigitalChannel;
 import com.qualcomm.robotcore.util.Range;
 
+@Disabled
 @TeleOp(name="servo test tele",group="test")
 public class ServoTeleTest extends OpMode {
     private ShadowTestHardware robot = new ShadowTestHardware();

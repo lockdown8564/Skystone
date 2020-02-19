@@ -47,9 +47,8 @@ import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocaliz
 @Autonomous(name = "red found park", group = "test")
 public class ShadowRedFoundAuto extends LinearOpMode{
     private ShadowTestHardware robot = new ShadowTestHardware();
-    double globalAngle;
-    private static HalDashboard dashboard;
-    Orientation lastAngles;
+    private double globalAngle;
+    private Orientation lastAngles;
 
     @Override
     public void runOpMode() {
@@ -310,11 +309,6 @@ public class ShadowRedFoundAuto extends LinearOpMode{
             robot.stopMotors();
             robot.driveSetMode(DcMotor.RunMode.RUN_USING_ENCODER);
         }
-    }
-
-
-    public static HalDashboard getDashboard() {
-        return dashboard;
     }
 
 }

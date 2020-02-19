@@ -30,7 +30,8 @@ public class ShadowMecanumTest extends OpMode {
 
     private enum DriveSpeed{
         FAST,
-        SLOW
+        SLOW,
+        SUPER_SLOW
     }
 
     /**
@@ -71,6 +72,11 @@ public class ShadowMecanumTest extends OpMode {
         if(gamepad1.right_trigger != 0){
             driveSpeed = DriveSpeed.SLOW;
             maxSpeed = 0.4;
+        }
+
+        else if(gamepad1.right_bumper){
+            driveSpeed = DriveSpeed.SUPER_SLOW;
+            maxSpeed = 0.2;
         }
 
         else {
