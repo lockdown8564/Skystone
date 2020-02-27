@@ -57,16 +57,19 @@ public class SonicOutreachTeleop extends OpMode {
             num = 1;
         }
 
-        if(gamepad2.right_trigger != 0) {
+        if(gamepad2.right_trigger != 0) { //override gamepad 1
             drivePower = gamepad2.left_stick_y;
             turnPower = gamepad2.right_stick_x;
-            robot.driveSetPower((drivePower + turnPower) * num * .7, (drivePower - turnPower) * num * .7);
+            robot.driveSetPower((drivePower + turnPower) * num * .7,
+                    (drivePower - turnPower) * num * .7);
         }
 
-        else if (gamepad1.left_stick_y != 0 || gamepad1.right_stick_x != 0 || gamepad1.left_stick_x != 0 || gamepad1.right_stick_y != 0){
+        else if (gamepad1.left_stick_y != 0 || gamepad1.right_stick_x != 0 ||
+                gamepad1.left_stick_x != 0 || gamepad1.right_stick_y != 0){
             drivePower = gamepad1.left_stick_y;
             turnPower = gamepad1.right_stick_x;
-            robot.driveSetPower((drivePower + turnPower) * num * .7, (drivePower - turnPower) * num * .7);
+            robot.driveSetPower((drivePower + turnPower) * num * .7,
+                    (drivePower - turnPower) * num * .7);
         }
 
         else {

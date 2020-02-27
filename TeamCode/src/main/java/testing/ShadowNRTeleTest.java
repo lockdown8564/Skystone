@@ -36,6 +36,7 @@ public class ShadowNRTeleTest extends OpMode {
     @Override
     public void loop(){
         motor.setPower(gamepad1.left_stick_y);
+
         telemetry.addData("Encoder:",motor.getCurrentPosition());
         telemetry.addData("Encoder BR:",bl.getCurrentPosition());
         telemetry.update();

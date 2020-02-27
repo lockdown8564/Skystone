@@ -66,6 +66,7 @@ public class SonicRedStoneAuto extends LinearOpMode {
         //releaseIntake();
         encoderDrive(0.7,6.5,6.5);
 
+        //detect the position of the skystone
         if (tfod != null){
             List<Recognition> updatedRecognitions = tfod.getUpdatedRecognitions();
             if (updatedRecognitions != null){
@@ -85,12 +86,17 @@ public class SonicRedStoneAuto extends LinearOpMode {
             }
         }
 
+        //telemetry for skystone
         telemetry.addData("Skystone:", skystone.toString());
         telemetry.update();
         sleep(500);
+
+        //drive forward and turn toward stones
         encoderDrive(0.6,10,10);
         sleep(500);
         turnRight(79,0.4);
+
+        //get out intake
         robot.hook.setPosition(1);
         sleep(500);
         robot.latch.setPosition(0);
@@ -100,44 +106,66 @@ public class SonicRedStoneAuto extends LinearOpMode {
 
         switch(skystone){
             case LEFT:{
+                //drive to stone
                 encoderDrive(0.5,-16,-16);
                 sleep(500);
                 robot.stopMotors();
+
+                //turn toward stone
                 turnRight(131,0.35);
                 sleep(500);
+
+                //drive and intake stone
                 encoderDriveIntake(0.4,-20,-20,1);
                 sleep(800);
                 encoderDrive(0.5,37.5,37.5);
+
+                //grab stone
                 robot.hook.setPosition(0.6);
                 sleep(500);
+
+                //turn toward bridge
                 turnLeft(75,-0.4);
                 turnRight(-107,0.4);
+
+                //drive to park
                 encoderDrive(0.6,-54,-54);
-                /*robot.intakeSetPower(-0.5);
-                sleep(2500);*/
                 sleep(1000);
                 robot.stopMotors();
+
+                //outtake stone
                 encoderDriveIntake(0.5,12,12,-0.5);
                 break;
             }
             case MIDDLE:{
+                //drive to stone
                 encoderDrive(0.5,-14,-14);
                 sleep(500);
                 robot.stopMotors();
+
+                //turn toward stone
                 turnRight(132,0.35);
                 sleep(500);
+
+                //drive and intake stone
                 encoderDriveIntake(0.4,-20,-20,1);
                 sleep(800);
                 encoderDrive(0.5,37,37);
+
+                //grab stone
                 robot.hook.setPosition(0.6);
                 sleep(500);
+
+                //turn toward bridge
                 turnLeft(75,-0.4);
                 turnRight(-107,0.4);
+
+                //drive to park
                 encoderDrive(0.6,-53,-53);
-                /*robot.intakeSetPower(-0.5);
-                sleep(2500);*/
                 sleep(1000);
                 robot.stopMotors();
+
+                //outtake
                 encoderDriveIntake(0.5,12,12,-0.5);
                 break;
             }
@@ -155,9 +183,6 @@ public class SonicRedStoneAuto extends LinearOpMode {
                 turnLeft(75,-0.4);
                 turnRight(-98,0.4);
                 encoderDrive(0.6,-53,-53);
-                /*robot.intakeSetPower(-0.5);
-                sleep(2500);
-                 */
                 sleep(1000);
                 robot.stopMotors();
                 break;

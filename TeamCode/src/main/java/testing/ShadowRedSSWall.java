@@ -266,9 +266,11 @@ public class ShadowRedSSWall extends LinearOpMode{
      */
     private void turnRight(final float TARGET_ANGLE, double power){
         while(opModeIsActive()){
-            float currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
+            float currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC,
+                    AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
             while(currentAngle>=-TARGET_ANGLE){
-                currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
+                currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC,
+                        AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
                 robot.driveSetPower(-power, power, -power, power);
             }
             robot.stopMotors();
@@ -327,9 +329,11 @@ public class ShadowRedSSWall extends LinearOpMode{
      */
     private void turnLeft(final float TARGET_ANGLE, double power){
         while(opModeIsActive()){
-            float currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
+            float currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC,
+                    AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
             while(currentAngle<=TARGET_ANGLE){
-                currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
+                currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC,
+                        AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
                 robot.driveSetPower(power, -power, power, -power);
                 telemetry.addData("Heading:",currentAngle);
                 telemetry.update();
@@ -485,7 +489,12 @@ public class ShadowRedSSWall extends LinearOpMode{
         }
     }
 
-    // - is right, + is left
+    /**
+     * Strafe specific distances based on input.
+     * - is strafe left, + is strafe right
+     * @param speed    speed to move at
+     * @param distance distance to move
+     */
     private void encStrafe(double speed, double distance){
         int flTarget, frTarget, blTarget, brTarget;
 
@@ -570,11 +579,9 @@ public class ShadowRedSSWall extends LinearOpMode{
         @Override
         public final Mat processFrame(Mat input) {
             input.copyTo(workingMatrix);
-
             if (workingMatrix.empty()) {
                 return input;
             }
-
             Imgproc.cvtColor(workingMatrix, workingMatrix, Imgproc.COLOR_RGB2YCrCb);
 
             Mat matLeft = workingMatrix.submat(710, 810, 600, 760);
@@ -591,22 +598,17 @@ public class ShadowRedSSWall extends LinearOpMode{
 
             if (leftSum > centerSum) {
                 if (leftSum > rightSum) {
-                    //skystone is left
                     skystone = Skystone.LEFT;
                 } else {
-                    //skystone is right
                     skystone = Skystone.RIGHT;
                 }
             } else {
                 if (centerSum > rightSum) {
-                    //skystone is center
                     skystone = Skystone.MIDDLE;
                 } else {
-                    //skystone is right
                     skystone = Skystone.RIGHT;
                 }
             }
-
             return workingMatrix;
         }
     }

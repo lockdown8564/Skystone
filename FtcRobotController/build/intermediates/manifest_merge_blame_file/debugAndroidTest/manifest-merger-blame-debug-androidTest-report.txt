@@ -3,24 +3,24 @@
 3    package="com.qualcomm.ftcrobotcontroller.test" >
 4
 5    <uses-sdk
-5-->/Users/William/Desktop/Skystone/FtcRobotController/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8544739283543181850.xml:5:5-74
+5-->/Users/William/Desktop/Skystone/FtcRobotController/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger7210604471030835688.xml:5:5-74
 6        android:minSdkVersion="19"
-6-->/Users/William/Desktop/Skystone/FtcRobotController/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8544739283543181850.xml:5:15-41
+6-->/Users/William/Desktop/Skystone/FtcRobotController/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger7210604471030835688.xml:5:15-41
 7        android:targetSdkVersion="28" />
-7-->/Users/William/Desktop/Skystone/FtcRobotController/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8544739283543181850.xml:5:42-71
+7-->/Users/William/Desktop/Skystone/FtcRobotController/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger7210604471030835688.xml:5:42-71
 8
 9    <instrumentation
-9-->/Users/William/Desktop/Skystone/FtcRobotController/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8544739283543181850.xml:11:5-15:86
+9-->/Users/William/Desktop/Skystone/FtcRobotController/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger7210604471030835688.xml:11:5-15:86
 10        android:name="android.test.InstrumentationTestRunner"
-10-->/Users/William/Desktop/Skystone/FtcRobotController/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8544739283543181850.xml:11:22-75
+10-->/Users/William/Desktop/Skystone/FtcRobotController/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger7210604471030835688.xml:11:22-75
 11        android:functionalTest="false"
-11-->/Users/William/Desktop/Skystone/FtcRobotController/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8544739283543181850.xml:14:22-52
+11-->/Users/William/Desktop/Skystone/FtcRobotController/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger7210604471030835688.xml:14:22-52
 12        android:handleProfiling="false"
-12-->/Users/William/Desktop/Skystone/FtcRobotController/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8544739283543181850.xml:13:22-53
+12-->/Users/William/Desktop/Skystone/FtcRobotController/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger7210604471030835688.xml:13:22-53
 13        android:label="Tests for com.qualcomm.ftcrobotcontroller.test"
-13-->/Users/William/Desktop/Skystone/FtcRobotController/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8544739283543181850.xml:15:22-84
+13-->/Users/William/Desktop/Skystone/FtcRobotController/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger7210604471030835688.xml:15:22-84
 14        android:targetPackage="com.qualcomm.ftcrobotcontroller.test" />
-14-->/Users/William/Desktop/Skystone/FtcRobotController/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8544739283543181850.xml:12:22-82
+14-->/Users/William/Desktop/Skystone/FtcRobotController/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger7210604471030835688.xml:12:22-82
 15
 16    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 16-->[__tested_artifact__::FtcRobotController] /Users/William/Desktop/Skystone/FtcRobotController/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:5-81
@@ -147,7 +147,7 @@
 82-->[:RobotCore-release:] /Users/William/.gradle/caches/transforms-2/files-2.1/d23434822d58ad874b0d7344926b9c29/RobotCore-release/AndroidManifest.xml:84:19-57
 83
 84    <application
-84-->/Users/William/Desktop/Skystone/FtcRobotController/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8544739283543181850.xml:7:5-9:19
+84-->/Users/William/Desktop/Skystone/FtcRobotController/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger7210604471030835688.xml:7:5-9:19
 85        android:name="org.firstinspires.ftc.robotcore.internal.system.RobotApplication"
 85-->[:RobotCore-release:] /Users/William/.gradle/caches/transforms-2/files-2.1/d23434822d58ad874b0d7344926b9c29/RobotCore-release/AndroidManifest.xml:86:18-97
 86        android:allowBackup="true"
@@ -155,7 +155,7 @@
 87        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
 87-->[com.android.support:support-compat:28.0.0] /Users/William/.gradle/caches/transforms-2/files-2.1/b73d0db3c489aeab8b531c92b0313ef9/support-compat-28.0.0/AndroidManifest.xml:22:18-91
 88        android:debuggable="true"
-88-->/Users/William/Desktop/Skystone/FtcRobotController/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8544739283543181850.xml:7:18-43
+88-->/Users/William/Desktop/Skystone/FtcRobotController/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger7210604471030835688.xml:7:18-43
 89        android:icon="@drawable/ic_launcher"
 89-->[__tested_artifact__::FtcRobotController] /Users/William/Desktop/Skystone/FtcRobotController/build/intermediates/library_manifest/debug/AndroidManifest.xml:16:9-45
 90        android:label="@string/app_name"
@@ -165,8 +165,8 @@
 92        android:theme="@style/AppThemeRedRC" >
 92-->[__tested_artifact__::FtcRobotController] /Users/William/Desktop/Skystone/FtcRobotController/build/intermediates/library_manifest/debug/AndroidManifest.xml:19:9-45
 93        <uses-library android:name="android.test.runner" />
-93-->/Users/William/Desktop/Skystone/FtcRobotController/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8544739283543181850.xml:8:9-60
-93-->/Users/William/Desktop/Skystone/FtcRobotController/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8544739283543181850.xml:8:23-57
+93-->/Users/William/Desktop/Skystone/FtcRobotController/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger7210604471030835688.xml:8:9-60
+93-->/Users/William/Desktop/Skystone/FtcRobotController/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger7210604471030835688.xml:8:23-57
 94        <!-- Indicates to the ControlHubUpdater what the latest version of the Control Hub is that this app supports -->
 95        <meta-data
 95-->[__tested_artifact__::FtcRobotController] /Users/William/Desktop/Skystone/FtcRobotController/build/intermediates/library_manifest/debug/AndroidManifest.xml:22:9-24:33

@@ -39,7 +39,6 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
     DcMotor swing = null;
     Servo found1, found2 = null;
     Servo grip = null;
-    Servo latch = null;
 
     BNO055IMU imu;
     //private LinearOpMode opMode;
@@ -228,7 +227,8 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
      * @param backRightPower  power to give back right motor
      * @param max             the max speed of driving (slow mode)
      */
-    private void setSpeedsMec(double frontLeftPower, double frontRightPower, double backLeftPower, double backRightPower, double max){
+    private void setSpeedsMec(double frontLeftPower, double frontRightPower, double backLeftPower,
+                              double backRightPower, double max){
         double[] arr = {1.0, frontLeftPower, frontRightPower, backLeftPower, backRightPower};
         Arrays.sort(arr);
         double largest = arr[4];

@@ -8,6 +8,9 @@ public class DT extends OpMode {
     private ShadowTestHardware robot = new ShadowTestHardware();
     private DriveMode driveMode = DriveMode.TANK;
     private DriveSpeed driveSpeed = DriveSpeed.FAST;
+    private DriveDirection driveDirection = DriveDirection.FORWARD;
+    private double lPower, rPower, drivePower, turnPower = 0;
+    Servo arm, hook = null;
 
     private double num = 1;
 
@@ -19,6 +22,11 @@ public class DT extends OpMode {
     private enum DriveSpeed{
         FAST,
         SLOW
+    }
+
+    private enum DriveDirection{
+        FORWARD,
+        REVERSE
     }
 
     @Override
@@ -37,72 +45,120 @@ public class DT extends OpMode {
 
     @Override
     public void loop() {
-        //switch drive mode with button presses
-        if (gamepad1.a) {
-            driveMode = DriveMode.ARCADE;
-        }
-        else if (gamepad1.b) {
-            driveMode = DriveMode.TANK;
-        }
-
-        if(gamepad1.right_bumper){
-            driveSpeed = DriveSpeed.FAST;
-            num = 1; //speed factor
-        }
-        else if(gamepad1.right_trigger != 0){
+        if(gamepad1.right_trigger != 0){ //hold down to enable slow
             driveSpeed = DriveSpeed.SLOW;
-            num = 0.5; //speed factor
+            num = 0.5;
         }
 
-        //switch based on selected drive mode
+        else {
+            driveSpeed = DriveSpeed.FAST;
+            num = 1;
+        }
+
+        //switch drive direction
+        if(gamepad1.y){
+            driveDirection = DriveDirection.FORWARD;
+        }
+        else if(gamepad1.x){
+            driveDirection = DriveDirection.REVERSE;
+        }
+
+        //switch based on drive mode
         switch(driveMode){
-            case TANK:{
-                //set left motors = left stick and right motors = right stick
-                double lPower = gamepad1.left_stick_y;
-                double rPower = gamepad1.right_stick_y;
-                robot.driveSetPower(lPower*num,rPower*num, lPower*num, rPower*num);
+            case TANK:{ //tank selected
+                switch(driveDirection) {
+                    case REVERSE:
+                        lPower = -gamepad1.left_stick_y;
+                        rPower = -gamepad1.right_stick_y;
+                        robot.driveSetPower(lPower * num, rPower * num
+                        , lPower * num, rPower * num); //num is for slow and fast
+                        break;
+                    case FORWARD:
+                        lPower = gamepad1.right_stick_y;
+                        rPower = gamepad1.left_stick_y;
+                        robot.driveSetPower(lPower * num, rPower * num
+                                , lPower * num, rPower * num); //num is for slow and fast
+                        break;
+                }
                 break;
             }
-            case ARCADE:{
-                double drivePower = gamepad1.left_stick_y; //forward and back on left stick y
-                double turnPower = gamepad1.right_stick_x; //turn on right stick x
-                robot.driveSetPower(drivePower-turnPower * num,drivePower+turnPower * num,
-                        drivePower-turnPower * num, drivePower + turnPower * num);
+            case ARCADE:{//arcade selected
+                switch(driveDirection) {
+                    case REVERSE:
+                        drivePower = -gamepad1.left_stick_y;
+                        turnPower = gamepad1.right_stick_x;
+                        robot.driveSetPower((drivePower-turnPower)*num,(drivePower+turnPower)*num,
+                                (drivePower-turnPower)*num, (drivePower+turnPower)*num); //num is for slow and fast
+                        break;
+                    case FORWARD:
+                        drivePower = gamepad1.left_stick_y;
+                        turnPower = gamepad1.right_stick_x;
+                        robot.driveSetPower((drivePower-turnPower)*num,(drivePower+turnPower)*num,
+                                (drivePower-turnPower)*num, (drivePower+turnPower)*num); //num is for slow and fast
+                        break;
+                }
                 break;
             }
         }
 
-        if(gamepad2.a) { //in
+
+        if(gamepad2.left_trigger != 0){ //in
+            arm.setPosition(1);
+        }
+        else if(gamepad2.right_trigger != 0){ //score
+            arm.setPosition(0);
+        }
+
+        if(robot.touch.getState()) { //if touch is pressed,
+            if (gamepad2.left_stick_y != 0) {
+                robot.slide.setPower(-Math.abs(gamepad2.left_stick_y));
+            }
+            else{
+                robot.slide.setPower(0);
+            }
+        }
+        else{
+            if (gamepad2.left_stick_y != 0) {
+                robot.slide.setPower(gamepad2.left_stick_y);
+            }
+            else{
+                robot.slide.setPower(0);
+            }
+        }
+
+        //right trigger for slow intake mode
+        if(gamepad2.right_trigger != 0){
+            if(gamepad2.right_stick_y > 0) { //down = in
+                robot.intakeSetPower(-0.5);
+            }
+            else if(gamepad2.right_stick_y < 0) { //up = out
+                robot.intakeSetPower(0.5);
+            }
+        }
+        else if(gamepad2.right_stick_y > 0) { //down = in
             robot.intakeSetPower(-1);
         }
-        else if(gamepad2.b) { //out
+        else if(gamepad2.right_stick_y < 0) { //up = out
             robot.intakeSetPower(1);
         }
         else {
             robot.intakeSetPower(0);
         }
 
-        if(gamepad2.right_stick_y<0){ //moving out
-            robot.swing.setPower(gamepad2.right_stick_y * .15);
-        }
-        else{ //moving back in
-            robot.swing.setPower(gamepad2.right_stick_y * .15);
+        if(gamepad2.b){ //don't want to move the hook and arm at the same time
+            robot.grip.setPosition(0.45);
         }
 
-        if(gamepad2.right_bumper){ //up position, ungripped
-            robot.grip.setPosition(0.4);
-        }
-        else if(gamepad2.left_bumper){ //down position, gripped
-            robot.grip.setPosition(0);
+        else if(gamepad2.x){ //in
+            arm.setPosition(0.99);
         }
 
-        //kick out intake
-        if(gamepad1.x){
-            robot.latch.setPosition(1);
+        else if(gamepad2.y){ //out
+            arm.setPosition(0.01);
         }
 
-        // positive down negative up
-        robot.slide.setPower(gamepad2.left_stick_y);
+
+
     }
     @Override
     public void stop(){

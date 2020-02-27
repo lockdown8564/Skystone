@@ -52,17 +52,19 @@ public class ShadowBlueFoundAuto extends LinearOpMode{
         robot.init(hardwareMap);
         waitForStart();
 
-        encoderDrive(0.5,-31,-31);
+        encoderDrive(0.5,-35,-35);
         robot.gripFoundation();
         sleep(1000);
-        encoderDrive(0.5,6,6);
+        //encoderDrive(0.5,8,8);
 
         //strafeEncoder(0.6,-1, 10);
 
-        turnLeftCurvy(84,0.2);
-        encoderDrive(0.7,-15,-15);
+        turnLeftCurvy(85,0.15);
+        encoderDrive(0.7,-30,-30);
         robot.releaseFoundation();
-        encoderDrive(0.7,35,35);
+        sleep(500);
+        encStrafe(0.5, 9);
+        encoderDrive(0.7,55,55);
     }
 
     private void encoderDrive(double speed, double leftInches, double rightInches){
@@ -105,7 +107,7 @@ public class ShadowBlueFoundAuto extends LinearOpMode{
             float currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
             while(currentAngle>=-TARGET_ANGLE){
                 currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
-                robot.driveSetPower(power*4, power, power*4, power);
+                robot.driveSetPower(power*6, power, power*6, power);
             }
             robot.stopMotors();
             break;
@@ -199,6 +201,28 @@ public class ShadowBlueFoundAuto extends LinearOpMode{
 
                 robot.driveSetPower(leftSpeed, rightSpeed, leftSpeed, rightSpeed);
 
+            }
+
+            robot.stopMotors();
+            robot.driveSetMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        }
+    }
+
+    // - is right, + is left
+    private void encStrafe(double speed, double distance){
+        int flTarget, frTarget, blTarget, brTarget;
+
+        if(opModeIsActive()){
+            flTarget = (robot.frontLeft.getCurrentPosition()) + (int)(distance*robot.getCPI());
+            frTarget = (robot.frontRight.getCurrentPosition()) - (int)(distance*robot.getCPI());
+            blTarget = (robot.backLeft.getCurrentPosition()) - (int)(distance*robot.getCPI());
+            brTarget = (robot.backRight.getCurrentPosition()) + (int)(distance*robot.getCPI());
+
+            robot.driveSetTargetInd(flTarget, frTarget, blTarget, brTarget);
+            robot.driveSetMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.driveSetPowerAll(Math.abs(speed));
+
+            while(robot.driveIsBusy() && opModeIsActive()){
             }
 
             robot.stopMotors();

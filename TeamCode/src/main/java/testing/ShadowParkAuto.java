@@ -53,6 +53,7 @@ public class ShadowParkAuto extends LinearOpMode{
         robot.init(hardwareMap);
         waitForStart();
 
+        //move forward to park under tape
         encoderDrive(0.5,33,33);
     }
 
