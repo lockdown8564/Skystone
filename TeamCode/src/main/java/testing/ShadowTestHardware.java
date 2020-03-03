@@ -2,6 +2,8 @@ package testing;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.hardware.rev.RevBlinkinLedDriver;
+import com.qualcomm.robotcore.hardware.CRServo;
+import com.qualcomm.robotcore.hardware.CRServoImpl;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
@@ -39,6 +41,7 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
     DcMotor swing = null;
     Servo found1, found2 = null;
     Servo grip = null;
+    CRServo yeet1, yeet2 = null;
 
     BNO055IMU imu;
     //private LinearOpMode opMode;
@@ -73,7 +76,6 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
     private int prevRightPos = 0;
     private boolean slowSpeed;
     private double minTarget, maxTarget;
-    //private HalDashboard dashboard;
     private ElapsedTime mRunTime;
     private boolean slow = true;
 
@@ -96,6 +98,8 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
         found1 = hwMap.get(Servo.class,"found1");
         found2 = hwMap.get(Servo.class,"found2");
         grip = hwMap.get(Servo.class,"grip");
+        yeet1 = hwMap.get(CRServo.class,"yeet1");
+        yeet2 = hwMap.get(CRServo.class,"yeet2");
 
         touch = hwMap.get(DigitalChannel.class, "touch");
         color = hwMap.get(ColorSensor.class,"color");
@@ -116,6 +120,9 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
 
         swing.setDirection(DcMotorSimple.Direction.REVERSE);
         slide.setDirection(DcMotorSimple.Direction.FORWARD);
+
+        yeet1.setDirection(CRServoImpl.Direction.FORWARD);
+        yeet2.setDirection(CRServoImpl.Direction.FORWARD);
 
         driveSetZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
@@ -567,8 +574,8 @@ public class ShadowTestHardware implements PIDControlTest.PidInput{
      * bring both servos to their downwards position to grip the foundation
      */
     void releaseFoundation(){
-        found1.setPosition(1);
-        found2.setPosition(0);
+        found1.setPosition(0.9);
+        found2.setPosition(0.1);
     }
 
     /**
