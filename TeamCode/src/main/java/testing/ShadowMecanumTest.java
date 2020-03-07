@@ -84,12 +84,12 @@ public class ShadowMecanumTest extends OpMode {
             maxSpeed = 1;
         }
 
-        if(gamepad1.dpad_up) { //extend
+        if(gamepad2.dpad_down) { //retract
             robot.yeet1.setPower(-0.5);
             robot.yeet2.setPower(-0.5);
         }
 
-        else if (gamepad1.dpad_down) { //retract
+        else if (gamepad2.dpad_up) { //extend
             robot.yeet1.setPower(0.5);
             robot.yeet2.setPower(0.5);
         }
