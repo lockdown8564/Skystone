@@ -1,11 +1,16 @@
 package testing;
 
+import android.content.Context;
+import android.media.MediaPlayer;
+
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DigitalChannel;
 import com.qualcomm.robotcore.util.Range;
+
+import org.firstinspires.ftc.teamcode.R;
 
 /**
  * This program is the main teleop for FTC 8564 as of 1/2/20.
@@ -27,6 +32,9 @@ public class ShadowMecanumTest extends OpMode {
     private double forward, strafe, turn;
     private double deadzone;
     private double maxSpeed;
+
+    private MediaPlayer fancyPlayer;
+    private Context app = hardwareMap.appContext;
 
     private enum DriveSpeed{
         FAST,
@@ -53,12 +61,13 @@ public class ShadowMecanumTest extends OpMode {
     public void init(){
         hopper = Hopper.FALSE;
         driveSpeed = DriveSpeed.FAST;
-        deadzone = 0.1;
+        deadzone = 0.08;
         forward = 0;
         strafe = 0;
         turn = 0;
         maxSpeed = 0.8;
 
+        fancyPlayer = MediaPlayer.create(app, R.raw.fancy);
         robot.init(hardwareMap);
         robot.touch.setMode(DigitalChannel.Mode.INPUT);
     }
@@ -234,6 +243,13 @@ public class ShadowMecanumTest extends OpMode {
 
         else{
             robot.swing.setPower(0);
+        }
+
+        if(gamepad2.left_trigger != 0){
+            fancyPlayer.start();
+        }
+        else{
+            fancyPlayer.release();
         }
 
         telemetry.addData("Swing:", robot.swing.getCurrentPosition());
