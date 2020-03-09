@@ -47,7 +47,7 @@ public class ShadowYeetPark extends LinearOpMode{
         //move forward to park under tape
         robot.yeet1.setPower(0.5);
         robot.yeet2.setPower(0.5);
-        sleep(1250);
+        sleep(1000);
         robot.yeet1.setPower(0);
         robot.yeet2.setPower(0);
     }
