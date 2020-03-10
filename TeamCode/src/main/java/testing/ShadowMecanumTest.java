@@ -34,6 +34,7 @@ public class ShadowMecanumTest extends OpMode {
     private double maxSpeed;
 
     private MediaPlayer fancyPlayer;
+    private MediaPlayer tokyoDriftPlayer;
     private Context app = hardwareMap.appContext;
 
     private enum DriveSpeed{
@@ -68,6 +69,7 @@ public class ShadowMecanumTest extends OpMode {
         maxSpeed = 0.8;
 
         fancyPlayer = MediaPlayer.create(app, R.raw.fancy);
+        tokyoDriftPlayer = MediaPlayer.create(app, R.raw.tokyodrift);
         robot.init(hardwareMap);
         robot.touch.setMode(DigitalChannel.Mode.INPUT);
     }
@@ -79,11 +81,13 @@ public class ShadowMecanumTest extends OpMode {
     @Override
     public void loop(){
         if(gamepad1.left_trigger != 0){
+            tokyoDriftPlayer.start();
             driveSpeed = DriveSpeed.SUPER_SLOW;
             maxSpeed = 0.2;
         }
 
         else if(gamepad1.right_trigger != 0){
+            tokyoDriftPlayer.start();
             driveSpeed = DriveSpeed.SLOW;
             maxSpeed = 0.4;
         }
@@ -91,6 +95,7 @@ public class ShadowMecanumTest extends OpMode {
         else {
             driveSpeed = DriveSpeed.FAST;
             maxSpeed = 1;
+            tokyoDriftPlayer.release();
         }
 
         if(gamepad2.dpad_down) { //retract
