@@ -22,6 +22,7 @@ import org.firstinspires.ftc.teamcode.R;
  * @version 5.2 1/2/20
  */
 
+@Disabled
 @TeleOp(name="shadow mec test",group="test")
 public class ShadowMecanumTest extends OpMode {
     private ShadowTestHardware robot = new ShadowTestHardware();
@@ -196,13 +197,10 @@ public class ShadowMecanumTest extends OpMode {
             robot.swing.setPower(gamepad2.right_stick_y);
         }
 
-        /*else if(gamepad2.y){
+        else if(gamepad2.y){
             while(robot.swing.getCurrentPosition() > -60){
                 robot.swing.setPower(0.6);
             }
-
-            robot.swing.setPower(-1);
-            robot.sleep(1);
 
             robot.stopMotors();
 
@@ -223,9 +221,6 @@ public class ShadowMecanumTest extends OpMode {
                 robot.swing.setPower(-0.6);
             }
 
-            robot.swing.setPower(1);
-            robot.sleep(1);
-
             robot.swing.setTargetPosition(10);
             robot.swing.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
@@ -237,14 +232,6 @@ public class ShadowMecanumTest extends OpMode {
             robot.driveSetMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         }
-
-        else if(gamepad2.right_bumper){
-            while(robot.swing.getCurrentPosition() < 6){
-                robot.swing.setPower(-0.2);
-            }
-
-            robot.stopMotors();
-        }*/
 
         else{
             robot.swing.setPower(0);

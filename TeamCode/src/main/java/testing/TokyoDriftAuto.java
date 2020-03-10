@@ -49,7 +49,7 @@ import static org.firstinspires.ftc.robotcore.external.navigation.AxesOrder.YZX;
 import static org.firstinspires.ftc.robotcore.external.navigation.AxesReference.EXTRINSIC;
 import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer.CameraDirection.BACK;
 
-@Autonomous(name = "tokyodrift", group = "test")
+@Autonomous(name = "tokyo drift", group = "test")
 public class TokyoDriftAuto extends LinearOpMode{
     private ShadowTestHardware robot = new ShadowTestHardware();
 

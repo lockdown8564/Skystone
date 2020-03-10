@@ -52,13 +52,12 @@ public class ShadowBlueFoundAuto extends LinearOpMode{
         robot.init(hardwareMap);
         waitForStart();
 
+        //move forward and grip foundation
         encoderDrive(0.5,-35,-35);
         robot.gripFoundation();
         sleep(1000);
-        //encoderDrive(0.5,8,8);
 
-        //strafeEncoder(0.6,-1, 10);
-
+        //turn and place foundation
         turnLeftCurvy(85,0.15);
         encoderDrive(0.7,-30,-30);
         robot.releaseFoundation();
@@ -105,7 +104,7 @@ public class ShadowBlueFoundAuto extends LinearOpMode{
     private void turnLeftCurvy(final float TARGET_ANGLE, double power){
         while(opModeIsActive()){
             float currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
-            while(currentAngle>=-TARGET_ANGLE){
+            while(currentAngle<=TARGET_ANGLE){
                 currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
                 robot.driveSetPower(power*6, power, power*6, power);
             }

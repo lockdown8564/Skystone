@@ -26,6 +26,7 @@ import hallib.HalDashboard;
  * @see ftclib.FtcValueMenu
  */
 
+@Disabled
 @Autonomous(name = "shadow menu test", group = "test")
 public class ShadowMenuTest extends LinearOpMode implements FtcMenu.MenuButtons{
     private ShadowTestHardware robot = new ShadowTestHardware();

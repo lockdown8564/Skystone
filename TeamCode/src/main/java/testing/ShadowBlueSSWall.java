@@ -55,6 +55,7 @@ import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocaliz
  * @version 2.1 2/15/20
  */
 
+@Disabled
 @Autonomous(name = "blue ss wall", group = "test")
 public class ShadowBlueSSWall extends LinearOpMode{
     private ShadowTestHardware robot = new ShadowTestHardware();
