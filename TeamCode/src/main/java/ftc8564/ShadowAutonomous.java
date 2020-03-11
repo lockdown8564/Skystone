@@ -38,14 +38,9 @@ public class ShadowAutonomous extends LinearOpMode implements FtcMenu.MenuButton
      */
     private enum StartingPos{
         /**
-         * foundation side along the side wall
-         */
-        FOUNDATION1,
-
-        /**
          * foundation side one tile away from the side wall
          */
-        FOUNDATION2,
+        FOUNDATION,
 
         /**
          * stone side along the side wall
@@ -134,7 +129,37 @@ public class ShadowAutonomous extends LinearOpMode implements FtcMenu.MenuButton
 
         waitForStart();
 
+        //TODO: MAKE ALL CASES AND TRANSFER OVER OTHER AUTONOMOUS PROGRAMS
+        switch(alliance){
+            case RED:{
+                switch(startpos){
+                    case STONE1:{
+
+                        break;
+                    }
+
+                    case STONE2:{
+
+                        break;
+                    }
+
+                    case FOUNDATION:{
+
+                        break;
+                    }
+                }
+                break;
+            }
+
+            case BLUE:{
+
+                break;
+            }
+        }
+
     }
+
+    //TODO: ADD METHODS FROM OTHERS AND TEST ROADRUNNER
 
     private void yeetPark(){
         robot.yeet1.setPower(0.5);
@@ -170,10 +195,9 @@ public class ShadowAutonomous extends LinearOpMode implements FtcMenu.MenuButton
         allianceMenu.addChoice("Red", Alliance.RED, true, startPosMenu);
         allianceMenu.addChoice("Blue", Alliance.BLUE, false, startPosMenu);
 
-        startPosMenu.addChoice("Stone Side Far", StartingPos.STONE1, true, skystonesMenu);
-        startPosMenu.addChoice("Stone Side Close", StartingPos.STONE2, false, skystonesMenu);
-        startPosMenu.addChoice("Foundation Side Far", StartingPos.FOUNDATION1, false, skystonesMenu);
-        startPosMenu.addChoice("Foundation Side Close", StartingPos.FOUNDATION2, false, skystonesMenu);
+        startPosMenu.addChoice("Stone Side Far", StartingPos.STONE1, false, skystonesMenu);
+        startPosMenu.addChoice("Stone Side Close", StartingPos.STONE2, true, skystonesMenu);
+        startPosMenu.addChoice("Foundation Side", StartingPos.FOUNDATION, false, skystonesMenu);
 
         skystonesMenu.addChoice("Zero", Skystones.ZERO, false, stonesMenu);
         skystonesMenu.addChoice("One", Skystones.ONE, true, stonesMenu);
