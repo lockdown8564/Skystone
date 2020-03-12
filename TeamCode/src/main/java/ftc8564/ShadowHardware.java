@@ -22,10 +22,10 @@ import hallib.HalUtil;
 
 public class ShadowHardware {
     DcMotor frontLeft, frontRight, backLeft, backRight = null;
-    DcMotor lIntake, rIntake = null;
+    private DcMotor lIntake, rIntake = null;
     DcMotor slide = null;
     DcMotor swing = null;
-    Servo found1, found2 = null;
+    private Servo found1, found2 = null;
     Servo grip = null;
     CRServo yeet1, yeet2 = null;
 
@@ -40,7 +40,7 @@ public class ShadowHardware {
     /*RevBlinkinLedDriver ledDriver;
     RevBlinkinLedDriver.BlinkinPattern pattern;*/
 
-    Orientation angles;
+    private Orientation angles;
     private double prevAngle = 0;
 
     private HardwareMap hwMap;
@@ -49,7 +49,7 @@ public class ShadowHardware {
     ColorSensor color = null;
 
     static final double     P_TURN_COEFF            = 0.1;
-    static final double     P_DRIVE_COEFF           = 0.1;
+    final double     P_DRIVE_COEFF           = 0.1;
 
     private final static double SCALE = (WHEEL_DIAMETER_INCHES * Math.PI)/
             (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION); //inches per count
@@ -124,13 +124,9 @@ public class ShadowHardware {
         stopMotors();
     }
 
-    public double intZ(){
+    private double intZ(){
         angles = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
         return (prevAngle - angles.firstAngle);
-    }
-    public void resetIntZ(){
-        angles = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
-        prevAngle = angles.firstAngle;
     }
 
     /**
@@ -213,17 +209,6 @@ public class ShadowHardware {
     }
 
     /**
-     * Strafe left or right based on the inputted direction and power.
-     * - is right, + is left
-     *
-     * @param direction -1 or 1, determines left or right
-     * @param power     power to strafe at
-     */
-    void strafe(int direction, double power){
-        driveSetPower(power * direction, -power * direction, -power * direction, power * direction);
-    }
-
-    /**
      * Sets the drive mode of all the drive motors.
      *
      * @param mode runmode to set the motors to, usually run to position or
@@ -241,7 +226,7 @@ public class ShadowHardware {
      *
      * @param zero zero power behavior to set the motors to, brake or float
      */
-    void driveSetZeroPowerBehavior(DcMotor.ZeroPowerBehavior zero){
+    private void driveSetZeroPowerBehavior(DcMotor.ZeroPowerBehavior zero){
         frontLeft.setZeroPowerBehavior(zero);
         frontRight.setZeroPowerBehavior(zero);
         backLeft.setZeroPowerBehavior(zero);
@@ -313,6 +298,8 @@ public class ShadowHardware {
         rIntake.setPower(0);
         slide.setPower(0);
         swing.setPower(0);
+        yeet1.setPower(0);
+        yeet2.setPower(0);
     }
 
     /**

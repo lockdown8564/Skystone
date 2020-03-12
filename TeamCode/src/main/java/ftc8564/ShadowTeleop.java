@@ -3,25 +3,19 @@ package ftc8564;
 import android.content.Context;
 import android.media.MediaPlayer;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DigitalChannel;
 
 import org.firstinspires.ftc.teamcode.R;
 
-import testing.ShadowMecanumTest;
-import testing.ShadowTestHardware;
-
 /**
- * This program is the main teleop for FTC 8564 as of 1/2/20.
+ * This program is the main teleop for FTC 8564 as of 3/9/20.
  * Driver 1 has foundation grippers and the mecanum drivetrain, while
  * Driver 2 has the arm, linear slides, intake, and the rest of the scoring
  * mechanisms.
  *
  * @author William Trang
- * @version 5.2 1/2/20
+ * @version 5.2 3/9/20
  */
 
 @TeleOp (name = "shadow teleop", group = "ftc8564")
@@ -197,7 +191,7 @@ public class ShadowTeleop extends OpMode {
             robot.swing.setPower(gamepad2.right_stick_y);
         }
 
-        else if(gamepad2.y){
+        /*else if(gamepad2.y){
             while(robot.swing.getCurrentPosition() > -60){
                 robot.swing.setPower(0.6);
             }
@@ -231,7 +225,7 @@ public class ShadowTeleop extends OpMode {
             robot.stopMotors();
             robot.driveSetMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
-        }
+        }*/
 
         else{
             robot.swing.setPower(0);

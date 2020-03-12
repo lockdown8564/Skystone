@@ -58,9 +58,6 @@ public class ShadowRedFoundAuto extends LinearOpMode{
         encoderDrive(0.5,-35,-35);
         robot.gripFoundation();
         sleep(1000);
-        //encoderDrive(0.5,8,8);
-
-        //strafeEncoder(0.6,-1, 10);
 
         turnRightCurvy(85,0.15);
         encoderDrive(0.7,-30,-30);

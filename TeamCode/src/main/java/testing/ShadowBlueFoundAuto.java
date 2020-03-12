@@ -37,7 +37,7 @@ import static org.firstinspires.ftc.robotcore.external.navigation.AxesReference.
 import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer.CameraDirection.BACK;
 
 /**
- * This autonomous program was intended to score the foundation then park.
+ * This autonomous program is intended to score the foundation then park.
  *
  * @author William Trang
  * @version 3.0 2/2/20
